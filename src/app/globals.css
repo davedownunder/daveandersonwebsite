@@ -1,0 +1,34 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Muli:wght@400;600;700;800&display=swap');
+
+:root {
+  --color-purple: #692e5e;
+  --color-purple-dark: #4e1f47;
+  --color-teal: #36b2d1;
+  --color-teal-dark: #2a8fa8;
+  --color-dark: #1a1a2e;
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-purple: #692e5e;
+  --color-purple-dark: #4e1f47;
+  --color-teal: #36b2d1;
+  --color-teal-dark: #2a8fa8;
+  --color-dark: #1a1a2e;
+  --font-sans: 'Muli', sans-serif;
+  --font-heading: 'Oswald', sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Muli', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif;
+}
