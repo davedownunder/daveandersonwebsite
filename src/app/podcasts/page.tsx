@@ -1,65 +1,95 @@
 import type { Metadata } from "next";
+import PageHeader from "@/components/PageHeader";
 import { getPageBySlug } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Podcasts",
-  description: "Tech Seeking Human podcast - hosted by Dave Anderson.",
+  description: "Tech Seeking Human podcast — hosted by Dave Anderson.",
 };
+
+const shows = [
+  {
+    title: "Tech Seeking Human",
+    tag: "Hosted",
+    desc: "Long-form interviews at the intersection of technology and humanity. Guests include Magic Johnson, Marc Randolph, Baratunde Thurston, Hannah Fry, Adam Cheyer, Gene Kim and Libby Trickett.",
+    links: [
+      { label: "Spotify", href: "https://open.spotify.com/show/0yrGPFIScz9aok2qwzsVVt" },
+      { label: "Apple Podcasts", href: "https://podcasts.apple.com/au/podcast/tech-seeking-human/id1571011755" },
+      { label: "YouTube", href: "https://www.youtube.com/channel/UCIMxTvRKb6tJqvlzesZHFuA" },
+      { label: "techseekinghuman.ai", href: "http://techseekinghuman.ai" },
+    ],
+  },
+  {
+    title: "Stuart MacGill: Twisted",
+    tag: "Produced",
+    desc: "An audio biography of the former Australian cricketer Stuart MacGill. 40+ planned episodes, told in his own voice.",
+    links: [
+      { label: "Producer overview", href: "https://vimeo.com/776852716" },
+      { label: "Sponsorship: daveando@gmail.com", href: "mailto:daveando@gmail.com" },
+    ],
+  },
+];
 
 export default function PodcastsPage() {
   const page = getPageBySlug("podcasts");
 
   return (
-    <section className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="font-heading text-4xl font-bold uppercase mb-4">
-          <span className="text-[#692e5e]">Podcasts</span>
-        </h1>
+    <>
+      <PageHeader
+        eyebrow="Podcasts"
+        title={
+          <>
+            Long-form conversations with{" "}
+            <span className="italic text-accent">remarkable people</span>.
+          </>
+        }
+        lede="Host of Tech Seeking Human. Producer of Stuart MacGill: Twisted. Always on the lookout for the next great story."
+      />
 
-        <div className="bg-gradient-to-br from-[#1a1a2e] to-[#2d2d4e] text-white rounded-lg p-8 md:p-12 mb-12">
-          <h2 className="font-heading text-3xl font-bold mb-4">
-            Tech Seeking Human
-          </h2>
-          <p className="text-gray-300 text-lg mb-6 max-w-2xl">
-            Long-form interviews exploring the human side of technology. From
-            AI pioneers to Olympic athletes, discover the stories behind the
-            innovation.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="https://www.youtube.com/@techseekinghuman"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#36b2d1] hover:bg-[#2a8fa8] text-white font-semibold px-6 py-3 rounded-full transition-colors"
-            >
-              YouTube
-            </a>
-            <a
-              href="https://podcasts.apple.com/au/podcast/tech-seeking-human/id1534682009"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-2 border-white hover:border-[#36b2d1] hover:text-[#36b2d1] font-semibold px-6 py-3 rounded-full transition-colors"
-            >
-              Apple Podcasts
-            </a>
-            <a
-              href="https://open.spotify.com/show/0ycSRgl5JOmFCR0MvRqMjW"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-2 border-white hover:border-[#36b2d1] hover:text-[#36b2d1] font-semibold px-6 py-3 rounded-full transition-colors"
-            >
-              Spotify
-            </a>
+      <section className="border-b border-rule">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {shows.map((s) => (
+              <div
+                key={s.title}
+                className="border border-rule bg-paper rounded-lg p-8 md:p-10 flex flex-col"
+              >
+                <p className="eyebrow">{s.tag}</p>
+                <h2 className="font-serif text-3xl font-light mt-3 leading-tight">
+                  {s.title}
+                </h2>
+                <p className="mt-5 text-ink-soft leading-relaxed flex-1">
+                  {s.desc}
+                </p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {s.links.map((l) => (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 border border-rule hover:border-accent hover:text-accent text-ink-soft transition-colors font-medium px-4 py-2 rounded-full text-xs"
+                    >
+                      {l.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+      </section>
 
-        {page && (
-          <div
-            className="prose prose-lg max-w-none prose-headings:font-heading prose-a:text-[#692e5e]"
-            dangerouslySetInnerHTML={{ __html: page.content }}
-          />
-        )}
-      </div>
-    </section>
+      {page && page.content && (
+        <section>
+          <div className="max-w-3xl mx-auto px-6 lg:px-8 py-20">
+            <div
+              className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-accent prose-strong:text-ink"
+              dangerouslySetInnerHTML={{ __html: page.content }}
+            />
+          </div>
+        </section>
+      )}
+    </>
   );
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug, formatDate, getFeaturedImageUrl } from "@/lib/content";
 import type { Metadata } from "next";
@@ -32,24 +33,32 @@ export default async function BlogPost({
   const imageUrl = getFeaturedImageUrl(post);
 
   return (
-    <article className="py-12">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="mb-8">
-          {post.categories.length > 0 && (
-            <span className="text-sm font-semibold text-[#692e5e] uppercase tracking-wide">
-              {post.categories[0]}
-            </span>
-          )}
-          <h1 className="font-heading text-3xl md:text-4xl font-bold mt-2">
-            {post.title}
-          </h1>
-          <time className="text-gray-500 text-sm mt-2 block">
-            {formatDate(post.date)}
-          </time>
-        </header>
+    <article>
+      <div className="border-b border-rule">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 pt-16 pb-12 md:pt-20">
+          <Link
+            href="/blog"
+            className="text-sm text-ink-muted hover:text-accent transition-colors inline-flex items-center gap-2"
+          >
+            <span aria-hidden>←</span> All writing
+          </Link>
+          <header className="mt-8">
+            {post.categories.length > 0 && (
+              <p className="eyebrow">{post.categories[0]}</p>
+            )}
+            <h1 className="font-serif text-4xl md:text-5xl font-light mt-4 leading-[1.1] tracking-tight">
+              {post.title}
+            </h1>
+            <time className="text-sm text-ink-muted mt-6 block">
+              {formatDate(post.date)}
+            </time>
+          </header>
+        </div>
+      </div>
 
+      <div className="max-w-3xl mx-auto px-6 lg:px-8 py-12 md:py-16">
         {imageUrl && (
-          <div className="mb-8 rounded-lg overflow-hidden">
+          <div className="mb-10 rounded-lg overflow-hidden border border-rule">
             <img
               src={imageUrl}
               alt={post.title}
@@ -59,9 +68,26 @@ export default async function BlogPost({
         )}
 
         <div
-          className="prose prose-lg max-w-none prose-a:text-[#692e5e] prose-headings:font-heading"
+          className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-accent prose-strong:text-ink prose-blockquote:border-accent prose-blockquote:text-ink-soft"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
+      </div>
+
+      <div className="border-t border-rule">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8 py-12 flex items-center justify-between">
+          <Link
+            href="/blog"
+            className="text-sm text-ink-muted hover:text-accent transition-colors"
+          >
+            ← All writing
+          </Link>
+          <Link
+            href="/#contact"
+            className="text-sm text-accent hover:underline underline-offset-4"
+          >
+            Say hello →
+          </Link>
+        </div>
       </div>
     </article>
   );

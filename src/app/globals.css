@@ -1,34 +1,76 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Muli:wght@400;600;700;800&display=swap');
+@plugin "@tailwindcss/typography";
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap");
 
 :root {
-  --color-purple: #692e5e;
-  --color-purple-dark: #4e1f47;
-  --color-teal: #36b2d1;
-  --color-teal-dark: #2a8fa8;
-  --color-dark: #1a1a2e;
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-cream: #faf9f5;
+  --color-cream-alt: #f0eee6;
+  --color-paper: #ffffff;
+  --color-ink: #141413;
+  --color-ink-soft: #3d3929;
+  --color-ink-muted: #6b6960;
+  --color-rule: #dcd8c9;
+  --color-rule-soft: #e8e5d8;
+  --color-accent: #cc785c;
+  --color-accent-dark: #b5614a;
+  --color-accent-soft: #f0d9cd;
+
+  --background: var(--color-cream);
+  --foreground: var(--color-ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-purple: #692e5e;
-  --color-purple-dark: #4e1f47;
-  --color-teal: #36b2d1;
-  --color-teal-dark: #2a8fa8;
-  --color-dark: #1a1a2e;
-  --font-sans: 'Muli', sans-serif;
-  --font-heading: 'Oswald', sans-serif;
+  --color-cream: #faf9f5;
+  --color-cream-alt: #f0eee6;
+  --color-paper: #ffffff;
+  --color-ink: #141413;
+  --color-ink-soft: #3d3929;
+  --color-ink-muted: #6b6960;
+  --color-rule: #dcd8c9;
+  --color-rule-soft: #e8e5d8;
+  --color-accent: #cc785c;
+  --color-accent-dark: #b5614a;
+  --color-accent-soft: #f0d9cd;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+}
+
+html {
+  background: var(--background);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Muli', sans-serif;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Oswald', sans-serif;
+  font-family: "Fraunces", ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+}
+
+.eyebrow {
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+}
+
+.rule {
+  height: 1px;
+  background: var(--color-rule);
 }

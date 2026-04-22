@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navLinks = [
-  { href: "/", label: "Home" },
   {
     href: "/events",
     label: "Events",
@@ -19,12 +18,13 @@ const navLinks = [
   { href: "/music", label: "Music" },
   {
     href: "/passions",
-    label: "My Passions",
+    label: "Passions",
     children: [
-      { href: "/passions/travel", label: "Travel Blog" },
-      { href: "/passions/peloton", label: "Peloton Ambassador" },
+      { href: "/passions/travel", label: "Travel" },
+      { href: "/passions/peloton", label: "Peloton" },
     ],
   },
+  { href: "/blog", label: "Writing" },
 ];
 
 export default function Header() {
@@ -32,15 +32,18 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
-    <header className="bg-[#1a1a2e] text-white sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="bg-cream/85 backdrop-blur-md border-b border-rule-soft sticky top-0 z-50">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="font-heading text-xl font-bold tracking-tight uppercase">
-            Dave <span className="text-[#36b2d1]">Anderson</span>
+          <Link
+            href="/"
+            className="font-serif text-xl font-medium tracking-tight text-ink hover:text-accent transition-colors"
+          >
+            Dave Anderson
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) =>
               link.children ? (
                 <div
@@ -51,17 +54,30 @@ export default function Header() {
                 >
                   <Link
                     href={link.href}
-                    className="text-sm font-semibold hover:text-[#36b2d1] transition-colors py-4"
+                    className="text-sm text-ink-soft hover:text-accent transition-colors py-4 inline-flex items-center gap-1"
                   >
-                    {link.label} ▾
+                    {link.label}
+                    <svg
+                      className="w-3 h-3 opacity-60"
+                      fill="none"
+                      viewBox="0 0 12 12"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M3 4.5L6 7.5L9 4.5"
+                      />
+                    </svg>
                   </Link>
                   {openDropdown === link.href && (
-                    <div className="absolute top-full left-0 bg-[#1a1a2e] border border-gray-700 rounded-md shadow-lg py-2 min-w-[180px]">
+                    <div className="absolute top-full left-0 bg-paper border border-rule rounded-md shadow-sm py-1 min-w-[200px]">
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block px-4 py-2 text-sm hover:bg-[#692e5e] hover:text-white transition-colors"
+                          className="block px-4 py-2 text-sm text-ink-soft hover:bg-cream-alt hover:text-accent transition-colors"
                         >
                           {child.label}
                         </Link>
@@ -73,25 +89,46 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-semibold hover:text-[#36b2d1] transition-colors"
+                  className="text-sm text-ink-soft hover:text-accent transition-colors"
                 >
                   {link.label}
                 </Link>
               )
             )}
+            <Link
+              href="/#contact"
+              className="text-sm font-medium bg-ink text-cream hover:bg-accent transition-colors px-4 py-2 rounded-full"
+            >
+              Get in touch
+            </Link>
           </nav>
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden p-2"
+            className="lg:hidden p-2 text-ink"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
               {mobileOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M4 7h16M4 12h16M4 17h16"
+                />
               )}
             </svg>
           </button>
@@ -99,12 +136,12 @@ export default function Header() {
 
         {/* Mobile nav */}
         {mobileOpen && (
-          <nav className="lg:hidden pb-4 space-y-1">
+          <nav className="lg:hidden pb-6 pt-2 space-y-1 border-t border-rule-soft">
             {navLinks.map((link) => (
               <div key={link.href}>
                 <Link
                   href={link.href}
-                  className="block py-2 text-sm font-semibold hover:text-[#36b2d1]"
+                  className="block py-2 text-base text-ink font-medium"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -113,7 +150,7 @@ export default function Header() {
                   <Link
                     key={child.href}
                     href={child.href}
-                    className="block py-1 pl-4 text-sm text-gray-400 hover:text-[#36b2d1]"
+                    className="block py-1 pl-4 text-sm text-ink-muted hover:text-accent"
                     onClick={() => setMobileOpen(false)}
                   >
                     {child.label}
@@ -121,6 +158,13 @@ export default function Header() {
                 ))}
               </div>
             ))}
+            <Link
+              href="/#contact"
+              className="mt-4 inline-flex text-sm font-medium bg-ink text-cream px-4 py-2 rounded-full"
+              onClick={() => setMobileOpen(false)}
+            >
+              Get in touch
+            </Link>
           </nav>
         )}
       </div>

@@ -13,29 +13,29 @@ export default function PostCard({ post, basePath }: PostCardProps) {
   return (
     <Link
       href={`${basePath}/${post.slug}`}
-      className="group block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+      className="group block border border-rule bg-paper rounded-lg overflow-hidden hover:border-accent transition-colors"
     >
       {imageUrl && (
-        <div className="aspect-video bg-gray-100 overflow-hidden">
+        <div className="aspect-[16/10] bg-cream-alt overflow-hidden">
           <img
             src={imageUrl}
             alt={post.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
             loading="lazy"
           />
         </div>
       )}
-      <div className="p-5">
+      <div className="p-6">
         {post.categories.length > 0 && (
-          <span className="text-xs font-semibold text-[#692e5e] uppercase tracking-wide">
-            {post.categories[0]}
-          </span>
+          <span className="eyebrow">{post.categories[0]}</span>
         )}
-        <h3 className="font-heading font-bold text-lg mt-1 group-hover:text-[#692e5e] transition-colors line-clamp-2">
+        <h3 className="font-serif text-xl font-medium mt-2 text-ink leading-snug group-hover:text-accent transition-colors line-clamp-2">
           {post.title}
         </h3>
-        <p className="text-gray-600 text-sm mt-2 line-clamp-3">{excerpt}</p>
-        <time className="text-xs text-gray-400 mt-3 block">
+        <p className="text-ink-muted text-sm mt-3 leading-relaxed line-clamp-3">
+          {excerpt}
+        </p>
+        <time className="text-xs text-ink-muted mt-4 block">
           {formatDate(post.date)}
         </time>
       </div>
