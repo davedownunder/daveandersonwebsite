@@ -1,30 +1,39 @@
 import type { Metadata } from "next";
+import PageHeader from "@/components/PageHeader";
 import { getPageBySlug } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Media",
-  description: "Dave Anderson in the media - appearances, interviews, and features.",
+  description: "Dave Anderson in the media — appearances, interviews, and features.",
 };
 
 export default function MediaPage() {
   const page = getPageBySlug("media");
 
   return (
-    <section className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="font-heading text-4xl font-bold uppercase mb-8">
-          <span className="text-[#692e5e]">Media</span>
-        </h1>
-
-        {page ? (
-          <div
-            className="prose prose-lg max-w-none prose-headings:font-heading prose-a:text-[#692e5e]"
-            dangerouslySetInnerHTML={{ __html: page.content }}
-          />
-        ) : (
-          <p className="text-gray-600">Media appearances and features coming soon.</p>
-        )}
-      </div>
-    </section>
+    <>
+      <PageHeader
+        eyebrow="Media"
+        title={
+          <>
+            <span className="italic text-accent">Appearances</span>, interviews
+            and features.
+          </>
+        }
+        lede="Fox News, BBC, Fast Company, Sky Business, Mashable, IT Pro, Domain — a decade of commentary on tech, retail, AI and the internet."
+      />
+      <section>
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 py-20">
+          {page ? (
+            <div
+              className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-accent prose-strong:text-ink"
+              dangerouslySetInnerHTML={{ __html: page.content }}
+            />
+          ) : (
+            <p className="text-ink-muted">Media appearances coming soon.</p>
+          )}
+        </div>
+      </section>
+    </>
   );
 }

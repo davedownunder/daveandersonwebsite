@@ -1,56 +1,102 @@
 import type { Metadata } from "next";
+import PageHeader from "@/components/PageHeader";
 import { getPageBySlug } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Music",
-  description: "Dave Anderson's music - singer, songwriter, and performer.",
+  description: "Dave Anderson's music — singer, songwriter, and performer.",
 };
+
+const albums = [
+  {
+    title: "These Lies That Divide Us",
+    year: "2023",
+    cover: "https://daveanderson.com.au/wp-content/uploads/2023/07/album-cover-poster.jpg",
+    blurb: "Second full-length. Rock, storytelling, raw emotion.",
+    links: [
+      { label: "Spotify", href: "https://open.spotify.com/album/2nrNpSbpWPsZaDOyfu3EaB" },
+      { label: "Apple Music", href: "https://music.apple.com/us/album/these-lies-that-divide-us/1695041837" },
+    ],
+  },
+  {
+    title: "Wish It All Away",
+    year: "2009",
+    cover:
+      "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/02/ab67616d0000b2731dbc32de9163e99338f2ff61.jpeg",
+    blurb: "Debut album. 4/5 in the Sydney Morning Herald. Featured on ABC drama The Lying Game.",
+    links: [
+      { label: "Spotify", href: "https://open.spotify.com/album/1zX2Q7Dq2zTJ8Ksn5ChJQ6" },
+      { label: "Apple Music", href: "https://music.apple.com/us/album/wish-it-all-away/280155032" },
+    ],
+  },
+];
 
 export default function MusicPage() {
   const page = getPageBySlug("music") || getPageBySlug("music-2");
 
   return (
-    <section className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="font-heading text-4xl font-bold uppercase mb-4">
-          <span className="text-[#692e5e]">Music</span>
-        </h1>
+    <>
+      <PageHeader
+        eyebrow="Music"
+        title={
+          <>
+            Songs about{" "}
+            <span className="italic text-accent">the things that divide</span>{" "}
+            and the things that hold.
+          </>
+        }
+        lede="Two albums. One ongoing project. Available everywhere you stream."
+      />
 
-        <div className="bg-gradient-to-br from-[#692e5e] to-[#4e1f47] text-white rounded-lg p-8 md:p-12 mb-12">
-          <h2 className="font-heading text-3xl font-bold mb-4">
-            These Lies That Divide Us
-          </h2>
-          <p className="text-gray-200 text-lg mb-6 max-w-2xl">
-            Dave&apos;s debut album, blending rock, storytelling, and raw emotion.
-            Available on all major streaming platforms.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="https://open.spotify.com/artist/dave-anderson"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#36b2d1] hover:bg-[#2a8fa8] text-white font-semibold px-6 py-3 rounded-full transition-colors"
-            >
-              Spotify
-            </a>
-            <a
-              href="https://music.apple.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-2 border-white hover:border-[#36b2d1] hover:text-[#36b2d1] font-semibold px-6 py-3 rounded-full transition-colors"
-            >
-              Apple Music
-            </a>
+      <section className="border-b border-rule">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {albums.map((a) => (
+              <div key={a.title} className="flex flex-col">
+                <div className="aspect-square overflow-hidden rounded-lg border border-rule bg-cream-alt">
+                  <img
+                    src={a.cover}
+                    alt={a.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="mt-6">
+                  <p className="eyebrow">Album · {a.year}</p>
+                  <h2 className="font-serif text-3xl font-light mt-2 leading-tight">
+                    {a.title}
+                  </h2>
+                  <p className="mt-3 text-ink-soft leading-relaxed">{a.blurb}</p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {a.links.map((l) => (
+                      <a
+                        key={l.href}
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 border border-rule hover:border-accent hover:text-accent text-ink-soft transition-colors font-medium px-4 py-2 rounded-full text-xs"
+                      >
+                        {l.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+      </section>
 
-        {page && (
-          <div
-            className="prose prose-lg max-w-none prose-headings:font-heading prose-a:text-[#692e5e]"
-            dangerouslySetInnerHTML={{ __html: page.content }}
-          />
-        )}
-      </div>
-    </section>
+      {page && page.content && (
+        <section>
+          <div className="max-w-3xl mx-auto px-6 lg:px-8 py-20">
+            <div
+              className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-accent prose-strong:text-ink"
+              dangerouslySetInnerHTML={{ __html: page.content }}
+            />
+          </div>
+        </section>
+      )}
+    </>
   );
 }

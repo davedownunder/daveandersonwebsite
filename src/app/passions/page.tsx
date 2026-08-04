@@ -1,26 +1,64 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
 
-export const metadata: Metadata = { title: "My Passions" };
+export const metadata: Metadata = { title: "Passions" };
+
+const passions = [
+  {
+    num: "01",
+    title: "Travel",
+    blurb:
+      "Notes from the road. Family trips, speaking engagements, and the slow-travel detours in between.",
+    href: "/passions/travel",
+  },
+  {
+    num: "02",
+    title: "Peloton",
+    blurb:
+      "Official Peloton ambassador. Curated playlists, class reviews, and thoughts on the community.",
+    href: "/passions/peloton",
+  },
+];
 
 export default function PassionsPage() {
   return (
-    <section className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="font-heading text-4xl font-bold uppercase mb-12">
-          My <span className="text-[#692e5e]">Passions</span>
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Link href="/passions/travel" className="bg-gradient-to-br from-[#36b2d1] to-[#2a8fa8] text-white rounded-lg p-12 hover:shadow-lg transition-shadow">
-            <h2 className="font-heading text-3xl font-bold mb-3">Travel Blog</h2>
-            <p className="text-gray-100">Adventures and stories from around the world.</p>
-          </Link>
-          <Link href="/passions/peloton" className="bg-gradient-to-br from-[#692e5e] to-[#4e1f47] text-white rounded-lg p-12 hover:shadow-lg transition-shadow">
-            <h2 className="font-heading text-3xl font-bold mb-3">Peloton Ambassador</h2>
-            <p className="text-gray-200">Fitness, community, and the Peloton journey.</p>
-          </Link>
+    <>
+      <PageHeader
+        eyebrow="Passions"
+        title={
+          <>
+            The{" "}
+            <span className="italic text-accent">side projects</span> that keep
+            the main ones honest.
+          </>
+        }
+        lede="Outside of work and the podcast, there are a couple of pursuits worth writing down."
+      />
+      <section>
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-rule border border-rule rounded-lg overflow-hidden">
+            {passions.map((p) => (
+              <Link
+                key={p.href}
+                href={p.href}
+                className="bg-cream hover:bg-cream-alt transition-colors p-10 group flex flex-col min-h-[220px]"
+              >
+                <p className="font-serif text-sm text-accent">{p.num}</p>
+                <h2 className="font-serif text-3xl font-light mt-4 group-hover:text-accent transition-colors">
+                  {p.title}
+                </h2>
+                <p className="text-ink-muted mt-3 leading-relaxed flex-1">
+                  {p.blurb}
+                </p>
+                <span className="text-accent text-sm mt-6 inline-flex items-center gap-1">
+                  Read more <span aria-hidden>→</span>
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
