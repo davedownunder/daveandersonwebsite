@@ -92,6 +92,19 @@ export function getExcerpt(post: WPPost, maxLength = 160): string {
   return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
 }
 
+/**
+ * WordPress HTML doesn't carry `target="_blank"` on its outbound links.
+ * Server-side rewrite every external <a> to open in a new tab, and add
+ * `rel="noopener noreferrer"` for safety. Skips anchors that already
+ * declare a target so we don't double-annotate.
+ */
+export function openExternalLinksInNewTab(html: string): string {
+  return html.replace(
+    /<a\b(?![^>]*\btarget=)([^>]*?)\bhref="(https?:\/\/[^"]+)"([^>]*?)>/gi,
+    '<a$1 href="$2"$3 target="_blank" rel="noopener noreferrer">'
+  );
+}
+
 export function formatDate(dateStr: string): string {
   const date = new Date(dateStr);
   return date.toLocaleDateString("en-AU", {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
-import { getPageBySlug } from "@/lib/content";
+import { getPageBySlug, openExternalLinksInNewTab } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Music",
@@ -92,7 +92,9 @@ export default function MusicPage() {
           <div className="max-w-3xl mx-auto px-6 lg:px-8 py-20">
             <div
               className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-brass prose-strong:text-ink"
-              dangerouslySetInnerHTML={{ __html: page.content }}
+              dangerouslySetInnerHTML={{
+                __html: openExternalLinksInNewTab(page.content),
+              }}
             />
           </div>
         </section>

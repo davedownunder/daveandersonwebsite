@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllPosts, getPostBySlug, formatDate, getFeaturedImageUrl } from "@/lib/content";
+import {
+  getAllPosts,
+  getPostBySlug,
+  formatDate,
+  getFeaturedImageUrl,
+  openExternalLinksInNewTab,
+} from "@/lib/content";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -69,7 +75,9 @@ export default async function BlogPost({
 
         <div
           className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-brass prose-strong:text-ink prose-blockquote:border-brass prose-blockquote:text-ink-soft"
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{
+            __html: openExternalLinksInNewTab(post.content),
+          }}
         />
       </div>
 

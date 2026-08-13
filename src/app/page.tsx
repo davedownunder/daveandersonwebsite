@@ -27,7 +27,7 @@ const podcastGuests = [
     name: "Baratunde Thurston",
     image:
       "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/02/cropped-cropped-nyt_likeabossbaratunde10.jpeg",
-    href: "https://youtu.be/q6tWVFwA-EQ",
+    href: "https://www.youtube.com/@techseekinghuman/search?query=Baratunde",
   },
   {
     name: "Adam Cheyer",
@@ -40,6 +40,13 @@ const podcastGuests = [
     image:
       "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-Gene-Kim.jpeg",
     href: "https://youtu.be/bCjsaJ3c_3A",
+  },
+  {
+    name: "Max Tegmark",
+    // Placeholder image — replace with a proper headshot URL from Dave.
+    image:
+      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/03/cropped-cropped-Tech-Seeking-Human-Thumbnail.jpg",
+    href: "https://www.youtube.com/@techseekinghuman/search?query=Max+Tegmark",
   },
 ];
 

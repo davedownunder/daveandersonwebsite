@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import ShopTag from "@/components/ShopTag";
-import { getPageBySlug } from "@/lib/content";
+import { getPageBySlug, openExternalLinksInNewTab } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Podcasts",
@@ -31,7 +31,7 @@ const guests = [
     name: "Baratunde Thurston",
     image:
       "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/02/cropped-cropped-nyt_likeabossbaratunde10.jpeg",
-    href: "https://youtu.be/q6tWVFwA-EQ",
+    href: "https://www.youtube.com/@techseekinghuman/search?query=Baratunde",
   },
   {
     name: "Adam Cheyer",
@@ -52,10 +52,11 @@ const guests = [
     href: "https://youtu.be/O_pPucSljYI",
   },
   {
-    name: "Libby Trickett",
+    name: "Max Tegmark",
+    // Placeholder image — replace with a proper headshot URL from Dave.
     image:
       "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/03/cropped-cropped-Tech-Seeking-Human-Thumbnail.jpg",
-    href: "https://youtu.be/q6tWVFwA-EQ",
+    href: "https://www.youtube.com/@techseekinghuman/search?query=Max+Tegmark",
   },
 ];
 
@@ -84,8 +85,8 @@ export default function PodcastsPage() {
             </h2>
             <p className="mt-5 text-ink-soft leading-relaxed max-w-2xl text-lg">
               Guests include Magic Johnson, Marc Randolph, Baratunde Thurston,
-              Hannah Fry, Adam Cheyer, Gene Kim, Tricia Wang and Libby
-              Trickett. New episodes drop wherever you listen.
+              Hannah Fry, Adam Cheyer, Gene Kim, Tricia Wang and Max Tegmark.
+              New episodes drop wherever you listen.
             </p>
             <div className="mt-7 flex flex-wrap gap-2">
               {[
@@ -146,7 +147,9 @@ export default function PodcastsPage() {
           <div className="max-w-3xl mx-auto px-6 lg:px-8 py-20">
             <div
               className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-brass prose-strong:text-ink"
-              dangerouslySetInnerHTML={{ __html: page.content }}
+              dangerouslySetInnerHTML={{
+                __html: openExternalLinksInNewTab(page.content),
+              }}
             />
           </div>
         </section>
