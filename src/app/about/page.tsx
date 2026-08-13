@@ -59,7 +59,7 @@ const sides = [
   {
     tag: "Podcast",
     title: "Tech Seeking Human",
-    body: "Long-form conversations at the intersection of technology and humanity. Currently focused on the economics of the token — how AI usage is priced, measured and optimised as it becomes the unit of work. Guests include Magic Johnson, Marc Randolph, Baratunde Thurston, Hannah Fry, Adam Cheyer, Gene Kim and Libby Trickett.",
+    body: "Long-form conversations at the intersection of technology and humanity. Currently focused on the economics of the token — how AI usage is priced, measured and optimised as it becomes the unit of work. Guests include Magic Johnson, Marc Randolph, Baratunde Thurston, Hannah Fry, Adam Cheyer, Gene Kim, Tricia Wang and Max Tegmark.",
     href: "/podcasts",
     linkLabel: "Listen",
   },
