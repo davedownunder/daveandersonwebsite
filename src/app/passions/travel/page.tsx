@@ -14,7 +14,7 @@ export default function TravelPage() {
         title={
           <>
             Notes from{" "}
-            <span className="italic text-accent">the road</span>.
+            <span className="italic text-brass">the road</span>.
           </>
         }
         lede="Family trips, speaking detours and slow-travel stories."
@@ -28,7 +28,7 @@ export default function TravelPage() {
               ))}
             </div>
           ) : (
-            <p className="text-ink-muted">Travel posts coming soon.</p>
+            <p className="text-ink-soft">Travel posts coming soon.</p>
           )}
         </div>
       </section>

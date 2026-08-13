@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
+import ShopTag from "@/components/ShopTag";
 import { getPageBySlug } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Podcasts",
-  description: "Tech Seeking Human podcast — hosted by Dave Anderson.",
+  description: "Tech Seeking Human, hosted by Dave Anderson, and Stuart MacGill: Twisted.",
 };
 
 const shows = [
@@ -40,7 +41,7 @@ export default function PodcastsPage() {
         title={
           <>
             Long-form conversations with{" "}
-            <span className="italic text-accent">remarkable people</span>.
+            <span className="italic text-brass">remarkable people</span>.
           </>
         }
         lede="Host of Tech Seeking Human. Producer of Stuart MacGill: Twisted. Always on the lookout for the next great story."
@@ -52,10 +53,10 @@ export default function PodcastsPage() {
             {shows.map((s) => (
               <div
                 key={s.title}
-                className="border border-rule bg-paper rounded-lg p-8 md:p-10 flex flex-col"
+                className="border border-rule bg-kraft-soft rounded-md p-8 md:p-10 flex flex-col"
               >
-                <p className="eyebrow">{s.tag}</p>
-                <h2 className="font-serif text-3xl font-light mt-3 leading-tight">
+                <ShopTag>{s.tag}</ShopTag>
+                <h2 className="font-serif text-3xl font-light mt-5 leading-tight">
                   {s.title}
                 </h2>
                 <p className="mt-5 text-ink-soft leading-relaxed flex-1">
@@ -68,7 +69,7 @@ export default function PodcastsPage() {
                       href={l.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 border border-rule hover:border-accent hover:text-accent text-ink-soft transition-colors font-medium px-4 py-2 rounded-full text-xs"
+                      className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-4 py-2 rounded-full text-xs"
                     >
                       {l.label}
                     </a>
@@ -84,7 +85,7 @@ export default function PodcastsPage() {
         <section>
           <div className="max-w-3xl mx-auto px-6 lg:px-8 py-20">
             <div
-              className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-accent prose-strong:text-ink"
+              className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-brass prose-strong:text-ink"
               dangerouslySetInnerHTML={{ __html: page.content }}
             />
           </div>

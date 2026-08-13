@@ -18,7 +18,7 @@ export default function BlogPage() {
         title={
           <>
             Essays, interviews and{" "}
-            <span className="italic text-accent">field notes</span>.
+            <span className="italic text-brass">field notes</span>.
           </>
         }
         lede={`${posts.length} articles on marketing, technology, performance, AI and the odd Melbourne Cup.`}

@@ -38,7 +38,7 @@ export default async function BlogPost({
         <div className="max-w-3xl mx-auto px-6 lg:px-8 pt-16 pb-12 md:pt-20">
           <Link
             href="/blog"
-            className="text-sm text-ink-muted hover:text-accent transition-colors inline-flex items-center gap-2"
+            className="text-sm text-ink-muted hover:text-brass transition-colors inline-flex items-center gap-2"
           >
             <span aria-hidden>←</span> All writing
           </Link>
@@ -49,7 +49,7 @@ export default async function BlogPost({
             <h1 className="font-serif text-4xl md:text-5xl font-light mt-4 leading-[1.1] tracking-tight">
               {post.title}
             </h1>
-            <time className="text-sm text-ink-muted mt-6 block">
+            <time className="text-sm text-ink-muted mt-6 block font-mono tracking-wider uppercase">
               {formatDate(post.date)}
             </time>
           </header>
@@ -58,7 +58,7 @@ export default async function BlogPost({
 
       <div className="max-w-3xl mx-auto px-6 lg:px-8 py-12 md:py-16">
         {imageUrl && (
-          <div className="mb-10 rounded-lg overflow-hidden border border-rule">
+          <div className="mb-10 rounded-md overflow-hidden border border-rule">
             <img
               src={imageUrl}
               alt={post.title}
@@ -68,7 +68,7 @@ export default async function BlogPost({
         )}
 
         <div
-          className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-accent prose-strong:text-ink prose-blockquote:border-accent prose-blockquote:text-ink-soft"
+          className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-brass prose-strong:text-ink prose-blockquote:border-brass prose-blockquote:text-ink-soft"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </div>
@@ -77,13 +77,13 @@ export default async function BlogPost({
         <div className="max-w-3xl mx-auto px-6 lg:px-8 py-12 flex items-center justify-between">
           <Link
             href="/blog"
-            className="text-sm text-ink-muted hover:text-accent transition-colors"
+            className="text-sm text-ink-muted hover:text-brass transition-colors"
           >
             ← All writing
           </Link>
           <Link
-            href="/#contact"
-            className="text-sm text-accent hover:underline underline-offset-4"
+            href="/contact"
+            className="text-sm text-brass hover:underline underline-offset-4"
           >
             Say hello →
           </Link>

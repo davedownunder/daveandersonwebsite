@@ -2,20 +2,21 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import { getPageBySlug } from "@/lib/content";
 
-export const metadata: Metadata = { title: "Peloton Ambassador" };
+export const metadata: Metadata = { title: "Video Storytelling" };
 
-export default function PelotonPage() {
-  const page = getPageBySlug("peloton-ambassador");
+export default function VideoStorytellingPage() {
+  const page = getPageBySlug("video-storytelling");
   return (
     <>
       <PageHeader
-        eyebrow="Passions · Peloton"
+        eyebrow="Speaking · Video"
         title={
           <>
-            <span className="italic text-brass">Peloton</span> ambassador.
+            Brand and customer films that{" "}
+            <span className="italic text-brass">travel</span>.
           </>
         }
-        lede="Curated playlists, class picks and community notes from a long-time rider."
+        lede="From See the Magic (646k views) to the Dynatrace IPO roadshow film &mdash; a portfolio of video work built for scale."
       />
       <section>
         <div className="max-w-3xl mx-auto px-6 lg:px-8 py-20">
@@ -25,7 +26,7 @@ export default function PelotonPage() {
               dangerouslySetInnerHTML={{ __html: page.content }}
             />
           ) : (
-            <p className="text-ink-soft">Peloton content coming soon.</p>
+            <p className="text-ink-soft">Portfolio coming soon.</p>
           )}
         </div>
       </section>
