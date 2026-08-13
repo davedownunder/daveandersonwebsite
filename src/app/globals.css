@@ -131,6 +131,15 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-50%);
 }
 
+/* Standfirst paragraph on natively-authored posts. */
+.prose .lead {
+  font-family: "Fraunces", ui-serif, Georgia, serif;
+  font-size: 1.3em;
+  line-height: 1.5;
+  font-weight: 300;
+  color: var(--color-ink);
+}
+
 /* Kill any leftover pure-white backgrounds coming from injected WP HTML —
    figures, embed wrappers, images with transparent regions, blockquote frames. */
 .prose figure,

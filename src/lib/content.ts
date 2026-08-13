@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { nativePosts } from "@/content/posts";
 
 export interface WPPost {
   title: string;
@@ -56,7 +57,8 @@ function isPublishablePost(post: WPPost): boolean {
 
 export function getAllPosts(category?: string): WPPost[] {
   const { posts } = getContent();
-  const publishable = posts.filter(isPublishablePost);
+  // Native posts authored in this repo sit alongside the WordPress import.
+  const publishable = [...nativePosts, ...posts.filter(isPublishablePost)];
   const filtered = category
     ? publishable.filter((p) =>
         p.categories.some((c) => c.toLowerCase() === category.toLowerCase())
@@ -93,7 +95,7 @@ export function getProfessionalPosts(): WPPost[] {
 
 export function getPostBySlug(slug: string): WPPost | undefined {
   const { posts, pages } = getContent();
-  return [...posts, ...pages].find((p) => p.slug === slug);
+  return [...nativePosts, ...posts, ...pages].find((p) => p.slug === slug);
 }
 
 export function getPageBySlug(slug: string): WPPost | undefined {
