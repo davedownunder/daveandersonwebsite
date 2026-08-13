@@ -18,13 +18,13 @@ export const nativePosts: WPPost[] = [
     featured_image_id: "",
     type: "post",
     excerpt:
-      "A conversation with Mattia Santin about what actually changes when a marketing team goes AI-native — and the seven ideas that came out of it.",
+      "My advice for marketers in the AI era, from a conversation Mattia Santin wrote up — seven things I actually do differently.",
     content: `
 <p class="lead">AI does not automatically create better marketing. It gives good marketers more leverage.</p>
 
-<p>That line came out of a long conversation with <strong>Mattia Santin</strong> &mdash; CMO at Hotjar, SVP Marketing at Contentsquare, and someone I worked alongside during my years there. We were picking at the same question from different sides: everyone says AI changes marketing, but what actually changes on a Tuesday, inside a real team, with real targets?</p>
+<p>That was the thread running through a conversation I had with <strong>Mattia Santin</strong> &mdash; CMO at Hotjar, SVP Marketing at Contentsquare, and someone I worked alongside during my years there. He kept pushing on the same question: everyone says AI changes marketing, but what actually changes on a Tuesday, inside a real team, with real targets? He wrote the conversation up afterwards.</p>
 
-<p>Mattia wrote up his take on our chat afterwards. What follows is mine &mdash; the seven things I genuinely do differently running an AI-native marketing team at PointFive.</p>
+<p>What follows is my side of it &mdash; my advice for marketers, in the words I used with him. Seven things I genuinely do differently running an AI-native marketing team at PointFive.</p>
 
 <p>Each comes with a filter: the question I actually ask myself to know whether we're living up to it, rather than just nodding along to it.</p>
 
@@ -82,7 +82,7 @@ export const nativePosts: WPPost[] = [
 <li>A culture with permission to ship</li>
 </ul>
 
-<p>Which of the seven is your team missing? Tell me &mdash; the pushback is usually more useful than the agreement. That is more or less how the conversation with Mattia went, and it is why it was worth writing down.</p>
+<p>Which of the seven is your team missing? Tell me &mdash; the pushback is usually more useful than the agreement. That is roughly how the conversation with Mattia went, which is why it was worth writing down.</p>
 
 <p>More on marketing, AI and the humans in between on <a href="https://techseekinghuman.ai">Tech Seeking Human</a>.</p>
 `.trim(),
