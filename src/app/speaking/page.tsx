@@ -6,9 +6,11 @@ import TickRule from "@/components/TickRule";
 export const metadata: Metadata = {
   title: "Speaking",
   description:
-    "Keynote speaker represented by Saxton Speakers Bureau. Booked by CBA, NAB, Telstra, Contentsquare, Qualtrics, Forrester, Red Hat Summit, AWS re:Invent, Lloyds and Mobile World Congress.",
+    "Saxton-listed keynote speaker. Booked by CBA, NAB, Telstra, Contentsquare, Qualtrics, Forrester, Red Hat Summit, AWS re:Invent, Lloyds and Mobile World Congress.",
 };
 
+// Grouped client roster — the same names as before, sorted by the kind of
+// event so the sheer breadth is legible at a glance.
 const enterprises = [
   "Commonwealth Bank",
   "NAB",
@@ -29,6 +31,26 @@ const conferences = [
 ];
 
 const analystEvents = ["Forrester Digital Summit", "Gartner"];
+
+// Speaking samples. Both live on Dave's own YouTube channel.
+// NOTE: the old Dynatrace "Reinvention" IPO film (IzgmwbpHxWQ) referenced by
+// the previous WordPress site is now unavailable, so it is deliberately omitted.
+const showreel = {
+  id: "lBMUyDymaIY",
+  note: "Speaker reel",
+  title: "Dave Anderson — Tech Evangelist",
+  body:
+    "A short cut of stage work: the through-line is taking something genuinely technical and making a non-technical room care about it.",
+};
+
+const talks = [
+  {
+    id: "bY6NPHZjoi4",
+    note: "Full session · Sydney",
+    title: "CX Circle",
+    body: "Customer experience in an AI-first world, for Contentsquare.",
+  },
+];
 
 const stories = [
   {
@@ -77,21 +99,19 @@ export default function SpeakingPage() {
                 room with something they can use on Monday.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href="https://www.saxton.com.au/speakers/dave-anderson"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-6 py-3 rounded-full text-sm"
-                >
-                  Book via Saxton
-                  <span aria-hidden>→</span>
-                </a>
                 <Link
                   href="/contact"
+                  className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-6 py-3 rounded-full text-sm"
+                >
+                  Enquire about a keynote
+                  <span aria-hidden>→</span>
+                </Link>
+                <a
+                  href="mailto:daveando@gmail.com"
                   className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
                 >
-                  Or email direct
-                </Link>
+                  daveando@gmail.com
+                </a>
               </div>
             </div>
             <div className="md:col-span-5">
@@ -117,7 +137,7 @@ export default function SpeakingPage() {
               { big: "3 continents", small: "APAC · North America · EMEA" },
               { big: "4,000+", small: "at Dynatrace Perform, Las Vegas" },
               { big: "30,000+", small: "virtual audience, Perform 2020" },
-              { big: "Saxton", small: "represented in Australia & NZ" },
+              { big: "Saxton", small: "listed speaker, Australia & NZ" },
             ].map((s) => (
               <div key={s.big} className="text-left md:text-center">
                 <p className="font-serif text-4xl md:text-5xl font-light text-kraft leading-none">
@@ -132,40 +152,121 @@ export default function SpeakingPage() {
         </div>
       </section>
 
-      {/* Saxton block */}
-      <section className="border-b border-rule bg-kraft-soft">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-14 md:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            <div className="md:col-span-8">
-              <ShopTag>Represented by</ShopTag>
-              <h2 className="font-serif text-3xl md:text-4xl font-light mt-5 leading-tight text-ink">
-                Saxton Speakers Bureau, Australia
-              </h2>
-              <p className="mt-4 text-ink-soft leading-relaxed max-w-2xl">
-                For availability, fee ranges and confirmed bookings, Saxton is
-                the fastest way to lock a date. For everything else &mdash;
-                brief calls, sponsor conversations, podcast guest requests
-                &mdash; email works.
+      {/* Watch */}
+      <section className="border-b border-rule">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
+          <p className="eyebrow mb-3">Watch</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-light max-w-2xl leading-tight">
+            See me on stage before you book me.
+          </h2>
+          <TickRule className="mt-8 mb-10 opacity-50" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2">
+              <div className="aspect-video overflow-hidden rounded-md border border-rule bg-ink">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${showreel.id}`}
+                  title={showreel.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
+              <p className="eyebrow mt-5">{showreel.note}</p>
+              <h3 className="font-serif text-2xl md:text-3xl font-light mt-2 leading-tight text-ink">
+                {showreel.title}
+              </h3>
+              <p className="mt-3 text-ink-soft leading-relaxed max-w-xl">
+                {showreel.body}
               </p>
             </div>
-            <div className="md:col-span-4 md:text-right space-y-3">
+
+            <div className="space-y-8">
+              {talks.map((t) => (
+                <a
+                  key={t.id}
+                  href={`https://youtu.be/${t.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block"
+                >
+                  <div className="aspect-video overflow-hidden rounded-md border border-rule bg-ink relative">
+                    <img
+                      src={`https://img.youtube.com/vi/${t.id}/hqdefault.jpg`}
+                      alt={t.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                    />
+                    <span className="absolute inset-0 flex items-center justify-center">
+                      <span className="w-12 h-12 rounded-full bg-brass text-ink flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden>
+                          <path d="M2 1l11 6-11 6z" />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                  <p className="eyebrow eyebrow-verdigris mt-4">{t.note}</p>
+                  <h3 className="font-serif text-xl font-medium mt-1 leading-tight text-ink group-hover:text-brass transition-colors">
+                    {t.title}
+                  </h3>
+                  <p className="mt-2 text-ink-soft text-sm leading-relaxed">
+                    {t.body}
+                  </p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How to book */}
+      <section className="border-b border-rule bg-kraft-soft">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-14 md:py-16">
+          <p className="eyebrow mb-4">How to book</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-light max-w-2xl leading-tight text-ink">
+            Two routes, depending on where the event is.
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+            <div className="border border-rule bg-kraft rounded-md p-8 flex flex-col">
+              <ShopTag>Worldwide</ShopTag>
+              <h3 className="font-serif text-2xl font-light mt-5 leading-tight text-ink">
+                Email me directly
+              </h3>
+              <p className="mt-4 text-ink-soft leading-relaxed flex-1">
+                For events anywhere outside Australia and New Zealand &mdash;
+                and for brief calls, availability questions or anything
+                exploratory &mdash; email is the fastest route.
+              </p>
+              <a
+                href="mailto:daveando@gmail.com"
+                className="mt-7 inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-5 py-3 rounded-full text-sm self-start"
+              >
+                daveando@gmail.com
+                <span aria-hidden>→</span>
+              </a>
+            </div>
+
+            <div className="border border-rule bg-kraft rounded-md p-8 flex flex-col">
+              <ShopTag>Australia &amp; NZ</ShopTag>
+              <h3 className="font-serif text-2xl font-light mt-5 leading-tight text-ink">
+                Saxton Speakers Bureau
+              </h3>
+              <p className="mt-4 text-ink-soft leading-relaxed flex-1">
+                I&rsquo;m a listed speaker with Saxton. For events in
+                Australia and New Zealand they handle availability, fees,
+                contracts, travel and logistics end to end.
+              </p>
               <a
                 href="https://www.saxton.com.au/speakers/dave-anderson"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-5 py-3 rounded-full text-sm"
+                className="mt-7 inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-5 py-3 rounded-full text-sm self-start"
               >
-                Book via Saxton
+                View my Saxton profile
                 <span aria-hidden>→</span>
               </a>
-              <div>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-5 py-3 rounded-full text-sm"
-                >
-                  Or email direct
-                </Link>
-              </div>
             </div>
           </div>
         </div>
