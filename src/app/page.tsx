@@ -1,5 +1,7 @@
 import Link from "next/link";
 import PostCard from "@/components/PostCard";
+import ShopTag from "@/components/ShopTag";
+import TickRule from "@/components/TickRule";
 import { getAllPosts } from "@/lib/content";
 
 const podcastGuests = [
@@ -41,6 +43,23 @@ const podcastGuests = [
   },
 ];
 
+const speakingClients = [
+  "CBA",
+  "NAB",
+  "Telstra",
+  "Contentsquare",
+  "Qualtrics",
+  "Forrester",
+  "Red Hat Summit",
+  "AWS re:Invent",
+  "Lloyds",
+  "Dynatrace",
+  "Shoptalk",
+  "CX Summit",
+  "Gartner",
+  "Mobile World Congress",
+];
+
 const mediaLogos = [
   "Fast Company",
   "BBC",
@@ -58,122 +77,136 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="border-b border-rule">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-32">
-          <p className="eyebrow mb-6">
-            Speaker · Host · Musician · Marketer
-          </p>
-          <h1 className="font-serif font-light text-5xl md:text-7xl leading-[1.05] tracking-tight text-ink max-w-4xl">
-            Storytelling at the{" "}
-            <span className="italic text-accent">intersection</span> of
-            technology and the human experience.
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-16 pb-20 md:pt-20 md:pb-28">
+          <div className="flex flex-wrap items-center gap-3 mb-8">
+            <ShopTag>CMO · PointFive</ShopTag>
+            <ShopTag>Keynote Speaker</ShopTag>
+            <ShopTag>Podcaster</ShopTag>
+          </div>
+          <h1 className="font-serif font-light text-5xl md:text-7xl leading-[1.02] tracking-tight text-ink max-w-5xl">
+            Explaining hard technology in{" "}
+            <span className="italic text-brass">plain language</span>,
+            on stages and in headphones.
           </h1>
-          <p className="mt-8 text-lg md:text-xl text-ink-muted leading-relaxed max-w-2xl">
-            I&apos;m Dave Anderson — a keynote speaker, MC, podcast host and
-            tech marketing executive based in Melbourne. I help ambitious
-            companies tell their story, and I spend my spare time interviewing
-            remarkable people about how technology is reshaping what it means
-            to be human.
+          <p className="mt-8 text-lg md:text-xl text-ink-soft leading-relaxed max-w-2xl">
+            I&rsquo;m Dave Anderson &mdash; CMO at{" "}
+            <span className="text-ink font-medium">PointFive</span>, a keynote
+            speaker represented by{" "}
+            <a
+              href="https://www.saxton.com.au/speakers/dave-anderson"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brass hover:underline underline-offset-4"
+            >
+              Saxton
+            </a>
+            , and the host of{" "}
+            <Link href="/podcasts" className="text-brass hover:underline underline-offset-4">
+              Tech Seeking Human
+            </Link>
+            . In my other life I make records, and cabinets.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Link
-              href="/events"
-              className="inline-flex items-center gap-2 bg-ink text-cream hover:bg-accent transition-colors font-medium px-6 py-3 rounded-full text-sm"
+            <a
+              href="https://www.saxton.com.au/speakers/dave-anderson"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-6 py-3 rounded-full text-sm"
             >
-              Book Dave to speak
+              Book a keynote via Saxton
               <span aria-hidden>→</span>
-            </Link>
+            </a>
             <Link
               href="/podcasts"
-              className="inline-flex items-center gap-2 border border-rule hover:border-accent hover:text-accent text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
+              className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
             >
               Listen to the podcast
             </Link>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
+            >
+              About Dave
+            </Link>
           </div>
+          <TickRule className="mt-16 opacity-50" />
         </div>
       </section>
 
-      {/* About */}
-      <section className="border-b border-rule">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-20 md:py-28">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
+      {/* Three practices */}
+      <section className="border-b border-rule bg-kraft-soft">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-20 md:py-24">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
             <div className="md:col-span-4">
-              <p className="eyebrow">About</p>
+              <p className="eyebrow">Three practices</p>
               <h2 className="font-serif text-3xl md:text-4xl font-light mt-4 leading-tight">
-                A career built at the edge of marketing and technology.
+                One throughline: stories worth paying attention to.
               </h2>
             </div>
-            <div className="md:col-span-8 space-y-5 text-lg text-ink-soft leading-relaxed">
+            <div className="md:col-span-8 space-y-4 text-lg text-ink-soft leading-relaxed">
               <p>
-                Dave has spent two decades inside some of the most innovative
-                technology companies in the world — most recently leading
-                marketing for Dynatrace across Asia Pacific through an IPO and
-                beyond. He&apos;s equally comfortable on a main stage in front
-                of three thousand people, behind a microphone, or writing songs
-                in his home studio.
+                By day I run marketing at{" "}
+                <span className="text-ink font-medium">PointFive</span> &mdash; a
+                category-defining company at the crossroads of AI and cloud
+                cost. Before that: CMO for Dynatrace APAC through the NYSE
+                IPO, AI evangelist at DataRobot, and two decades helping
+                technical companies find a human voice.
               </p>
               <p>
-                His work has been featured by{" "}
-                <span className="text-ink">Fast Company</span>,{" "}
-                <span className="text-ink">the BBC</span>,{" "}
-                <span className="text-ink">Fox News</span> and{" "}
-                <span className="text-ink">Mashable</span>. He hosts{" "}
-                <em>Tech Seeking Human</em>, a long-form podcast with guests
-                including Magic Johnson, Marc Randolph, Baratunde Thurston and
-                Hannah Fry.
+                On stage that shows up as keynotes for CBA, NAB, Telstra,
+                Forrester, Red Hat Summit and AWS re:Invent &mdash; booked
+                through{" "}
+                <a
+                  href="https://www.saxton.com.au/speakers/dave-anderson"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brass hover:underline underline-offset-4"
+                >
+                  Saxton
+                </a>
+                . In headphones it&rsquo;s{" "}
+                <em>Tech Seeking Human</em>, and the audio biography{" "}
+                <em>Stuart MacGill: Twisted</em>.
               </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* What I do */}
-      <section className="border-b border-rule">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-20 md:py-24">
-          <p className="eyebrow mb-3">What I do</p>
-          <h2 className="font-serif text-3xl md:text-4xl font-light max-w-2xl leading-tight">
-            Four practices. One throughline: stories worth paying attention to.
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-rule mt-12 border border-rule rounded-lg overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-rule mt-14 border border-rule rounded-md overflow-hidden">
             {[
               {
                 num: "01",
-                title: "Keynotes & MC",
-                desc: "Mainstage keynotes and MC work for technology conferences, customer events and industry forums.",
-                href: "/events/keynotes",
+                title: "Speaking",
+                desc: "Keynotes, MC and event content. Represented in Australia by Saxton Speakers Bureau.",
+                href: "/speaking",
               },
               {
                 num: "02",
                 title: "Podcasts",
-                desc: "Host of Tech Seeking Human and producer of Stuart MacGill: Twisted, a cricket biography series.",
+                desc: "Host of Tech Seeking Human. Producer of Stuart MacGill: Twisted.",
                 href: "/podcasts",
               },
               {
                 num: "03",
                 title: "Music",
-                desc: "Singer-songwriter. Two albums released; These Lies That Divide Us is out now on all platforms.",
+                desc: "Two albums. Wish It All Away (2009) and These Lies That Divide Us (2023).",
                 href: "/music",
-              },
-              {
-                num: "04",
-                title: "Video & Storytelling",
-                desc: "Customer stories, product films and event content. Including the 646k-view See the Magic.",
-                href: "/events/video-storytelling",
               },
             ].map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="bg-cream hover:bg-cream-alt transition-colors p-8 group flex flex-col"
+                className="bg-kraft hover:bg-kraft-alt transition-colors p-8 group flex flex-col"
               >
-                <p className="font-serif text-sm text-accent">{item.num}</p>
-                <h3 className="font-serif text-2xl font-medium mt-4 group-hover:text-accent transition-colors">
+                <p className="font-mono text-xs tracking-widest uppercase text-brass-dark">
+                  {item.num}
+                </p>
+                <h3 className="font-serif text-2xl font-medium mt-4 group-hover:text-brass transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-ink-muted text-sm mt-3 leading-relaxed flex-1">
+                <p className="text-ink-soft text-sm mt-3 leading-relaxed flex-1">
                   {item.desc}
                 </p>
-                <span className="text-accent text-sm mt-6 inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-brass text-sm mt-6 inline-flex items-center gap-1">
                   Explore <span aria-hidden>→</span>
                 </span>
               </Link>
@@ -182,8 +215,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Speaking clients strip */}
+      <section className="border-b border-rule">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
+          <div className="flex flex-wrap items-end justify-between gap-6 mb-8">
+            <div>
+              <p className="eyebrow mb-3">Recent stages</p>
+              <h2 className="font-serif text-3xl md:text-4xl font-light max-w-2xl leading-tight">
+                A partial list of who&rsquo;s put me on stage.
+              </h2>
+            </div>
+            <Link
+              href="/speaking"
+              className="text-brass font-medium text-sm hover:underline underline-offset-4"
+            >
+              Full list & stories →
+            </Link>
+          </div>
+          <TickRule className="opacity-50 mb-8" />
+          <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-3 font-serif text-lg text-ink">
+            {speakingClients.map((c) => (
+              <li key={c} className="flex items-start gap-2">
+                <span className="text-brass mt-1.5 text-xs">▪</span>
+                {c}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* Featured conversations */}
-      <section className="border-b border-rule bg-cream-alt">
+      <section className="border-b border-rule bg-kraft-soft">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-20 md:py-24">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
@@ -194,7 +256,7 @@ export default function Home() {
             </div>
             <Link
               href="/podcasts"
-              className="text-accent font-medium text-sm hover:underline underline-offset-4"
+              className="text-brass font-medium text-sm hover:underline underline-offset-4"
             >
               See all episodes →
             </Link>
@@ -209,7 +271,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="group block"
               >
-                <div className="aspect-square overflow-hidden rounded-md border border-rule bg-paper">
+                <div className="aspect-square overflow-hidden rounded-md border border-rule bg-kraft">
                   <img
                     src={guest.image}
                     alt={guest.name}
@@ -217,7 +279,7 @@ export default function Home() {
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                   />
                 </div>
-                <p className="font-serif text-sm mt-3 text-ink group-hover:text-accent transition-colors">
+                <p className="font-serif text-sm mt-3 text-ink group-hover:text-brass transition-colors">
                   {guest.name}
                 </p>
               </a>
@@ -228,10 +290,8 @@ export default function Home() {
 
       {/* Press */}
       <section className="border-b border-rule">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
-          <p className="eyebrow text-center mb-8">
-            Featured in
-          </p>
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
+          <p className="eyebrow text-center mb-8">Featured in</p>
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
             {mediaLogos.map((logo) => (
               <span
@@ -241,6 +301,14 @@ export default function Home() {
                 {logo}
               </span>
             ))}
+          </div>
+          <div className="text-center mt-6">
+            <Link
+              href="/media"
+              className="text-brass text-sm hover:underline underline-offset-4"
+            >
+              Read the coverage →
+            </Link>
           </div>
         </div>
       </section>
@@ -258,7 +326,7 @@ export default function Home() {
               </div>
               <Link
                 href="/blog"
-                className="text-accent font-medium text-sm hover:underline underline-offset-4"
+                className="text-brass font-medium text-sm hover:underline underline-offset-4"
               >
                 View all →
               </Link>
@@ -273,38 +341,45 @@ export default function Home() {
       )}
 
       {/* Contact */}
-      <section id="contact" className="bg-ink text-cream">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-20 md:py-28">
+      <section id="contact" className="bg-ink text-kraft">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-20 md:py-24">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
             <div className="md:col-span-5">
-              <p className="eyebrow" style={{ color: "#e5a68e" }}>
+              <p className="eyebrow" style={{ color: "#c7a35a" }}>
                 Get in touch
               </p>
-              <h2 className="font-serif text-4xl md:text-5xl font-light mt-4 leading-[1.1] text-cream">
-                Have an event, a conversation, or a story to tell?
+              <h2 className="font-serif text-4xl md:text-5xl font-light mt-4 leading-[1.1] text-kraft">
+                Two doors: Saxton for keynotes, email for the rest.
               </h2>
             </div>
-            <div className="md:col-span-7 md:pl-8 space-y-6 text-lg leading-relaxed text-cream/80">
+            <div className="md:col-span-7 md:pl-8 space-y-6 text-lg leading-relaxed text-kraft/80">
               <p>
-                For keynote, MC and event bookings, podcast appearances,
-                sponsorships for <em>Stuart MacGill: Twisted</em>, or a simple
-                hello — email is the best way to reach me.
+                For confirmed dates and fees on a keynote or MC job, Saxton
+                handles bookings. For podcast appearances, sponsors for{" "}
+                <em>Twisted</em>, PointFive-related enquiries or just a hello
+                — email works.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <a
+                  href="https://www.saxton.com.au/speakers/dave-anderson"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-brass text-ink hover:bg-brass-dark hover:text-kraft transition-colors font-medium px-6 py-3 rounded-full text-sm"
+                >
+                  Book via Saxton →
+                </a>
+                <a
                   href="mailto:daveando@gmail.com"
-                  className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-cream transition-colors font-medium px-6 py-3 rounded-full text-sm"
+                  className="inline-flex items-center gap-2 border border-kraft/30 hover:border-brass hover:text-brass transition-colors font-medium px-6 py-3 rounded-full text-sm"
                 >
                   daveando@gmail.com
                 </a>
-                <a
-                  href="https://www.linkedin.com/in/daveanderson"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-cream/30 hover:border-accent hover:text-accent transition-colors font-medium px-6 py-3 rounded-full text-sm"
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 border border-kraft/30 hover:border-brass hover:text-brass transition-colors font-medium px-6 py-3 rounded-full text-sm"
                 >
-                  LinkedIn
-                </a>
+                  Contact page
+                </Link>
               </div>
             </div>
           </div>
