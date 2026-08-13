@@ -43,10 +43,8 @@ const podcastGuests = [
   },
   {
     name: "Max Tegmark",
-    // Placeholder image — replace with a proper headshot URL from Dave.
-    image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/03/cropped-cropped-Tech-Seeking-Human-Thumbnail.jpg",
-    href: "https://www.youtube.com/@techseekinghuman/search?query=Max+Tegmark",
+    image: "https://techseekinghuman.ai/wp-content/uploads/2021/03/maxtegmark.jpg",
+    href: "https://techseekinghuman.ai/podcasts/episode-2-max-tegmark",
   },
 ];
 
