@@ -9,8 +9,6 @@ export const metadata: Metadata = {
     "Keynote speaker represented by Saxton Speakers Bureau. Booked by CBA, NAB, Telstra, Contentsquare, Qualtrics, Forrester, Red Hat Summit, AWS re:Invent, Lloyds and Mobile World Congress.",
 };
 
-// Grouped client roster — the same names as before, sorted by the kind of
-// event so the sheer breadth is legible at a glance.
 const enterprises = [
   "Commonwealth Bank",
   "NAB",
@@ -58,53 +56,40 @@ const stories = [
 export default function SpeakingPage() {
   return (
     <>
-      {/* Hero with photo */}
+      {/* Hero */}
       <section className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-16 pb-16 md:pt-20 md:pb-20">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-start">
-            <div className="md:col-span-7">
-              <p className="eyebrow mb-5">Speaking · Keynotes</p>
-              <h1 className="font-serif text-5xl md:text-6xl font-light leading-[1.05] tracking-tight text-ink">
-                Mainstage keynotes on{" "}
-                <span className="italic text-brass">
-                  technology, marketing and AI
-                </span>
-                .
-              </h1>
-              <p className="mt-8 text-lg text-ink-soft leading-relaxed max-w-2xl">
-                For twenty years I&rsquo;ve been the marketer explaining
-                technology to non-technical audiences &mdash; and the
-                technologist explaining marketing to boards. On stage that
-                shows up as clear, funny, story-first keynotes that leave a
-                room with something they can use on Monday.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href="https://www.saxton.com.au/speakers/dave-anderson"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-6 py-3 rounded-full text-sm"
-                >
-                  Book via Saxton
-                  <span aria-hidden>→</span>
-                </a>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
-                >
-                  Or email direct
-                </Link>
-              </div>
-            </div>
-            <div className="md:col-span-5">
-              <div className="aspect-[4/5] overflow-hidden rounded-md border border-rule bg-kraft-alt rotate-[-1.2deg]">
-                <img
-                  src="https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2022/05/Dave-Header.jpg?w=900"
-                  alt="Dave Anderson"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
+          <p className="eyebrow mb-5">Speaking · Keynotes</p>
+          <h1 className="font-serif text-5xl md:text-6xl font-light leading-[1.05] tracking-tight text-ink max-w-4xl">
+            Mainstage keynotes on{" "}
+            <span className="italic text-brass">
+              technology, marketing and AI
+            </span>
+            .
+          </h1>
+          <p className="mt-8 text-lg text-ink-soft leading-relaxed max-w-2xl">
+            For twenty years I&rsquo;ve been the marketer explaining
+            technology to non-technical audiences &mdash; and the
+            technologist explaining marketing to boards. On stage that shows
+            up as clear, funny, story-first keynotes that leave a room with
+            something they can use on Monday.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="https://www.saxton.com.au/speakers/dave-anderson"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-6 py-3 rounded-full text-sm"
+            >
+              Book via Saxton
+              <span aria-hidden>→</span>
+            </a>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
+            >
+              Or email direct
+            </Link>
           </div>
         </div>
       </section>
@@ -232,51 +217,22 @@ export default function SpeakingPage() {
         </div>
       </section>
 
-      {/* Sub sections */}
+      {/* See it in the media */}
       <section>
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Also available</p>
-          <h2 className="font-serif text-2xl md:text-3xl font-light max-w-3xl leading-tight">
-            The rest of the on-stage practice.
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-rule border border-rule rounded-md overflow-hidden mt-10">
-            <Link
-              href="/speaking/content"
-              className="bg-kraft hover:bg-kraft-soft transition-colors p-8 group flex flex-col"
-            >
-              <p className="font-mono text-xs tracking-widest uppercase text-brass-dark">
-                02
-              </p>
-              <h3 className="font-serif text-2xl font-medium mt-3 group-hover:text-brass transition-colors">
-                Event Content
-              </h3>
-              <p className="text-ink-soft mt-3 leading-relaxed">
-                Customer interviews, event recaps and highlight films — three
-                days of event turned into a year of content.
-              </p>
-              <span className="text-brass text-sm mt-6 inline-flex items-center gap-1">
-                Explore <span aria-hidden>→</span>
-              </span>
-            </Link>
-            <Link
-              href="/speaking/video"
-              className="bg-kraft hover:bg-kraft-soft transition-colors p-8 group flex flex-col"
-            >
-              <p className="font-mono text-xs tracking-widest uppercase text-brass-dark">
-                03
-              </p>
-              <h3 className="font-serif text-2xl font-medium mt-3 group-hover:text-brass transition-colors">
-                Video Storytelling
-              </h3>
-              <p className="text-ink-soft mt-3 leading-relaxed">
-                Brand and customer films built to travel. See the Magic (646k
-                views) and the Dynatrace IPO roadshow film.
-              </p>
-              <span className="text-brass text-sm mt-6 inline-flex items-center gap-1">
-                Explore <span aria-hidden>→</span>
-              </span>
-            </Link>
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div>
+            <p className="eyebrow mb-3">See more</p>
+            <h2 className="font-serif text-3xl md:text-4xl font-light max-w-2xl leading-tight">
+              Broadcast, press and podcast appearances &mdash; the
+              off-stage story.
+            </h2>
           </div>
+          <Link
+            href="/media"
+            className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm shrink-0"
+          >
+            View the Media page →
+          </Link>
         </div>
       </section>
     </>
