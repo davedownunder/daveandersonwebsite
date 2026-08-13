@@ -59,37 +59,52 @@ export default function SpeakingPage() {
       {/* Hero */}
       <section className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-16 pb-16 md:pt-20 md:pb-20">
-          <p className="eyebrow mb-5">Speaking · Keynotes</p>
-          <h1 className="font-serif text-5xl md:text-6xl font-light leading-[1.05] tracking-tight text-ink max-w-4xl">
-            Mainstage keynotes on{" "}
-            <span className="italic text-brass">
-              technology, marketing and AI
-            </span>
-            .
-          </h1>
-          <p className="mt-8 text-lg text-ink-soft leading-relaxed max-w-2xl">
-            For twenty years I&rsquo;ve been the marketer explaining
-            technology to non-technical audiences &mdash; and the
-            technologist explaining marketing to boards. On stage that shows
-            up as clear, funny, story-first keynotes that leave a room with
-            something they can use on Monday.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="https://www.saxton.com.au/speakers/dave-anderson"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-6 py-3 rounded-full text-sm"
-            >
-              Book via Saxton
-              <span aria-hidden>→</span>
-            </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
-            >
-              Or email direct
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-center">
+            <div className="md:col-span-7">
+              <p className="eyebrow mb-5">Speaking · Keynotes</p>
+              <h1 className="font-serif text-5xl md:text-6xl font-light leading-[1.05] tracking-tight text-ink">
+                Mainstage keynotes on{" "}
+                <span className="italic text-brass">
+                  technology, marketing and AI
+                </span>
+                .
+              </h1>
+              <p className="mt-8 text-lg text-ink-soft leading-relaxed max-w-xl">
+                For twenty years I&rsquo;ve been the marketer explaining
+                technology to non-technical audiences &mdash; and the
+                technologist explaining marketing to boards. On stage that
+                shows up as clear, funny, story-first keynotes that leave a
+                room with something they can use on Monday.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="https://www.saxton.com.au/speakers/dave-anderson"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-6 py-3 rounded-full text-sm"
+                >
+                  Book via Saxton
+                  <span aria-hidden>→</span>
+                </a>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
+                >
+                  Or email direct
+                </Link>
+              </div>
+            </div>
+            <div className="md:col-span-5">
+              <div className="aspect-square max-w-sm mx-auto md:max-w-none overflow-hidden rounded-md border border-rule bg-kraft-alt shadow-[0_2px_0_rgba(33,29,24,0.08)] rotate-[-1.2deg]">
+                <img
+                  src="/Dave.jpeg"
+                  alt="Dave Anderson"
+                  width={800}
+                  height={800}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
