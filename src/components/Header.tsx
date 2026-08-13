@@ -4,16 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navLinks = [
-  {
-    href: "/speaking",
-    label: "Speaking",
-    children: [
-      { href: "/speaking", label: "Keynotes" },
-      { href: "/speaking/content", label: "Event Content" },
-      { href: "/speaking/video", label: "Video Storytelling" },
-    ],
-  },
+  { href: "/speaking", label: "Speaking" },
   { href: "/podcasts", label: "Podcasts" },
+  { href: "/media", label: "Media" },
   { href: "/music", label: "Music" },
   { href: "/blog", label: "Writing" },
   { href: "/about", label: "About" },
@@ -22,7 +15,6 @@ const navLinks = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
     <header className="bg-kraft/90 backdrop-blur-md border-b border-rule sticky top-0 z-50">
@@ -30,70 +22,21 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
-            className="font-serif text-xl font-medium tracking-tight text-ink hover:text-brass transition-colors flex items-center gap-2.5"
+            className="font-serif text-xl font-medium tracking-tight text-ink hover:text-brass transition-colors flex items-center gap-2"
           >
-            <img
-              src="https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/02/cropped-cropped-dave.jpg?w=96&resize=96,96"
-              alt="Dave Anderson"
-              width={36}
-              height={36}
-              className="w-9 h-9 rounded-full object-cover border border-rule"
-            />
             Dave Anderson
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) =>
-              link.children ? (
-                <div
-                  key={link.href}
-                  className="relative"
-                  onMouseEnter={() => setOpenDropdown(link.href)}
-                  onMouseLeave={() => setOpenDropdown(null)}
-                >
-                  <Link
-                    href={link.href}
-                    className="text-sm text-ink-soft hover:text-brass transition-colors py-4 inline-flex items-center gap-1"
-                  >
-                    {link.label}
-                    <svg
-                      className="w-3 h-3 opacity-60"
-                      fill="none"
-                      viewBox="0 0 12 12"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M3 4.5L6 7.5L9 4.5"
-                      />
-                    </svg>
-                  </Link>
-                  {openDropdown === link.href && (
-                    <div className="absolute top-full left-0 bg-kraft-soft border border-rule rounded-md shadow-sm py-1 min-w-[200px]">
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block px-4 py-2 text-sm text-ink-soft hover:bg-kraft-alt hover:text-brass transition-colors"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm text-ink-soft hover:text-brass transition-colors"
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-ink-soft hover:text-brass transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
             <a
               href="https://www.saxton.com.au/speakers/dave-anderson"
               target="_blank"
@@ -137,25 +80,14 @@ export default function Header() {
         {mobileOpen && (
           <nav className="lg:hidden pb-6 pt-2 space-y-1 border-t border-rule">
             {navLinks.map((link) => (
-              <div key={link.href}>
-                <Link
-                  href={link.href}
-                  className="block py-2 text-base text-ink font-medium"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.label}
-                </Link>
-                {link.children?.map((child) => (
-                  <Link
-                    key={child.href}
-                    href={child.href}
-                    className="block py-1 pl-4 text-sm text-ink-muted hover:text-brass"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {child.label}
-                  </Link>
-                ))}
-              </div>
+              <Link
+                key={link.href}
+                href={link.href}
+                className="block py-2 text-base text-ink font-medium"
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
             ))}
             <a
               href="https://www.saxton.com.au/speakers/dave-anderson"

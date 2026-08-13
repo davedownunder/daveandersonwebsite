@@ -23,12 +23,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="eyebrow mb-4">Speaking</p>
+            <p className="eyebrow mb-4">Work</p>
             <nav className="space-y-2">
               <Link href="/speaking" className="block text-sm text-ink-soft hover:text-brass transition-colors">Keynotes</Link>
-              <Link href="/speaking/video" className="block text-sm text-ink-soft hover:text-brass transition-colors">Video</Link>
-              <Link href="/speaking/content" className="block text-sm text-ink-soft hover:text-brass transition-colors">Event content</Link>
               <Link href="/media" className="block text-sm text-ink-soft hover:text-brass transition-colors">Media</Link>
+              <Link href="/about" className="block text-sm text-ink-soft hover:text-brass transition-colors">About</Link>
             </nav>
           </div>
 
