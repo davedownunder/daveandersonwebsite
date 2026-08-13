@@ -1,68 +1,136 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import PageHeader from "@/components/PageHeader";
 import ShopTag from "@/components/ShopTag";
 import TickRule from "@/components/TickRule";
 
 export const metadata: Metadata = {
   title: "Speaking",
   description:
-    "Keynote speaker and MC represented by Saxton Speakers. Booked by CBA, NAB, Telstra, Contentsquare, Forrester, Red Hat, AWS re:Invent and Mobile World Congress.",
+    "Keynote speaker represented by Saxton Speakers Bureau. Booked by CBA, NAB, Telstra, Contentsquare, Qualtrics, Forrester, Red Hat Summit, AWS re:Invent, Lloyds and Mobile World Congress.",
 };
 
-const clients = [
+// Grouped client roster — the same names as before, sorted by the kind of
+// event so the sheer breadth is legible at a glance.
+const enterprises = [
   "Commonwealth Bank",
   "NAB",
   "Telstra",
   "Contentsquare",
   "Qualtrics",
-  "Forrester",
-  "Red Hat Summit",
-  "AWS re:Invent",
   "Lloyds Banking Group",
   "Dynatrace",
+];
+
+const conferences = [
+  "AWS re:Invent",
+  "Red Hat Summit",
+  "Mobile World Congress",
   "Shoptalk",
   "CX Summit",
-  "Gartner",
-  "Mobile World Congress",
+  "CX Circle",
 ];
+
+const analystEvents = ["Forrester Digital Summit", "Gartner"];
 
 const stories = [
   {
-    year: "2020",
-    title: "Dynatrace Perform, Las Vegas",
-    body: "Opened the Dynatrace Perform 2020 mainstage with an original rap performance to 4,000+ enterprise customers — the customer stories that followed all landed harder for it.",
+    year: "Las Vegas · 2020",
+    title: "Dynatrace Perform",
+    body: "Grew Perform from a 500-person event into a 4,000+ attendee global conference — then pivoted to virtual during COVID, drawing 30,000+ attendees. Opened the 2020 mainstage with an original rap performance to set up the customer keynotes that followed.",
   },
   {
-    year: "2023",
-    title: "Forrester Digital Summit, London",
+    year: "London · Ongoing",
+    title: "Forrester Digital Summit",
     body: "Keynote on how AI is remaking the marketing-and-technology stack — delivered to CMOs and CIOs across EMEA.",
   },
   {
-    year: "2022",
-    title: "LinkedIn Sales Leaders Conference — “Markesales”",
-    body: "Argued the case for collapsing marketing and sales into one discipline, to a room of the top LinkedIn sales leaders across APAC.",
+    year: "Sydney · 2015",
+    title: "LinkedIn Sales Summit — “Markesales”",
+    body: "The case for collapsing marketing and sales into one discipline, delivered to the top LinkedIn sales leaders across APAC. Awarded Best Presentation of the Summit.",
   },
   {
-    year: "2023",
-    title: "CX Circle, Australia",
-    body: "MC and keynote across two days on customer experience in an AI-first world.",
+    year: "NYSE · 2019",
+    title: "Dynatrace IPO roadshow",
+    body: "Lead writer of the Dynatrace S-1 narrative, investor deck and IPO roadshow story — the on-stage story that took the company public.",
   },
 ];
 
 export default function SpeakingPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Speaking · Keynotes & MC"
-        title={
-          <>
-            Mainstage keynotes and MC work on{" "}
-            <span className="italic text-brass">technology, marketing and AI</span>.
-          </>
-        }
-        lede="For twenty years I&rsquo;ve been the marketer explaining technology to non-technical audiences — and the technologist explaining marketing to boards. On stage that shows up as clear, funny, story-first talks that leave a room with something they can use on Monday."
-      />
+      {/* Hero with photo */}
+      <section className="border-b border-rule">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-16 pb-16 md:pt-20 md:pb-20">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-start">
+            <div className="md:col-span-7">
+              <p className="eyebrow mb-5">Speaking · Keynotes</p>
+              <h1 className="font-serif text-5xl md:text-6xl font-light leading-[1.05] tracking-tight text-ink">
+                Mainstage keynotes on{" "}
+                <span className="italic text-brass">
+                  technology, marketing and AI
+                </span>
+                .
+              </h1>
+              <p className="mt-8 text-lg text-ink-soft leading-relaxed max-w-2xl">
+                For twenty years I&rsquo;ve been the marketer explaining
+                technology to non-technical audiences &mdash; and the
+                technologist explaining marketing to boards. On stage that
+                shows up as clear, funny, story-first keynotes that leave a
+                room with something they can use on Monday.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="https://www.saxton.com.au/speakers/dave-anderson"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-6 py-3 rounded-full text-sm"
+                >
+                  Book via Saxton
+                  <span aria-hidden>→</span>
+                </a>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
+                >
+                  Or email direct
+                </Link>
+              </div>
+            </div>
+            <div className="md:col-span-5">
+              <div className="aspect-[4/5] overflow-hidden rounded-md border border-rule bg-kraft-alt rotate-[-1.2deg]">
+                <img
+                  src="https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2022/05/Dave-Header.jpg?w=900"
+                  alt="Dave Anderson"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats strip — verifiable credentials */}
+      <section className="border-b border-rule bg-ink text-kraft">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-12 md:py-14">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4">
+            {[
+              { big: "3 continents", small: "APAC · North America · EMEA" },
+              { big: "4,000+", small: "at Dynatrace Perform, Las Vegas" },
+              { big: "30,000+", small: "virtual audience, Perform 2020" },
+              { big: "Saxton", small: "represented in Australia & NZ" },
+            ].map((s) => (
+              <div key={s.big} className="text-left md:text-center">
+                <p className="font-serif text-4xl md:text-5xl font-light text-kraft leading-none">
+                  {s.big}
+                </p>
+                <p className="mt-2 text-sm text-kraft/70 font-mono uppercase tracking-widest">
+                  {s.small}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Saxton block */}
       <section className="border-b border-rule bg-kraft-soft">
@@ -75,9 +143,9 @@ export default function SpeakingPage() {
               </h2>
               <p className="mt-4 text-ink-soft leading-relaxed max-w-2xl">
                 For availability, fee ranges and confirmed bookings, Saxton is
-                the fastest way to lock a date. For everything else — brief
-                calls, sponsor conversations, podcast guest requests — email
-                works.
+                the fastest way to lock a date. For everything else &mdash;
+                brief calls, sponsor conversations, podcast guest requests
+                &mdash; email works.
               </p>
             </div>
             <div className="md:col-span-4 md:text-right space-y-3">
@@ -103,23 +171,38 @@ export default function SpeakingPage() {
         </div>
       </section>
 
-      {/* Client roster */}
+      {/* Client roster grouped by kind */}
       <section className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
           <p className="eyebrow mb-4">Selected client list</p>
-          <h2 className="font-serif text-2xl md:text-3xl font-light max-w-3xl leading-tight">
-            Some of the stages, sales kickoffs and conferences Dave has spoken
-            at or MC&rsquo;d.
+          <h2 className="font-serif text-3xl md:text-4xl font-light max-w-3xl leading-tight">
+            Some of the stages where Dave has delivered keynote presentations.
           </h2>
-          <TickRule className="mt-8 mb-8 opacity-50" />
-          <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-3 font-serif text-lg text-ink">
-            {clients.map((c) => (
-              <li key={c} className="flex items-start gap-2">
-                <span className="text-brass mt-1.5 text-xs">▪</span>
-                {c}
-              </li>
+          <TickRule className="mt-10 mb-10 opacity-50" />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+            {[
+              { heading: "Enterprises", items: enterprises },
+              { heading: "Conferences", items: conferences },
+              { heading: "Analyst events", items: analystEvents },
+            ].map((group) => (
+              <div key={group.heading}>
+                <p className="font-mono text-xs tracking-widest uppercase text-verdigris-dark mb-5">
+                  {group.heading}
+                </p>
+                <ul className="space-y-3">
+                  {group.items.map((c) => (
+                    <li
+                      key={c}
+                      className="font-serif text-2xl md:text-[1.65rem] leading-tight text-ink"
+                    >
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
