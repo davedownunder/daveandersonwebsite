@@ -77,57 +77,68 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="border-b border-rule">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-16 pb-20 md:pt-20 md:pb-28">
-          <div className="flex flex-wrap items-center gap-3 mb-8">
-            <ShopTag>CMO · PointFive</ShopTag>
-            <ShopTag>Keynote Speaker</ShopTag>
-            <ShopTag>Podcaster</ShopTag>
-          </div>
-          <h1 className="font-serif font-light text-5xl md:text-7xl leading-[1.02] tracking-tight text-ink max-w-5xl">
-            Explaining hard technology in{" "}
-            <span className="italic text-brass">plain language</span>,
-            on stages and in headphones.
-          </h1>
-          <p className="mt-8 text-lg md:text-xl text-ink-soft leading-relaxed max-w-2xl">
-            I&rsquo;m Dave Anderson &mdash; CMO at{" "}
-            <span className="text-ink font-medium">PointFive</span>, a keynote
-            speaker represented by{" "}
-            <a
-              href="https://www.saxton.com.au/speakers/dave-anderson"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-brass hover:underline underline-offset-4"
-            >
-              Saxton
-            </a>
-            , and the host of{" "}
-            <Link href="/podcasts" className="text-brass hover:underline underline-offset-4">
-              Tech Seeking Human
-            </Link>
-            . In my other life I make records, and cabinets.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <a
-              href="https://www.saxton.com.au/speakers/dave-anderson"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-6 py-3 rounded-full text-sm"
-            >
-              Book a keynote via Saxton
-              <span aria-hidden>→</span>
-            </a>
-            <Link
-              href="/podcasts"
-              className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
-            >
-              Listen to the podcast
-            </Link>
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
-            >
-              About Dave
-            </Link>
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-16 pb-20 md:pt-20 md:pb-24">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-center">
+            <div className="md:col-span-7 order-2 md:order-1">
+              <div className="flex flex-wrap items-center gap-3 mb-8">
+                <ShopTag>CMO · PointFive</ShopTag>
+                <ShopTag>Keynote Speaker</ShopTag>
+                <ShopTag>Podcaster</ShopTag>
+              </div>
+              <h1 className="font-serif font-light text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-ink">
+                Explaining hard technology in{" "}
+                <span className="italic text-brass">plain language</span>,
+                on stages and in headphones.
+              </h1>
+              <p className="mt-7 text-lg text-ink-soft leading-relaxed max-w-xl">
+                I&rsquo;m Dave Anderson &mdash; CMO at{" "}
+                <span className="text-ink font-medium">PointFive</span>, a
+                keynote speaker represented by{" "}
+                <a
+                  href="https://www.saxton.com.au/speakers/dave-anderson"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brass hover:underline underline-offset-4"
+                >
+                  Saxton
+                </a>
+                , and the host of{" "}
+                <Link href="/podcasts" className="text-brass hover:underline underline-offset-4">
+                  Tech Seeking Human
+                </Link>
+                . In my other life I make records, and cabinets.
+              </p>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <a
+                  href="https://www.saxton.com.au/speakers/dave-anderson"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-6 py-3 rounded-full text-sm"
+                >
+                  Book a keynote via Saxton
+                  <span aria-hidden>→</span>
+                </a>
+                <Link
+                  href="/podcasts"
+                  className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
+                >
+                  Listen to the podcast
+                </Link>
+              </div>
+            </div>
+
+            <div className="md:col-span-5 order-1 md:order-2 relative">
+              <div className="aspect-[4/5] max-w-sm mx-auto md:max-w-none overflow-hidden rounded-md border border-rule bg-kraft-alt shadow-[0_2px_0_rgba(33,29,24,0.08)] rotate-[1.2deg]">
+                <img
+                  src="https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/07/Dave1.jpg?w=900"
+                  alt="Dave Anderson"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="hidden md:inline-flex shop-tag absolute -bottom-3 left-4">
+                Boston · MA
+              </span>
+            </div>
           </div>
           <TickRule className="mt-16 opacity-50" />
         </div>
@@ -165,8 +176,9 @@ export default function Home() {
                   Saxton
                 </a>
                 . In headphones it&rsquo;s{" "}
-                <em>Tech Seeking Human</em>, and the audio biography{" "}
-                <em>Stuart MacGill: Twisted</em>.
+                <em>Tech Seeking Human</em> &mdash; long-form conversations
+                with people who are changing what technology means for the
+                rest of us.
               </p>
             </div>
           </div>
@@ -176,13 +188,13 @@ export default function Home() {
               {
                 num: "01",
                 title: "Speaking",
-                desc: "Keynotes, MC and event content. Represented in Australia by Saxton Speakers Bureau.",
+                desc: "Mainstage keynote presentations for enterprise events and conferences. Represented in Australia by Saxton Speakers Bureau.",
                 href: "/speaking",
               },
               {
                 num: "02",
                 title: "Podcasts",
-                desc: "Host of Tech Seeking Human. Producer of Stuart MacGill: Twisted.",
+                desc: "Host of Tech Seeking Human — long-form conversations at the intersection of technology and humanity.",
                 href: "/podcasts",
               },
               {
@@ -354,10 +366,9 @@ export default function Home() {
             </div>
             <div className="md:col-span-7 md:pl-8 space-y-6 text-lg leading-relaxed text-kraft/80">
               <p>
-                For confirmed dates and fees on a keynote or MC job, Saxton
-                handles bookings. For podcast appearances, sponsors for{" "}
-                <em>Twisted</em>, PointFive-related enquiries or just a hello
-                — email works.
+                For confirmed dates and fees on a keynote, Saxton handles
+                bookings. For podcast appearances, PointFive-related
+                enquiries or just a hello — email works.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <a

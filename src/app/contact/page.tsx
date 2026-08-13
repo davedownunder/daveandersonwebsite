@@ -5,12 +5,12 @@ import ShopTag from "@/components/ShopTag";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Book a keynote via Saxton, or email Dave direct for podcasts, sponsorships, and everything else.",
+    "Book a keynote via Saxton, or email Dave direct for podcasts and everything else.",
 };
 
 const routes = [
   {
-    tag: "Keynotes & MC",
+    tag: "Keynotes",
     heading: "Book via Saxton",
     body: "For confirmed dates, fees and availability, Saxton Speakers is the fastest path. They handle contracts, travel and logistics.",
     cta: { label: "Saxton Speakers", href: "https://www.saxton.com.au/speakers/dave-anderson", external: true },
@@ -19,7 +19,7 @@ const routes = [
   {
     tag: "Everything else",
     heading: "Email direct",
-    body: "Podcast appearances, sponsor conversations for Twisted, media enquiries, PointFive-related questions, or just to say hello.",
+    body: "Podcast appearances, media enquiries, PointFive-related questions, or just to say hello.",
     cta: { label: "daveando@gmail.com", href: "mailto:daveando@gmail.com", external: false },
     tone: "verdigris",
   },
@@ -27,6 +27,7 @@ const routes = [
 
 const social = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/daveando" },
+  { label: "Linktree", href: "https://linktr.ee/daveando" },
   { label: "YouTube · Tech Seeking Human", href: "https://www.youtube.com/@techseekinghuman" },
   { label: "Spotify · Tech Seeking Human", href: "https://open.spotify.com/show/0yrGPFIScz9aok2qwzsVVt" },
   { label: "Spotify · Dave Anderson (music)", href: "https://open.spotify.com/album/2nrNpSbpWPsZaDOyfu3EaB" },
