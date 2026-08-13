@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | Dave Anderson",
   },
   description:
-    "CMO at PointFive, keynote speaker represented by Saxton, host of Tech Seeking Human, musician and cabinetmaker based in Melbourne, Australia.",
+    "CMO at PointFive (the AI Efficiency OS), keynote speaker represented by Saxton, host of Tech Seeking Human. Australian, based in Boston.",
 };
 
 export default function RootLayout({

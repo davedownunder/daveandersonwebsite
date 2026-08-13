@@ -16,9 +16,9 @@ export default function Footer() {
               Dave Anderson
             </Link>
             <p className="text-ink-soft text-sm mt-4 leading-relaxed max-w-sm">
-              CMO at PointFive. Keynote speaker represented by Saxton. Host of{" "}
-              <em>Tech Seeking Human</em>. Musician, cabinetmaker and Peloton
-              ambassador based in Melbourne.
+              CMO at PointFive, the AI Efficiency OS. Keynote speaker
+              represented by Saxton. Host of <em>Tech Seeking Human</em>.
+              Musician and Peloton ambassador. Australian, based in Boston.
             </p>
           </div>
 
@@ -58,7 +58,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Dave Anderson
           </p>
           <p className="text-xs text-ink-muted font-mono tracking-wider uppercase">
-            Built in the workshop · Melbourne
+            Boston · Melbourne · Made in the workshop
           </p>
         </div>
       </div>

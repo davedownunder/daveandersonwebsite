@@ -13,7 +13,7 @@ export default function PostCard({ post, basePath }: PostCardProps) {
   return (
     <Link
       href={`${basePath}/${post.slug}`}
-      className="group block border border-rule bg-kraft-soft rounded-md overflow-hidden hover:border-brass hover:bg-paper transition-colors"
+      className="group block border border-rule bg-kraft-soft rounded-md overflow-hidden hover:border-brass hover:bg-kraft-alt transition-colors"
     >
       {imageUrl && (
         <div className="aspect-[16/10] bg-kraft-alt overflow-hidden">

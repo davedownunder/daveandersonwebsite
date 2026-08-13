@@ -8,7 +8,7 @@ const navLinks = [
     href: "/speaking",
     label: "Speaking",
     children: [
-      { href: "/speaking", label: "Keynotes & MC" },
+      { href: "/speaking", label: "Keynotes" },
       { href: "/speaking/content", label: "Event Content" },
       { href: "/speaking/video", label: "Video Storytelling" },
     ],
@@ -30,15 +30,14 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
-            className="font-serif text-xl font-medium tracking-tight text-ink hover:text-brass transition-colors flex items-center gap-2"
+            className="font-serif text-xl font-medium tracking-tight text-ink hover:text-brass transition-colors flex items-center gap-2.5"
           >
-            <span
-              aria-hidden
-              className="inline-block w-6 h-6 border border-ink rounded-sm relative"
-              style={{
-                background:
-                  "linear-gradient(135deg, transparent 0 45%, var(--color-brass) 45% 55%, transparent 55%)",
-              }}
+            <img
+              src="https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/02/cropped-cropped-dave.jpg?w=96&resize=96,96"
+              alt="Dave Anderson"
+              width={36}
+              height={36}
+              className="w-9 h-9 rounded-full object-cover border border-rule"
             />
             Dave Anderson
           </Link>
