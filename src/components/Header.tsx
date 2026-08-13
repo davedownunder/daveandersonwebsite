@@ -44,14 +44,12 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href="https://www.saxton.com.au/speakers/dave-anderson"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="text-sm font-medium bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors px-4 py-2 rounded-full"
             >
-              Book via Saxton →
-            </a>
+              Book a keynote →
+            </Link>
           </nav>
 
           <button
@@ -96,15 +94,13 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href="https://www.saxton.com.au/speakers/dave-anderson"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="mt-4 inline-flex text-sm font-medium bg-ink text-kraft px-4 py-2 rounded-full"
               onClick={() => setMobileOpen(false)}
             >
-              Book via Saxton →
-            </a>
+              Book a keynote →
+            </Link>
           </nav>
         )}
       </div>

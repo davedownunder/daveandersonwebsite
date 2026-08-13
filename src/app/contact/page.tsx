@@ -5,22 +5,22 @@ import ShopTag from "@/components/ShopTag";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Book a keynote via Saxton, or email Dave direct for podcasts and everything else.",
+    "Email Dave direct for keynote enquiries worldwide, podcasts and media. For events in Australia and New Zealand, book via Saxton Speakers Bureau.",
 };
 
 const routes = [
   {
-    tag: "Keynotes",
-    heading: "Book via Saxton",
-    body: "For confirmed dates, fees and availability, Saxton Speakers is the fastest path. They handle contracts, travel and logistics.",
-    cta: { label: "Saxton Speakers", href: "https://www.saxton.com.au/speakers/dave-anderson", external: true },
+    tag: "Worldwide",
+    heading: "Email direct",
+    body: "Keynote enquiries anywhere outside Australia and New Zealand, podcast appearances, media requests, PointFive-related questions, or just to say hello.",
+    cta: { label: "daveando@gmail.com", href: "mailto:daveando@gmail.com", external: false },
     tone: "brass",
   },
   {
-    tag: "Everything else",
-    heading: "Email direct",
-    body: "Podcast appearances, media enquiries, PointFive-related questions, or just to say hello.",
-    cta: { label: "daveando@gmail.com", href: "mailto:daveando@gmail.com", external: false },
+    tag: "Australia & NZ",
+    heading: "Saxton Speakers Bureau",
+    body: "I'm a listed speaker with Saxton. For events in Australia and New Zealand they handle availability, fees, contracts, travel and logistics end to end.",
+    cta: { label: "View my Saxton profile", href: "https://www.saxton.com.au/speakers/dave-anderson", external: true },
     tone: "verdigris",
   },
 ];
@@ -40,12 +40,11 @@ export default function ContactPage() {
         eyebrow="Contact"
         title={
           <>
-            Two doors:{" "}
-            <span className="italic text-brass">Saxton</span> for keynotes,{" "}
-            <span className="italic text-verdigris">email</span> for the rest.
+            <span className="italic text-brass">Email me</span> &mdash; or, for
+            Australian events, go via Saxton.
           </>
         }
-        lede="Please pick the right one &mdash; it saves a step for both of us."
+        lede="Email is the fastest route for keynote enquiries anywhere in the world. For events in Australia and New Zealand, Saxton can handle the booking end to end."
       />
 
       <section className="border-b border-rule">

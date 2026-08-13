@@ -16,8 +16,8 @@ export default function Footer() {
               Dave Anderson
             </Link>
             <p className="text-ink-soft text-sm mt-4 leading-relaxed max-w-sm">
-              CMO at PointFive, the AI Efficiency OS. Keynote speaker
-              represented by Saxton. Host of <em>Tech Seeking Human</em>.
+              CMO at PointFive, the AI Efficiency OS. Saxton-listed keynote
+              speaker. Host of <em>Tech Seeking Human</em>.
               Musician and Peloton ambassador. Australian, based in Boston.
             </p>
           </div>
