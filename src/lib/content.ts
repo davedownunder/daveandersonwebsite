@@ -29,6 +29,17 @@ export interface WPContent {
   stats: { pages: number; posts: number; attachments: number };
 }
 
+// Slugs shipped as Mesmerize / Highend theme demo content — hide from the site.
+const THEME_DEMO_SLUGS = new Set([
+  "talking-about-pinhole-photography",
+  "sound-for-you-noise-to-others",
+  "compassion-at-the-coffee-shop",
+  "the-fashion-design-process",
+  "creative-photo-book-ideas",
+  "80-days-around-the-world",
+  "hello-world",
+]);
+
 let _content: WPContent | null = null;
 
 export function getContent(): WPContent {
@@ -39,13 +50,18 @@ export function getContent(): WPContent {
   return _content!;
 }
 
+function isPublishablePost(post: WPPost): boolean {
+  return !THEME_DEMO_SLUGS.has(post.slug);
+}
+
 export function getAllPosts(category?: string): WPPost[] {
   const { posts } = getContent();
+  const publishable = posts.filter(isPublishablePost);
   const filtered = category
-    ? posts.filter((p) =>
+    ? publishable.filter((p) =>
         p.categories.some((c) => c.toLowerCase() === category.toLowerCase())
       )
-    : posts;
+    : publishable;
   return filtered.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
