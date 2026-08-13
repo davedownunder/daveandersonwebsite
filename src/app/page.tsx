@@ -2,7 +2,7 @@ import Link from "next/link";
 import PostCard from "@/components/PostCard";
 import ShopTag from "@/components/ShopTag";
 import TickRule from "@/components/TickRule";
-import { getAllPosts } from "@/lib/content";
+import { getProfessionalPosts } from "@/lib/content";
 
 const podcastGuests = [
   {
@@ -27,7 +27,7 @@ const podcastGuests = [
     name: "Baratunde Thurston",
     image:
       "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/02/cropped-cropped-nyt_likeabossbaratunde10.jpeg",
-    href: "https://www.youtube.com/@techseekinghuman/search?query=Baratunde",
+    href: "https://youtu.be/q6tWVFwA-EQ",
   },
   {
     name: "Adam Cheyer",
@@ -40,6 +40,12 @@ const podcastGuests = [
     image:
       "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-Gene-Kim.jpeg",
     href: "https://youtu.be/bCjsaJ3c_3A",
+  },
+  {
+    name: "Tricia Wang",
+    image:
+      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-preview_tricia-wang.jpeg",
+    href: "https://youtu.be/O_pPucSljYI",
   },
   {
     name: "Max Tegmark",
@@ -76,7 +82,7 @@ const mediaLogos = [
 ];
 
 export default function Home() {
-  const recentPosts = getAllPosts().slice(0, 3);
+  const recentPosts = getProfessionalPosts().slice(0, 3);
 
   return (
     <>
@@ -97,32 +103,29 @@ export default function Home() {
               </h1>
               <p className="mt-7 text-lg text-ink-soft leading-relaxed max-w-xl">
                 I&rsquo;m Dave Anderson &mdash; CMO at{" "}
-                <span className="text-ink font-medium">PointFive</span>, a
-                keynote speaker represented by{" "}
+                <span className="text-ink font-medium">PointFive</span>, a{" "}
                 <a
                   href="https://www.saxton.com.au/speakers/dave-anderson"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-brass hover:underline underline-offset-4"
                 >
-                  Saxton
-                </a>
-                , and the host of{" "}
+                  Saxton-listed
+                </a>{" "}
+                keynote speaker, and the host of{" "}
                 <Link href="/podcasts" className="text-brass hover:underline underline-offset-4">
                   Tech Seeking Human
                 </Link>
                 . In my other life I make records, and cabinets.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
-                <a
-                  href="https://www.saxton.com.au/speakers/dave-anderson"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-6 py-3 rounded-full text-sm"
                 >
-                  Book a keynote via Saxton
+                  Book a keynote
                   <span aria-hidden>→</span>
-                </a>
+                </Link>
                 <Link
                   href="/podcasts"
                   className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
@@ -166,23 +169,14 @@ export default function Home() {
                 By day I run marketing at{" "}
                 <span className="text-ink font-medium">PointFive</span> &mdash; a
                 category-defining company at the crossroads of AI and cloud
-                cost. Before that: CMO for Dynatrace APAC through the NYSE
-                IPO, AI evangelist at DataRobot, and two decades helping
-                technical companies find a human voice.
+                cost. Before that: platform GTM at Contentsquare, AI
+                evangelist at DataRobot, and CMO at Dynatrace through the
+                NYSE IPO.
               </p>
               <p>
                 On stage that shows up as keynotes for CBA, NAB, Telstra,
-                Forrester, Red Hat Summit and AWS re:Invent &mdash; booked
-                through{" "}
-                <a
-                  href="https://www.saxton.com.au/speakers/dave-anderson"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brass hover:underline underline-offset-4"
-                >
-                  Saxton
-                </a>
-                . In headphones it&rsquo;s{" "}
+                Forrester, Red Hat Summit and AWS re:Invent, across APAC,
+                North America and EMEA. In headphones it&rsquo;s{" "}
                 <em>Tech Seeking Human</em> &mdash; long-form conversations
                 with people who are changing what technology means for the
                 rest of us.
@@ -195,7 +189,7 @@ export default function Home() {
               {
                 num: "01",
                 title: "Speaking",
-                desc: "Mainstage keynote presentations for enterprise events and conferences. Represented in Australia by Saxton Speakers Bureau.",
+                desc: "Mainstage keynote presentations for enterprise events and conferences across APAC, North America and EMEA.",
                 href: "/speaking",
               },
               {
@@ -281,7 +275,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {podcastGuests.map((guest) => (
               <a
                 key={guest.name}
@@ -298,7 +292,7 @@ export default function Home() {
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                   />
                 </div>
-                <p className="font-serif text-sm mt-3 text-ink group-hover:text-brass transition-colors">
+                <p className="font-serif text-base mt-3 text-ink group-hover:text-brass transition-colors">
                   {guest.name}
                 </p>
               </a>
@@ -340,7 +334,7 @@ export default function Home() {
               <div>
                 <p className="eyebrow mb-3">Writing</p>
                 <h2 className="font-serif text-3xl md:text-4xl font-light leading-tight">
-                  Recent essays and posts.
+                  On marketing, technology and AI.
                 </h2>
               </div>
               <Link
@@ -368,27 +362,32 @@ export default function Home() {
                 Get in touch
               </p>
               <h2 className="font-serif text-4xl md:text-5xl font-light mt-4 leading-[1.1] text-kraft">
-                Two doors: Saxton for keynotes, email for the rest.
+                Keynotes, podcasts, or just a hello.
               </h2>
             </div>
             <div className="md:col-span-7 md:pl-8 space-y-6 text-lg leading-relaxed text-kraft/80">
               <p>
-                For confirmed dates and fees on a keynote, Saxton handles
-                bookings. For podcast appearances, PointFive-related
-                enquiries or just a hello — email works.
+                Email is the fastest way to reach me for keynote enquiries
+                anywhere in the world, podcast appearances, or
+                PointFive-related questions.
               </p>
-              <div className="flex flex-wrap gap-3 pt-2">
+              <p className="text-base text-kraft/60">
+                For events in Australia and New Zealand, I&rsquo;m listed
+                with{" "}
                 <a
                   href="https://www.saxton.com.au/speakers/dave-anderson"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-brass text-ink hover:bg-brass-dark hover:text-kraft transition-colors font-medium px-6 py-3 rounded-full text-sm"
+                  className="text-brass-soft hover:underline underline-offset-4"
                 >
-                  Book via Saxton →
+                  Saxton Speakers Bureau
                 </a>
+                , who can handle the booking end to end.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-2">
                 <a
                   href="mailto:daveando@gmail.com"
-                  className="inline-flex items-center gap-2 border border-kraft/30 hover:border-brass hover:text-brass transition-colors font-medium px-6 py-3 rounded-full text-sm"
+                  className="inline-flex items-center gap-2 bg-brass text-ink hover:bg-brass-dark hover:text-kraft transition-colors font-medium px-6 py-3 rounded-full text-sm"
                 >
                   daveando@gmail.com
                 </a>
