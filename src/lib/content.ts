@@ -67,6 +67,30 @@ export function getAllPosts(category?: string): WPPost[] {
   );
 }
 
+// Categories covering Dave's professional output — marketing and tech
+// commentary, media appearances, talks and podcast work. Personal
+// categories (Travel, Lifestyle, Photography, Design) are deliberately
+// excluded: they have their own homes under /passions and /blog.
+const PROFESSIONAL_CATEGORIES = new Set([
+  "blog: marketing",
+  "spokesperson",
+  "presentations",
+  "podcasts",
+  "technology",
+  "news",
+  "social",
+]);
+
+/**
+ * Professional writing only — used on the homepage so the travel diary
+ * doesn't surface alongside business content. /blog still lists everything.
+ */
+export function getProfessionalPosts(): WPPost[] {
+  return getAllPosts().filter((post) =>
+    post.categories.some((c) => PROFESSIONAL_CATEGORIES.has(c.toLowerCase()))
+  );
+}
+
 export function getPostBySlug(slug: string): WPPost | undefined {
   const { posts, pages } = getContent();
   return [...posts, ...pages].find((p) => p.slug === slug);
