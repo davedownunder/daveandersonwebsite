@@ -49,7 +49,7 @@ const guests = [
   },
   {
     name: "Baratunde Thurston",
-    role: "Writer, host",
+    role: "CBS host, writer, legend",
     image:
       "/media/cropped-cropped-nyt_likeabossbaratunde10-0256ea49.jpeg",
     href: "https://www.youtube.com/@techseekinghuman/search?query=Baratunde",
