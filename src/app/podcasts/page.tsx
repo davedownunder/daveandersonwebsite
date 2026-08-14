@@ -28,7 +28,7 @@ const listen = [
 const guests = [
   {
     name: "Magic Johnson",
-    role: "NBA legend, entrepreneur",
+    role: "No intro needed",
     image:
       "/media/cropped-cropped-cropped-cropped-aaa052f0-b98c-452e-b59a--3af68281.jpg",
     videoId: "VTIEc07ycZI",
@@ -42,7 +42,7 @@ const guests = [
   },
   {
     name: "Hannah Fry",
-    role: "Mathematician, broadcaster",
+    role: "BBC, Genius",
     image:
       "/media/cropped-hannah-fry-1b6566fe.jpeg",
     videoId: "hqEtaOHpjIQ",
@@ -63,21 +63,21 @@ const guests = [
   },
   {
     name: "Gene Kim",
-    role: "Author, DevOps researcher",
+    role: "The Phoenix Project",
     image:
       "/media/cropped-Gene-Kim-e11ba47b.jpeg",
     videoId: "bCjsaJ3c_3A",
   },
   {
     name: "Tricia Wang",
-    role: "Tech ethnographer",
+    role: "Data ethnographer",
     image:
       "/media/cropped-preview_tricia-wang-2bef5afa.jpeg",
     videoId: "O_pPucSljYI",
   },
   {
     name: "Max Tegmark",
-    role: "MIT physicist, Future of Life Institute",
+    role: "Future of Life, Life 3.0",
     image: "/media/maxtegmark-1ef7aecf.jpg",
     href: "https://techseekinghuman.ai/podcasts/episode-2-max-tegmark",
   },
