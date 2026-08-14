@@ -2,6 +2,7 @@ import Link from "next/link";
 import PostCard from "@/components/PostCard";
 import ShopTag from "@/components/ShopTag";
 import TickRule from "@/components/TickRule";
+import VideoLightbox from "@/components/VideoLightbox";
 import { getProfessionalPosts } from "@/lib/content";
 
 const podcastGuests = [
@@ -9,43 +10,43 @@ const podcastGuests = [
     name: "Magic Johnson",
     image:
       "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2021/02/cropped-cropped-cropped-cropped-aaa052f0-b98c-452e-b59a-02c4f0566eeb-1-1.jpg",
-    href: "https://youtu.be/VTIEc07ycZI",
+    videoId: "VTIEc07ycZI",
   },
   {
     name: "Marc Randolph",
     image:
       "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2021/02/cropped-cropped-cropped-cropped-cropped-cropped-image-e1634694692472.png",
-    href: "https://youtu.be/0LoGTmr4s3k",
+    videoId: "0LoGTmr4s3k",
   },
   {
     name: "Hannah Fry",
     image:
       "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-hannah-fry.jpeg",
-    href: "https://youtu.be/hqEtaOHpjIQ",
+    videoId: "hqEtaOHpjIQ",
   },
   {
     name: "Baratunde Thurston",
     image:
       "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/02/cropped-cropped-nyt_likeabossbaratunde10.jpeg",
-    href: "https://youtu.be/q6tWVFwA-EQ",
+    href: "https://www.youtube.com/@techseekinghuman/search?query=Baratunde",
   },
   {
     name: "Adam Cheyer",
     image:
       "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2021/10/cropped-cropped-adam_cheyer.jpeg",
-    href: "https://youtu.be/dezsoPQsVCE",
+    videoId: "dezsoPQsVCE",
   },
   {
     name: "Gene Kim",
     image:
       "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-Gene-Kim.jpeg",
-    href: "https://youtu.be/bCjsaJ3c_3A",
+    videoId: "bCjsaJ3c_3A",
   },
   {
     name: "Tricia Wang",
     image:
       "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-preview_tricia-wang.jpeg",
-    href: "https://youtu.be/O_pPucSljYI",
+    videoId: "O_pPucSljYI",
   },
   {
     name: "Max Tegmark",
@@ -154,6 +155,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Showreel — high on the page so a booker sees him on stage early */}
+      <section className="border-b border-rule bg-ink text-kraft">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-5">
+              <p className="eyebrow" style={{ color: "#c7a35a" }}>
+                On stage
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl font-light mt-4 leading-tight text-kraft">
+                Succeeding at digital experience is a team sport.
+              </h2>
+              <p className="mt-5 text-kraft/75 leading-relaxed">
+                A CX Circle keynote on why digital experience only works when
+                the whole organisation owns it. Guitar and Socceroos jersey
+                included.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link
+                  href="/speaking"
+                  className="inline-flex items-center gap-2 bg-brass text-ink hover:bg-brass-dark hover:text-kraft transition-colors font-medium px-6 py-3 rounded-full text-sm"
+                >
+                  More keynotes
+                  <span aria-hidden>→</span>
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 border border-kraft/30 hover:border-brass hover:text-brass transition-colors font-medium px-6 py-3 rounded-full text-sm"
+                >
+                  Book a keynote
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <VideoLightbox
+                videoId="huWsHT-AX5s"
+                title="Succeeding at digital experience is a team sport"
+              >
+                <div className="aspect-video overflow-hidden rounded-md border border-kraft/20 bg-ink relative">
+                  <img
+                    src="https://img.youtube.com/vi/huWsHT-AX5s/maxresdefault.jpg"
+                    alt="Dave Anderson on stage at CX Circle"
+                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  />
+                  <span className="absolute inset-0 flex items-center justify-center">
+                    <span className="w-16 h-16 rounded-full bg-brass text-ink flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                      <svg width="18" height="18" viewBox="0 0 14 14" fill="currentColor" aria-hidden>
+                        <path d="M2 1l11 6-11 6z" />
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+              </VideoLightbox>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Three practices */}
       <section className="border-b border-rule bg-kraft-soft">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-20 md:py-24">
@@ -198,11 +257,11 @@ export default function Home() {
               {
                 num: "02",
                 title: "Podcasts",
-                desc: "Host of Tech Seeking Human — long-form conversations at the intersection of technology and humanity.",
+                desc: "Host of Tech Seeking Human — 41 episodes of long-form conversations at the intersection of technology and humanity.",
                 href: "/podcasts",
                 image:
-                  "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/626x0w.webp",
-                alt: "Tech Seeking Human podcast artwork",
+                  "https://is1-ssl.mzstatic.com/image/thumb/Podcasts122/v4/6d/d7/1f/6dd71fa0-9d72-3ae9-3e91-cbcca168f9b3/mza_15991958063469105468.png/1200x1200bb.jpg",
+                alt: "Tech Seeking Human cover art",
               },
               {
                 num: "03",
@@ -295,27 +354,42 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-            {podcastGuests.map((guest) => (
-              <a
-                key={guest.name}
-                href={guest.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block"
-              >
-                <div className="aspect-square overflow-hidden rounded-md border border-rule bg-kraft">
-                  <img
-                    src={guest.image}
-                    alt={guest.name}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                  />
-                </div>
-                <p className="font-serif text-base mt-3 text-ink group-hover:text-brass transition-colors">
-                  {guest.name}
-                </p>
-              </a>
-            ))}
+            {podcastGuests.map((guest) => {
+              const inner = (
+                <>
+                  <div className="aspect-square overflow-hidden rounded-md border border-rule bg-kraft">
+                    <img
+                      src={guest.image}
+                      alt={guest.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                    />
+                  </div>
+                  <p className="font-serif text-base mt-3 text-ink group-hover:text-brass transition-colors">
+                    {guest.name}
+                  </p>
+                </>
+              );
+              return guest.videoId ? (
+                <VideoLightbox
+                  key={guest.name}
+                  videoId={guest.videoId}
+                  title={`${guest.name} on Tech Seeking Human`}
+                >
+                  {inner}
+                </VideoLightbox>
+              ) : (
+                <a
+                  key={guest.name}
+                  href={guest.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block"
+                >
+                  {inner}
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>

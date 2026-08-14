@@ -55,7 +55,13 @@ const arc = [
   },
 ];
 
-const sides = [
+const sides: Array<{
+  tag: string;
+  title: string;
+  body: string;
+  href?: string;
+  linkLabel?: string;
+}> = [
   {
     tag: "Podcast",
     title: "Tech Seeking Human",
@@ -74,8 +80,6 @@ const sides = [
     tag: "Home stack",
     title: "Home Assistant & UniFi",
     body: "The passion project — a self-hosted home automation and networking stack, tuned in the evenings. Same slow, satisfying loop of design, build, test, revise that shows up in every other part of the work.",
-    href: "/passions",
-    linkLabel: "See more",
   },
   {
     tag: "Peloton",
@@ -98,7 +102,7 @@ export default function AboutPage() {
             <span className="italic text-brass">demo and understand deeply</span>.
           </>
         }
-        lede="I&rsquo;m Dave Anderson. Chief Marketing Officer at PointFive, the AI Efficiency OS. Represented for speaking by Saxton. Host of Tech Seeking Human. Australian, based in Boston."
+        lede="I&rsquo;m Dave Anderson. Chief Marketing Officer at PointFive, the AI Efficiency OS. Saxton-listed keynote speaker. Host of Tech Seeking Human. Australian, based in Boston."
       />
 
       {/* Bio */}
@@ -207,12 +211,14 @@ export default function AboutPage() {
                 <p className="mt-4 text-ink-soft leading-relaxed flex-1">
                   {s.body}
                 </p>
-                <Link
-                  href={s.href}
-                  className="mt-6 text-brass text-sm hover:underline underline-offset-4 inline-flex items-center gap-1"
-                >
-                  {s.linkLabel} <span aria-hidden>→</span>
-                </Link>
+                {s.href && (
+                  <Link
+                    href={s.href}
+                    className="mt-6 text-brass text-sm hover:underline underline-offset-4 inline-flex items-center gap-1"
+                  >
+                    {s.linkLabel} <span aria-hidden>→</span>
+                  </Link>
+                )}
               </div>
             ))}
           </div>
