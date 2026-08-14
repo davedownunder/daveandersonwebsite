@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ShopTag from "@/components/ShopTag";
 import TickRule from "@/components/TickRule";
+import VideoLightbox from "@/components/VideoLightbox";
 
 export const metadata: Metadata = {
   title: "Speaking",
@@ -142,29 +143,6 @@ export default function SpeakingPage() {
         </div>
       </section>
 
-      {/* Stats strip — verifiable credentials */}
-      <section className="border-b border-rule bg-ink text-kraft">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-12 md:py-14">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4">
-            {[
-              { big: "3 continents", small: "APAC · North America · EMEA" },
-              { big: "4,000+", small: "at Dynatrace Perform, Las Vegas" },
-              { big: "30,000+", small: "virtual audience, Perform 2020" },
-              { big: "Saxton", small: "listed speaker, Australia & NZ" },
-            ].map((s) => (
-              <div key={s.big} className="text-left md:text-center">
-                <p className="font-serif text-4xl md:text-5xl font-light text-kraft leading-none">
-                  {s.big}
-                </p>
-                <p className="mt-2 text-sm text-kraft/70 font-mono uppercase tracking-widest">
-                  {s.small}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Watch */}
       <section className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
@@ -202,13 +180,7 @@ export default function SpeakingPage() {
           {/* Collage */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
             {talks.map((t) => (
-              <a
-                key={t.id}
-                href={`https://youtu.be/${t.id}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block"
-              >
+              <VideoLightbox key={t.id} videoId={t.id} title={t.title}>
                 <div className="aspect-video overflow-hidden rounded-md border border-rule bg-ink relative">
                   <img
                     src={`https://img.youtube.com/vi/${t.id}/maxresdefault.jpg`}
@@ -231,7 +203,30 @@ export default function SpeakingPage() {
                 <p className="mt-1 text-ink-soft text-sm leading-relaxed">
                   {t.body}
                 </p>
-              </a>
+              </VideoLightbox>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats strip — verifiable credentials */}
+      <section className="border-b border-rule bg-ink text-kraft">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-12 md:py-14">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4">
+            {[
+              { big: "3 continents", small: "APAC · North America · EMEA" },
+              { big: "4,000+", small: "at Dynatrace Perform, Las Vegas" },
+              { big: "30,000+", small: "virtual audience, Perform 2020" },
+              { big: "Saxton", small: "listed speaker, Australia & NZ" },
+            ].map((s) => (
+              <div key={s.big} className="text-left md:text-center">
+                <p className="font-serif text-4xl md:text-5xl font-light text-kraft leading-none">
+                  {s.big}
+                </p>
+                <p className="mt-2 text-sm text-kraft/70 font-mono uppercase tracking-widest">
+                  {s.small}
+                </p>
+              </div>
             ))}
           </div>
         </div>
