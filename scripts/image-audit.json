@@ -1,766 +1,317 @@
 {
-  "generated": "2026-08-14T18:23:19.140Z",
+  "generated": "2026-08-14T18:44:32.086Z",
   "totals": {
-    "referenced": 140,
-    "atRisk": 100,
-    "live": 53,
-    "dead": 47
+    "referenced": 107,
+    "atRisk": 47,
+    "live": 17,
+    "dead": 30
   },
   "live": [
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/07/album-cover-poster.jpg",
-      "where": [
-        "src:src/app/music/page.tsx",
-        "src:src/app/page.tsx"
-      ],
-      "length": 133318,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/02/ab67616d0000b2731dbc32de9163e99338f2ff61.jpeg",
-      "where": [
-        "src:src/app/music/page.tsx",
-        "page:music"
-      ],
-      "length": 128329,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2021/02/cropped-cropped-cropped-cropped-aaa052f0-b98c-452e-b59a-02c4f0566eeb-1-1.jpg",
-      "where": [
-        "src:src/app/page.tsx",
-        "src:src/app/podcasts/page.tsx"
-      ],
-      "length": 42883,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2021/02/cropped-cropped-cropped-cropped-cropped-cropped-image-e1634694692472.png",
-      "where": [
-        "src:src/app/page.tsx",
-        "src:src/app/podcasts/page.tsx"
-      ],
-      "length": 178250,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-hannah-fry.jpeg",
-      "where": [
-        "src:src/app/page.tsx",
-        "src:src/app/podcasts/page.tsx"
-      ],
-      "length": 41412,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/02/cropped-cropped-nyt_likeabossbaratunde10.jpeg",
-      "where": [
-        "src:src/app/page.tsx",
-        "src:src/app/podcasts/page.tsx"
-      ],
-      "length": 143664,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2021/10/cropped-cropped-adam_cheyer.jpeg",
-      "where": [
-        "src:src/app/page.tsx",
-        "src:src/app/podcasts/page.tsx"
-      ],
-      "length": 59933,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-Gene-Kim.jpeg",
-      "where": [
-        "src:src/app/page.tsx",
-        "src:src/app/podcasts/page.tsx"
-      ],
-      "length": 29653,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-preview_tricia-wang.jpeg",
-      "where": [
-        "src:src/app/page.tsx",
-        "src:src/app/podcasts/page.tsx"
-      ],
-      "length": 19383,
-      "via": "origin"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2023/04/mq3.webp",
-      "where": [
-        "featured:customer-video-shoot-rm-williams-sydney"
-      ],
-      "length": 14301,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2021/02/cropped-cropped-aaa052f0-b98c-452e-b59a-02c4f0566eeb-1.jpg",
-      "where": [
-        "featured:perform-2021-magic-johnson-interview"
-      ],
-      "length": 71131,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2021/01/Picture1-2.png",
-      "where": [
-        "featured:disrupt-tv-with-ray-wang-and-vala-afshar"
-      ],
-      "length": 82883,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2020/07/built-in-boston-logo.png",
-      "where": [
-        "featured:how-do-break-down-data-silos-that-are-hurting-your-marketing-efforts-builtin"
-      ],
-      "length": 13365,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2020/10/Picture1.jpg",
-      "where": [
-        "featured:the-software-intelligence-podcast"
-      ],
-      "length": 37101,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2020/07/dave-2020.png",
-      "where": [
-        "featured:digital-experiences-matter-perform-2020-keynote"
-      ],
-      "length": 121430,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2020/02/EQG7v6QVAAEtHPw.jpeg",
-      "where": [
-        "featured:every-click-day-2-perform-2020"
-      ],
-      "length": 193523,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2020/02/Picture1-1.png",
-      "where": [
-        "featured:full-stack-baby-opening-perform-2020"
-      ],
-      "length": 444185,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2019/09/070Dynatrace.png",
-      "where": [
-        "featured:aiops-the-future-is-now"
-      ],
-      "length": 1029865,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2019/09/20190826_075427.jpg",
-      "where": [
-        "featured:orange-is-better-than-black-how-orangetheory-shifted-my-mental-being"
-      ],
-      "length": 379152,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2019/04/bf6-4901-1200-004b3830a2.jpg",
-      "where": [
-        "featured:digital-experience-matters"
-      ],
-      "length": 203905,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2018/11/dave.jpg",
-      "where": [
-        "featured:forrester-digital-transformation-summit-london-2018"
-      ],
-      "length": 41820,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2018/08/dave.jpg",
-      "where": [
-        "featured:perform-europe-2018-the-world-needs-software-to-work-perfectly"
-      ],
-      "length": 121357,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2016/12/untitled-2-1.png",
-      "where": [
-        "featured:ddos-attack-why-we-gave-up-friday-night-and-saturday-with-our-families"
-      ],
-      "length": 46021,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2016/12/aaeaaqaaaaaaaaldaaaajdgzyju0nzu0lwe4mjatndcwzc1intu0lty0njgzzjm5odzmoa-1-1.png",
-      "where": [
-        "featured:the-new-world-order-china-1-ecommerce-market"
-      ],
-      "length": 47324,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2016/10/1431564322829.jpg",
-      "where": [
-        "featured:smh-major-australian-websites-disrupted-in-international-cyber-attack"
-      ],
-      "length": 7254,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2020/10/wapt_image_889.jpg",
-      "where": [
-        "featured:sky-business-news-australian-online-retailers-slower-than-world-standards"
-      ],
-      "length": 28688,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2020/08/wapt_image_177.jpg",
-      "where": [
-        "featured:ho-slow-can-go-au-vs-us-retail-response-times-quick-video"
-      ],
-      "length": 28048,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2015/11/BT-logo-2.jpg",
-      "where": [
-        "featured:bandt-confused-retails-heading-need-follow-millennials"
-      ],
-      "length": 13252,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2018/11/linkedin.png",
-      "where": [
-        "featured:linked-sales-summit-letting-marketer-loose-linked-sales-event-war-star-wars"
-      ],
-      "length": 104287,
-      "via": "cdn"
-    },
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2025/08/Screenshot-2025-08-18-at-12.01.02-pm.png",
-      "where": [
-        "page:media"
-      ],
-      "length": 71180,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2025/08/Screenshot-2025-08-18-at-12.01.13-pm.png",
-      "where": [
-        "page:media"
-      ],
-      "length": 31760,
-      "via": "origin"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2025/12/Untitled-design.jpg",
-      "where": [
-        "page:media"
-      ],
-      "length": 51143,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2025/05/cropped-Fox_News_Logo_Design_History_Evolution_0_1024x1024.webp",
-      "where": [
-        "page:media"
-      ],
-      "length": 41766,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2018/11/cropped-cropped-cropped-cropped-0-3.jpeg",
-      "where": [
-        "page:media"
-      ],
-      "length": 26153,
-      "via": "cdn"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2025/12/Screenshot-2025-12-02-at-4.44.31-pm.png",
-      "where": [
-        "page:media"
-      ],
-      "length": 1120,
-      "via": "cdn"
-    },
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2024/08/cropped-images-1.png",
-      "where": [
-        "page:media"
-      ],
-      "length": 2281,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2020/10/cropped-cropped-cropped-images.png",
-      "where": [
-        "page:media"
-      ],
-      "length": 5917,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2017/05/cropped-cropped-bbc_logo-1.jpg",
-      "where": [
-        "page:media"
-      ],
-      "length": 9304,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-itproportal.png",
-      "where": [
-        "page:media"
-      ],
-      "length": 3249,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-fox-news.png",
-      "where": [
-        "page:media"
-      ],
-      "length": 6803,
-      "via": "origin"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2023/07/album-cover-poster.jpg",
-      "where": [
-        "page:music"
-      ],
-      "length": 133318,
-      "via": "cdn"
-    },
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/07/cropped-ab67616100005174eb644c477f81ebc844a09116.jpeg",
-      "where": [
-        "page:music"
-      ],
-      "length": 18344,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/07/cropped-dave.jpg",
-      "where": [
-        "page:music"
-      ],
-      "length": 29038,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/07/Cam.jpg",
-      "where": [
-        "page:music"
-      ],
-      "length": 76348,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/07/Dave1.jpg",
-      "where": [
-        "page:music"
-      ],
-      "length": 46944,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/02/3000x3000-628109-DC8028CC-3F47-4EC5-AB828BE591E4E9ED-1586701870276-Untitled1-scaled.jpg",
-      "where": [
-        "page:music"
-      ],
-      "length": 367686,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/02/cropped-cropped-dave.jpg",
-      "where": [
-        "page:peloton-ambassador"
-      ],
-      "length": 115855,
-      "via": "origin"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2023/03/dave3.jpg",
-      "where": [
-        "page:peloton-ambassador"
-      ],
-      "length": 81455,
-      "via": "cdn"
-    },
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/02/cropped-pelo3.png",
-      "where": [
-        "page:peloton-ambassador"
-      ],
-      "length": 315814,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/02/cropped-dave2-e1677122740379.jpg",
-      "where": [
-        "page:peloton-ambassador"
-      ],
-      "length": 74138,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/02/cropped-dave-e1677117738779-1.jpg",
-      "where": [
-        "page:peloton-ambassador"
-      ],
-      "length": 98736,
-      "via": "origin"
-    },
-    {
-      "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/02/cropped-Peloton-One-Year-Anniversary-Campaign-Day-1-22nd-July0320_GRIFFIN-SIMM_Proofs.jpg",
-      "where": [
-        "page:peloton-ambassador"
-      ],
-      "length": 47932,
-      "via": "origin"
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2023/02/mq2.webp",
-      "where": [
-        "page:peloton-ambassador"
-      ],
-      "length": 16397,
-      "via": "cdn"
-    }
-  ],
-  "dead": [
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2024/02/Screenshot-2024-02-07-at-11.13.43 am-e1707268269865.png",
       "where": [
         "featured:new-episode-new-realisations-its-about-people"
       ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 882704,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2021/02/image-e1614210359921.png",
       "where": [
         "featured:dynatrace-go-marc-randolph"
       ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 1570087,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2021/01/Picture1.png",
       "where": [
         "featured:podcast-with-anders-solman-nielson"
       ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 656281,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2020/08/854081161001_6090653334001_6090640228001-vs.jpg",
       "where": [
         "featured:fox-news-how-ai-can-speed-up-clinical-trials"
       ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 48268,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2018/02/portfolio-5.jpg",
       "where": [
         "featured:hello-world-2"
       ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 51168,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2018/02/color-pic-1.jpg",
       "where": [
         "featured:theres-a-voice-that-keeps-on-calling-me"
       ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 5078,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2017/05/bbc_logo.jpg",
       "where": [
         "featured:bbc-whatsapp-offline-for-several-hours"
       ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 11553,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2016/12/dave-1.jpg",
       "where": [
         "featured:dynatrace-ai-problem-resolution-and-davis"
       ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2016/12/AAEAAQAAAAAAAAldAAAAJDgzYjU0NzU0LWE4MjAtNDcwZC1iNTU0LTY0NjgzZjM5ODZmOA-2-1-1-1.png",
-      "where": [
-        "post:the-new-world-order-china-1-ecommerce-market"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2016/12/AAEAAQAAAAAAAAfXAAAAJDc3MTc5Mzk2LTM3MWItNDVjOC04MTEzLWI5YWJiOTBjZDQxOA-1-1.png",
-      "where": [
-        "post:the-new-world-order-china-1-ecommerce-market"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2016/12/AAEAAQAAAAAAAAfzAAAAJDI1N2FhNDYxLWRjOGUtNDFkMy1iNDNjLWM5NmRjYmEwNmZlZg-1-1.png",
-      "where": [
-        "post:the-new-world-order-china-1-ecommerce-market"
-      ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 20237,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2016/10/mashable-logo.png",
       "where": [
         "featured:mashable-after-fridays-massive-dyn-attack-what-should-australians-do"
       ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 7148,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2016/08/bbc_logo.jpg",
       "where": [
         "featured:bbc-how-long-will-you-wait-for-a-shopping-website-to-load"
       ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 11553,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2016/05/Capture.gif",
       "where": [
         "featured:digital-enterprise-summit-keynote"
       ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2016/03/chinavsUS-e1459285218205.png",
-      "where": [
-        "post:chinas-ecommerce-numbers-will-blow-your-mind"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2016/03/singledsay.png",
-      "where": [
-        "post:chinas-ecommerce-numbers-will-blow-your-mind"
-      ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 258487,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2020/08/wapt_image_203.jpg",
       "where": [
         "featured:website-performance-content-for-marketers"
       ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2015/12/DSC_0457_result.jpg",
-      "where": [
-        "post:geeks-new-years-resolution-flip"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2015/12/google_wide.png",
-      "where": [
-        "post:geeks-new-years-resolution-flip"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2015/12/googletall.png",
-      "where": [
-        "post:geeks-new-years-resolution-flip"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2015/11/Screen-Shot-2015-11-23-at-3.25.27-PM-1260x840.png",
-      "where": [
-        "post:bandt-confused-retails-heading-need-follow-millennials"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2015/11/Performance-Dashboards-Dynatrace-Portal-2015-11-19-17-00-48.jpg",
-      "where": [
-        "post:fast-slow-click-frenzy-dynatrace"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2015/11/DYNATRACE-syntheticmonitoring.jpg",
-      "where": [
-        "post:fast-slow-click-frenzy-dynatrace"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2015/11/reponsetimeaverage.jpg",
-      "where": [
-        "post:fast-slow-click-frenzy-dynatrace"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2015/11/melbcup.jpg",
-      "where": [
-        "post:melb-cup-3-secs-make-tip-performance-data-bet"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2015/06/lean-1-1-1.jpg",
-      "where": [
-        "post:agile-marketing-practice-may-just-save-us-burnout"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2015/06/leadn2-1-1-1.jpg",
-      "where": [
-        "post:agile-marketing-practice-may-just-save-us-burnout"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2015/06/trello-4-1-1-1.jpg",
-      "where": [
-        "post:agile-marketing-practice-may-just-save-us-burnout"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2015/01/Conversion20-1-1-1.png",
-      "where": [
-        "post:5-reasons-marketers-must-focus-load-times-2015"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2015/01/19a9981-1.jpg",
-      "where": [
-        "post:5-reasons-marketers-must-focus-load-times-2015"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2015/11/momentum-of-mobile-infographic4-1-1-1.jpg",
-      "where": [
-        "post:e27-application-performance-monitoring-important"
-      ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 38582,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2014/10/maxresdefault.jpg",
       "where": [
         "featured:vs-now-now-now"
       ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2014/09/Screenshot-17-1-1-1.jpg",
-      "where": [
-        "post:sorry-brand-police-creative-imagery-warranted-b2b-marketing"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2014/09/Screenshot-171-1-1-1.jpg",
-      "where": [
-        "post:sorry-brand-police-creative-imagery-warranted-b2b-marketing"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2014/09/6a0120a59ccea7970b017ee716c54c970d-1-1-1.jpg",
-      "where": [
-        "post:sorry-brand-police-creative-imagery-warranted-b2b-marketing"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2014/09/corporate-image-1-1-1.jpg",
-      "where": [
-        "post:sorry-brand-police-creative-imagery-warranted-b2b-marketing"
-      ],
-      "status": 0,
-      "error": "fetch failed"
-    },
-    {
-      "url": "http://daveanderson.com.au/wp-content/uploads/2014/08/webandmobile-1-1-1.jpg",
-      "where": [
-        "post:australias-attitude-toward-website-application-monitoring-shell-right-mate"
-      ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 48233,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2025/12/Screenshot-2025-12-02-at-4.43.46-pm.png",
       "where": [
         "page:media"
       ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 182854,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2025/12/cropped-Screenshot-2025-12-02-at-4.48.19-pm.png",
       "where": [
         "page:media"
       ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 282775,
+      "via": "origin"
     },
     {
       "url": "https://daveanderson.com.au/wp-content/uploads/2025/05/cropped-cropped-Fox_News_Logo_Design_History_Evolution_0_1024x1024.webp",
       "where": [
         "page:media"
       ],
-      "status": 0,
-      "error": "fetch failed"
+      "length": 17908,
+      "via": "origin"
+    },
+    {
+      "url": "https://daveanderson.com.au/wp-content/uploads/2023/07/cropped-dave-1.jpg",
+      "where": [
+        "page:music"
+      ],
+      "length": 33250,
+      "via": "origin"
+    }
+  ],
+  "dead": [
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2016/12/AAEAAQAAAAAAAAldAAAAJDgzYjU0NzU0LWE4MjAtNDcwZC1iNTU0LTY0NjgzZjM5ODZmOA-2-1-1-1.png",
+      "where": [
+        "post:the-new-world-order-china-1-ecommerce-market"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2016/12/AAEAAQAAAAAAAAfXAAAAJDc3MTc5Mzk2LTM3MWItNDVjOC04MTEzLWI5YWJiOTBjZDQxOA-1-1.png",
+      "where": [
+        "post:the-new-world-order-china-1-ecommerce-market"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2016/12/AAEAAQAAAAAAAAfzAAAAJDI1N2FhNDYxLWRjOGUtNDFkMy1iNDNjLWM5NmRjYmEwNmZlZg-1-1.png",
+      "where": [
+        "post:the-new-world-order-china-1-ecommerce-market"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2016/03/chinavsUS-e1459285218205.png",
+      "where": [
+        "post:chinas-ecommerce-numbers-will-blow-your-mind"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2016/03/singledsay.png",
+      "where": [
+        "post:chinas-ecommerce-numbers-will-blow-your-mind"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2015/12/DSC_0457_result.jpg",
+      "where": [
+        "post:geeks-new-years-resolution-flip"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2015/12/google_wide.png",
+      "where": [
+        "post:geeks-new-years-resolution-flip"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2015/12/googletall.png",
+      "where": [
+        "post:geeks-new-years-resolution-flip"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2015/11/Screen-Shot-2015-11-23-at-3.25.27-PM-1260x840.png",
+      "where": [
+        "post:bandt-confused-retails-heading-need-follow-millennials"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2015/11/Performance-Dashboards-Dynatrace-Portal-2015-11-19-17-00-48.jpg",
+      "where": [
+        "post:fast-slow-click-frenzy-dynatrace"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2015/11/DYNATRACE-syntheticmonitoring.jpg",
+      "where": [
+        "post:fast-slow-click-frenzy-dynatrace"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2015/11/reponsetimeaverage.jpg",
+      "where": [
+        "post:fast-slow-click-frenzy-dynatrace"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2015/11/melbcup.jpg",
+      "where": [
+        "post:melb-cup-3-secs-make-tip-performance-data-bet"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2015/06/lean-1-1-1.jpg",
+      "where": [
+        "post:agile-marketing-practice-may-just-save-us-burnout"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2015/06/leadn2-1-1-1.jpg",
+      "where": [
+        "post:agile-marketing-practice-may-just-save-us-burnout"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2015/06/trello-4-1-1-1.jpg",
+      "where": [
+        "post:agile-marketing-practice-may-just-save-us-burnout"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2015/01/Conversion20-1-1-1.png",
+      "where": [
+        "post:5-reasons-marketers-must-focus-load-times-2015"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2015/01/19a9981-1.jpg",
+      "where": [
+        "post:5-reasons-marketers-must-focus-load-times-2015"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2015/11/momentum-of-mobile-infographic4-1-1-1.jpg",
+      "where": [
+        "post:e27-application-performance-monitoring-important"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2014/09/Screenshot-17-1-1-1.jpg",
+      "where": [
+        "post:sorry-brand-police-creative-imagery-warranted-b2b-marketing"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2014/09/Screenshot-171-1-1-1.jpg",
+      "where": [
+        "post:sorry-brand-police-creative-imagery-warranted-b2b-marketing"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2014/09/6a0120a59ccea7970b017ee716c54c970d-1-1-1.jpg",
+      "where": [
+        "post:sorry-brand-police-creative-imagery-warranted-b2b-marketing"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2014/09/corporate-image-1-1-1.jpg",
+      "where": [
+        "post:sorry-brand-police-creative-imagery-warranted-b2b-marketing"
+      ],
+      "status": 404
+    },
+    {
+      "url": "http://daveanderson.com.au/wp-content/uploads/2014/08/webandmobile-1-1-1.jpg",
+      "where": [
+        "post:australias-attitude-toward-website-application-monitoring-shell-right-mate"
+      ],
+      "status": 404
     },
     {
       "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/02/cropped-gym2.jpg",
@@ -768,14 +319,6 @@
         "page:media"
       ],
       "status": 403
-    },
-    {
-      "url": "https://daveanderson.com.au/wp-content/uploads/2023/07/cropped-dave-1.jpg",
-      "where": [
-        "page:music"
-      ],
-      "status": 0,
-      "error": "fetch failed"
     },
     {
       "url": "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/07/cropped-cropped-Jeff.jpg",
