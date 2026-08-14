@@ -1,6 +1,11 @@
-Files to download from SiteGround, relative to public_html/wp-content/uploads/
-Put them in public/media/ keeping these names, then re-run:
-  node scripts/migrate-images.mjs --download --rewrite
+Images neither the WordPress origin nor the Jetpack CDN will serve.
+Paths are relative to public_html/wp-content/uploads/ on the host.
+
+Easiest route — let the script pull them over FTPS:
+  FTP_HOST=<host> FTP_USER=<user> FTP_PASS=<pass> \
+    node scripts/migrate-images.mjs --download --ftp --rewrite
+
+Or download them by hand into public/media/ and re-run with --download --rewrite.
 
 2014/08/webandmobile-1-1-1.jpg
 2014/09/6a0120a59ccea7970b017ee716c54c970d-1-1-1.jpg
@@ -45,19 +50,8 @@ Put them in public/media/ keeping these names, then re-run:
 2020/10/wapt_image_889.jpg
 2021/01/Picture1-2.png
 2021/01/Picture1.png
-2021/02/cropped-cropped-aaa052f0-b98c-452e-b59a-02c4f0566eeb-1.jpg
 2021/02/image-e1614210359921.png
 2023/02/cropped-gym-e1677117633818.jpg
 2023/02/cropped-gym2-1-e1677122846882.jpg
-2023/02/cropped-gym2.jpg
 2023/03/dave3.jpg
 2023/04/mq3.webp
-2023/07/cropped-cropped-Jeff.jpg
-2023/07/cropped-dave-1.jpg
-2023/07/simom.jpg
-2023/07/stduiod-1.jpg
-2024/02/Screenshot-2024-02-07-at-11.13.43 am-e1707268269865.png
-2025/05/cropped-cropped-Fox_News_Logo_Design_History_Evolution_0_1024x1024.webp
-2025/12/Screenshot-2025-12-02-at-4.43.46-pm.png
-2025/12/Untitled-design.jpg
-2025/12/cropped-Screenshot-2025-12-02-at-4.48.19-pm.png

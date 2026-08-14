@@ -14,6 +14,11 @@
  * gone; those are reported and skipped rather than silently downloaded as
  * error pages.
  *
+ * Recovery is attempted in three stages, cheapest first:
+ *   1. the URL as written
+ *   2. the Jetpack CDN copy (i0.wp.com), which survives the origin going away
+ *   3. FTPS straight off the host, with --ftp
+ *
  * Usage:
  *   node scripts/migrate-images.mjs                  # audit only, writes no files
  *   node scripts/migrate-images.mjs --download       # fetch live images to public/media
@@ -23,13 +28,14 @@
  *   --download   fetch images that responded 200 with an image content-type
  *   --rewrite    rewrite wp-content.json and src/**\/*.tsx to the local paths
  *   --all        include images from posts hidden by the retired/demo filters
+ *   --ftp        for images the web can't serve, pull them off the host over
+ *                FTPS using FTP_HOST / FTP_USER / FTP_PASS from the environment
  *   --concurrency=N   parallel requests (default 12)
- *
- * If the origin is unreachable because DNS already points at Vercel, add a
- * hosts entry for daveanderson.com.au -> the SiteGround IP before running.
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import { createHash } from "node:crypto";
 import { extname, basename, join } from "node:path";
 import { readdirSync, statSync } from "node:fs";
@@ -46,6 +52,26 @@ const INCLUDE_ALL = args.includes("--all");
 const CONCURRENCY = Number(
   (args.find((a) => a.startsWith("--concurrency=")) || "").split("=")[1] || 12
 );
+
+/**
+ * Last-resort fallback: pull straight off the host over FTPS for images that
+ * neither the origin nor the CDN will serve. Credentials come from the
+ * environment so they never live in the repo:
+ *
+ *   FTP_HOST=host.example.com \
+ *   FTP_USER='you@example.com' \
+ *   FTP_PASS='...' \
+ *   node scripts/migrate-images.mjs --download --ftp --rewrite
+ *
+ * Shells out to curl, which ships with macOS and speaks FTPS, rather than
+ * adding an npm dependency for a one-off migration.
+ */
+const USE_FTP = args.includes("--ftp");
+const FTP_HOST = process.env.FTP_HOST;
+const FTP_USER = process.env.FTP_USER;
+const FTP_PASS = process.env.FTP_PASS;
+const FTP_ROOT = process.env.FTP_ROOT || "public_html/wp-content/uploads";
+const execFileAsync = promisify(execFile);
 
 // Kept in sync with RETIRED_CATEGORIES in src/lib/content.ts
 const RETIRED_CATEGORIES = new Set(["travel"]);
@@ -107,6 +133,36 @@ function cdnVariantOf(url) {
   const h = hostOf(url);
   if (/^i\d\.wp\.com$/i.test(h)) return null; // already the CDN
   return `https://i0.wp.com/${url.replace(/^https?:\/\//, "")}`;
+}
+
+/** The path under wp-content/uploads/, which is also the path on the host. */
+function uploadsPathOf(url) {
+  const clean = originOf(url).split("?")[0];
+  const m = clean.match(/\/wp-content\/uploads\/(.+)$/);
+  return m ? decodeURIComponent(m[1]) : null;
+}
+
+async function fetchViaFtp(url, dest) {
+  const rel = uploadsPathOf(url);
+  if (!rel) return false;
+  const remote = `ftp://${FTP_HOST}/${FTP_ROOT}/${rel}`;
+  try {
+    await execFileAsync(
+      "curl",
+      [
+        "--fail", "--silent", "--show-error",
+        "--ssl", "--ftp-pasv",
+        "--connect-timeout", "20", "--max-time", "120",
+        "--user", `${FTP_USER}:${FTP_PASS}`,
+        "--output", dest,
+        remote,
+      ],
+      { maxBuffer: 1024 * 1024 }
+    );
+    return existsSync(dest) && statSync(dest).size > 0;
+  } catch {
+    return false;
+  }
 }
 
 function walk(dir, out = []) {
@@ -246,7 +302,9 @@ async function main() {
   const viaCdn = live.filter((c) => c.via === "cdn").length;
 
   console.log(`  live:  ${live.length}  (${viaCdn} recovered via the Jetpack CDN)`);
-  console.log(`  dead:  ${dead.length}  (neither origin nor CDN will serve these)`);
+  console.log(
+    `  dead:  ${dead.length}  ${USE_FTP ? "(will try FTPS)" : "(neither origin nor CDN will serve these)"}`
+  );
 
   const bytes = live.reduce((n, c) => n + (c.length || 0), 0);
   if (bytes) console.log(`  size:  ~${(bytes / 1024 / 1024).toFixed(1)} MB\n`);
@@ -298,8 +356,32 @@ async function main() {
     }
   });
 
+  // Anything the web could not serve: try the host directly.
+  let viaFtp = 0;
+  if (USE_FTP) {
+    if (!FTP_HOST || !FTP_USER || !FTP_PASS) {
+      console.warn("\n  --ftp given but FTP_HOST / FTP_USER / FTP_PASS are not set; skipping.");
+    } else {
+      console.log(`\nTrying FTPS on ${FTP_HOST} for ${dead.length} unreachable image(s)...`);
+      await pool(dead, 4, async (c) => {
+        const name = localNameFor(c.url);
+        const dest = join(OUT_DIR, name);
+        if (existsSync(dest)) {
+          manifest[c.url] = `/media/${name}`;
+          viaFtp++;
+          return;
+        }
+        if (await fetchViaFtp(c.url, dest)) {
+          manifest[c.url] = `/media/${name}`;
+          viaFtp++;
+        }
+      });
+      console.log(`  recovered over FTPS: ${viaFtp} of ${dead.length}`);
+    }
+  }
+
   writeFileSync(MANIFEST, JSON.stringify(manifest, null, 2));
-  console.log(`\nDownloaded ${ok}, failed ${failed}`);
+  console.log(`\nDownloaded ${ok}, failed ${failed}${USE_FTP ? `, ${viaFtp} via FTPS` : ""}`);
   console.log(`Files in public/media, manifest at ${MANIFEST.replace(ROOT + "/", "")}`);
 
   if (!DO_REWRITE) {
