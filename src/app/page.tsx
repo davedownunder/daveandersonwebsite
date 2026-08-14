@@ -8,48 +8,56 @@ import { getProfessionalPosts } from "@/lib/content";
 const podcastGuests = [
   {
     name: "Magic Johnson",
+    role: "No intro needed",
     image:
       "/media/cropped-cropped-cropped-cropped-aaa052f0-b98c-452e-b59a--3af68281.jpg",
     videoId: "VTIEc07ycZI",
   },
   {
     name: "Marc Randolph",
+    role: "Netflix co-founder",
     image:
       "/media/cropped-cropped-cropped-cropped-cropped-cropped-image-e1-16c1169e.jpg",
     videoId: "0LoGTmr4s3k",
   },
   {
     name: "Hannah Fry",
+    role: "BBC, Genius",
     image:
       "/media/cropped-hannah-fry-1b6566fe.jpeg",
     videoId: "hqEtaOHpjIQ",
   },
   {
     name: "Baratunde Thurston",
+    role: "Writer, host",
     image:
       "/media/cropped-cropped-nyt_likeabossbaratunde10-0256ea49.jpeg",
     href: "https://www.youtube.com/@techseekinghuman/search?query=Baratunde",
   },
   {
     name: "Adam Cheyer",
+    role: "Siri co-founder",
     image:
       "/media/cropped-cropped-adam_cheyer-335548d0.jpeg",
     videoId: "dezsoPQsVCE",
   },
   {
     name: "Gene Kim",
+    role: "The Phoenix Project",
     image:
       "/media/cropped-Gene-Kim-e11ba47b.jpeg",
     videoId: "bCjsaJ3c_3A",
   },
   {
     name: "Tricia Wang",
+    role: "Data ethnographer",
     image:
       "/media/cropped-preview_tricia-wang-2bef5afa.jpeg",
     videoId: "O_pPucSljYI",
   },
   {
     name: "Max Tegmark",
+    role: "Future of Life, Life 3.0",
     image: "/media/maxtegmark-1ef7aecf.jpg",
     href: "https://techseekinghuman.ai/podcasts/episode-2-max-tegmark",
   },
@@ -367,6 +375,9 @@ export default function Home() {
                   </div>
                   <p className="font-serif text-base mt-3 text-ink group-hover:text-brass transition-colors">
                     {guest.name}
+                  </p>
+                  <p className="text-ink-muted text-xs mt-0.5 leading-snug">
+                    {guest.role}
                   </p>
                 </>
               );
