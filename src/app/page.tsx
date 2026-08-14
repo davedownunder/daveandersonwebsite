@@ -29,7 +29,7 @@ const podcastGuests = [
   },
   {
     name: "Baratunde Thurston",
-    role: "CBS host, writer, legend",
+    role: "PBS host, writer, legend",
     image:
       "/media/cropped-cropped-nyt_likeabossbaratunde10-0256ea49.jpeg",
     href: "https://www.youtube.com/@techseekinghuman/search?query=Baratunde",
