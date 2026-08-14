@@ -1,7 +1,19 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      { source: "/events", destination: "/speaking", permanent: true },
+      { source: "/events/keynotes", destination: "/speaking", permanent: true },
+      { source: "/events/content", destination: "/speaking", permanent: true },
+      { source: "/events/video-storytelling", destination: "/media", permanent: true },
+      { source: "/speaking/content", destination: "/speaking", permanent: true },
+      { source: "/speaking/video", destination: "/media", permanent: true },
+      // Travel diary retired; /passions hub collapsed to its one remaining page.
+      { source: "/passions", destination: "/passions/peloton", permanent: true },
+      { source: "/passions/travel", destination: "/passions/peloton", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { nativePosts } from "@/content/posts";
 
 export interface WPPost {
   title: string;
@@ -11,6 +12,11 @@ export interface WPPost {
   tags: string[];
   featured_image_id: string;
   type: string;
+  /**
+   * Direct image URL. Native posts use this instead of featured_image_id,
+   * which only resolves against the WordPress attachment table.
+   */
+  featured_image_url?: string;
 }
 
 export interface WPContent {
@@ -29,6 +35,17 @@ export interface WPContent {
   stats: { pages: number; posts: number; attachments: number };
 }
 
+// Slugs shipped as Mesmerize / Highend theme demo content — hide from the site.
+const THEME_DEMO_SLUGS = new Set([
+  "talking-about-pinhole-photography",
+  "sound-for-you-noise-to-others",
+  "compassion-at-the-coffee-shop",
+  "the-fashion-design-process",
+  "creative-photo-book-ideas",
+  "80-days-around-the-world",
+  "hello-world",
+]);
+
 let _content: WPContent | null = null;
 
 export function getContent(): WPContent {
@@ -39,21 +56,56 @@ export function getContent(): WPContent {
   return _content!;
 }
 
+// Categories retired from the site. The 2023 Japan travel diary was a
+// personal trip log; it dilutes a site whose job is speaking, podcasting
+// and marketing, and nearly all of its images died with the old host.
+const RETIRED_CATEGORIES = new Set(["travel"]);
+
+function isPublishablePost(post: WPPost): boolean {
+  if (THEME_DEMO_SLUGS.has(post.slug)) return false;
+  return !post.categories.some((c) => RETIRED_CATEGORIES.has(c.toLowerCase()));
+}
+
 export function getAllPosts(category?: string): WPPost[] {
   const { posts } = getContent();
+  // Native posts authored in this repo sit alongside the WordPress import.
+  const publishable = [...nativePosts, ...posts.filter(isPublishablePost)];
   const filtered = category
-    ? posts.filter((p) =>
+    ? publishable.filter((p) =>
         p.categories.some((c) => c.toLowerCase() === category.toLowerCase())
       )
-    : posts;
+    : publishable;
   return filtered.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 }
 
+// Categories covering Dave's professional output — marketing and tech
+// commentary, media appearances, talks and podcast work. Personal
+// categories (Lifestyle, Photography, Design) are deliberately excluded.
+const PROFESSIONAL_CATEGORIES = new Set([
+  "blog: marketing",
+  "spokesperson",
+  "presentations",
+  "podcasts",
+  "technology",
+  "news",
+  "social",
+]);
+
+/**
+ * Professional writing only — used on the homepage so personal posts don't
+ * surface alongside business content. /blog still lists everything published.
+ */
+export function getProfessionalPosts(): WPPost[] {
+  return getAllPosts().filter((post) =>
+    post.categories.some((c) => PROFESSIONAL_CATEGORIES.has(c.toLowerCase()))
+  );
+}
+
 export function getPostBySlug(slug: string): WPPost | undefined {
   const { posts, pages } = getContent();
-  return [...posts, ...pages].find((p) => p.slug === slug);
+  return [...nativePosts, ...posts, ...pages].find((p) => p.slug === slug);
 }
 
 export function getPageBySlug(slug: string): WPPost | undefined {
@@ -62,6 +114,7 @@ export function getPageBySlug(slug: string): WPPost | undefined {
 }
 
 export function getFeaturedImageUrl(post: WPPost): string | null {
+  if (post.featured_image_url) return post.featured_image_url;
   if (!post.featured_image_id) return null;
   const { attachments } = getContent();
   return attachments[post.featured_image_id] || null;
@@ -74,6 +127,19 @@ export function stripHtml(html: string): string {
 export function getExcerpt(post: WPPost, maxLength = 160): string {
   const text = post.excerpt || stripHtml(post.content);
   return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+}
+
+/**
+ * WordPress HTML doesn't carry `target="_blank"` on its outbound links.
+ * Server-side rewrite every external <a> to open in a new tab, and add
+ * `rel="noopener noreferrer"` for safety. Skips anchors that already
+ * declare a target so we don't double-annotate.
+ */
+export function openExternalLinksInNewTab(html: string): string {
+  return html.replace(
+    /<a\b(?![^>]*\btarget=)([^>]*?)\bhref="(https?:\/\/[^"]+)"([^>]*?)>/gi,
+    '<a$1 href="$2"$3 target="_blank" rel="noopener noreferrer">'
+  );
 }
 
 export function formatDate(dateStr: string): string {

@@ -1,40 +1,47 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap");
 
 :root {
-  --color-cream: #faf9f5;
-  --color-cream-alt: #f0eee6;
-  --color-paper: #ffffff;
-  --color-ink: #141413;
-  --color-ink-soft: #3d3929;
-  --color-ink-muted: #6b6960;
-  --color-rule: #dcd8c9;
-  --color-rule-soft: #e8e5d8;
-  --color-accent: #cc785c;
-  --color-accent-dark: #b5614a;
-  --color-accent-soft: #f0d9cd;
+  --color-kraft: #eae3d2;
+  --color-kraft-alt: #ddd5c0;
+  --color-kraft-soft: #f3ede0;
+  --color-paper: #f8f4e8;
+  --color-ink: #211d18;
+  --color-ink-soft: #3a342b;
+  --color-ink-muted: #6b6355;
+  --color-brass: #9c7a34;
+  --color-brass-dark: #7e6127;
+  --color-brass-soft: #c7a35a;
+  --color-verdigris: #3e6e64;
+  --color-verdigris-dark: #2e544c;
+  --color-rule: #c7bfa8;
+  --color-rule-soft: #d7cfb6;
 
-  --background: var(--color-cream);
+  --background: var(--color-kraft);
   --foreground: var(--color-ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-cream: #faf9f5;
-  --color-cream-alt: #f0eee6;
-  --color-paper: #ffffff;
-  --color-ink: #141413;
-  --color-ink-soft: #3d3929;
-  --color-ink-muted: #6b6960;
-  --color-rule: #dcd8c9;
-  --color-rule-soft: #e8e5d8;
-  --color-accent: #cc785c;
-  --color-accent-dark: #b5614a;
-  --color-accent-soft: #f0d9cd;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-kraft: #eae3d2;
+  --color-kraft-alt: #ddd5c0;
+  --color-kraft-soft: #f3ede0;
+  --color-paper: #f8f4e8;
+  --color-ink: #211d18;
+  --color-ink-soft: #3a342b;
+  --color-ink-muted: #6b6355;
+  --color-brass: #9c7a34;
+  --color-brass-dark: #7e6127;
+  --color-brass-soft: #c7a35a;
+  --color-verdigris: #3e6e64;
+  --color-verdigris-dark: #2e544c;
+  --color-rule: #c7bfa8;
+  --color-rule-soft: #d7cfb6;
+  --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
 html {
@@ -44,33 +51,115 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
-  font-feature-settings: "ss01", "cv11";
+  font-family: "Work Sans", ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  /* subtle paper grain */
+  background-image:
+    radial-gradient(rgba(33, 29, 24, 0.035) 1px, transparent 1px),
+    radial-gradient(rgba(33, 29, 24, 0.02) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1px 2px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Fraunces", ui-serif, Georgia, serif;
   font-optical-sizing: auto;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   color: var(--color-ink);
 }
 
 ::selection {
-  background: var(--color-accent-soft);
+  background: var(--color-brass);
+  color: var(--color-kraft);
+}
+
+/* Mono eyebrow / label */
+.eyebrow {
+  font-family: "Space Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-brass-dark);
+}
+
+.eyebrow-verdigris {
+  color: var(--color-verdigris-dark);
+}
+
+/* Tick-mark divider — dot / dash / dot rhythm */
+.tick-rule {
+  height: 12px;
+  width: 100%;
+  background-image:
+    linear-gradient(to right, var(--color-rule) 0 6px, transparent 6px 24px),
+    linear-gradient(to right, transparent 0 12px, var(--color-brass) 12px 14px, transparent 14px);
+  background-size: 24px 1px, 24px 12px;
+  background-repeat: repeat-x, repeat-x;
+  background-position: left 6px, left 4px;
+}
+
+/* Shop tag — slightly rotated kraft chip with a twine hole */
+.shop-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem 0.4rem 1.4rem;
+  background: var(--color-kraft-soft);
+  border: 1px solid var(--color-rule);
+  border-radius: 4px;
+  font-family: "Space Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  transform: rotate(-1.5deg);
+  transform-origin: left center;
+  box-shadow: 0 1px 0 rgba(33, 29, 24, 0.08);
+}
+.shop-tag::before {
+  content: "";
+  position: absolute;
+  left: 0.55rem;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-kraft);
+  border: 1px solid var(--color-rule);
+  transform: translateY(-50%);
+}
+
+/* Standfirst paragraph on natively-authored posts. */
+.prose .lead {
+  font-family: "Fraunces", ui-serif, Georgia, serif;
+  font-size: 1.3em;
+  line-height: 1.5;
+  font-weight: 300;
   color: var(--color-ink);
 }
 
-.eyebrow {
-  font-family: "Inter", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--color-accent);
+/* Kill any leftover pure-white backgrounds coming from injected WP HTML —
+   figures, embed wrappers, images with transparent regions, blockquote frames. */
+.prose figure,
+.prose figcaption,
+.prose img,
+.prose iframe,
+.prose video,
+.prose embed,
+.prose blockquote,
+.prose pre,
+.prose code {
+  background-color: transparent;
 }
-
-.rule {
-  height: 1px;
-  background: var(--color-rule);
+.prose [style*="background:#fff"],
+.prose [style*="background: #fff"],
+.prose [style*="background-color:#fff"],
+.prose [style*="background-color: #fff"],
+.prose [style*="background:#ffffff"],
+.prose [style*="background: #ffffff"],
+.prose [style*="background-color:#ffffff"],
+.prose [style*="background-color: #ffffff"] {
+  background-color: var(--color-kraft-soft) !important;
 }

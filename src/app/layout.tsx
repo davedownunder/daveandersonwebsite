@@ -5,11 +5,11 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Dave Anderson | Speaker, MC, Podcast Host & Tech Executive",
+    default: "Dave Anderson | CMO, Keynote Speaker, Podcast Host",
     template: "%s | Dave Anderson",
   },
   description:
-    "Keynote speaker, MC, podcast host, musician, and tech marketing executive based in Melbourne, Australia.",
+    "CMO at PointFive (the AI Efficiency OS), Saxton-listed keynote speaker, host of Tech Seeking Human. Australian, based in Boston.",
 };
 
 export default function RootLayout({

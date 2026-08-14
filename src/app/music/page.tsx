@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
-import { getPageBySlug } from "@/lib/content";
+import { getPageBySlug, openExternalLinksInNewTab } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Music",
@@ -11,7 +11,7 @@ const albums = [
   {
     title: "These Lies That Divide Us",
     year: "2023",
-    cover: "https://daveanderson.com.au/wp-content/uploads/2023/07/album-cover-poster.jpg",
+    cover: "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/07/album-cover-poster.jpg",
     blurb: "Second full-length. Rock, storytelling, raw emotion.",
     links: [
       { label: "Spotify", href: "https://open.spotify.com/album/2nrNpSbpWPsZaDOyfu3EaB" },
@@ -23,7 +23,7 @@ const albums = [
     year: "2009",
     cover:
       "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/02/ab67616d0000b2731dbc32de9163e99338f2ff61.jpeg",
-    blurb: "Debut album. 4/5 in the Sydney Morning Herald. Featured on ABC drama The Lying Game.",
+    blurb: "Debut album. 4/5 in the Sydney Morning Herald. A track from it was placed on the ABC drama The Lying Game.",
     links: [
       { label: "Spotify", href: "https://open.spotify.com/album/1zX2Q7Dq2zTJ8Ksn5ChJQ6" },
       { label: "Apple Music", href: "https://music.apple.com/us/album/wish-it-all-away/280155032" },
@@ -41,7 +41,7 @@ export default function MusicPage() {
         title={
           <>
             Songs about{" "}
-            <span className="italic text-accent">the things that divide</span>{" "}
+            <span className="italic text-brass">the things that divide</span>{" "}
             and the things that hold.
           </>
         }
@@ -53,7 +53,7 @@ export default function MusicPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {albums.map((a) => (
               <div key={a.title} className="flex flex-col">
-                <div className="aspect-square overflow-hidden rounded-lg border border-rule bg-cream-alt">
+                <div className="aspect-square overflow-hidden rounded-md border border-rule bg-kraft-alt">
                   <img
                     src={a.cover}
                     alt={a.title}
@@ -62,7 +62,7 @@ export default function MusicPage() {
                   />
                 </div>
                 <div className="mt-6">
-                  <p className="eyebrow">Album · {a.year}</p>
+                  <p className="eyebrow eyebrow-verdigris">Album · {a.year}</p>
                   <h2 className="font-serif text-3xl font-light mt-2 leading-tight">
                     {a.title}
                   </h2>
@@ -74,7 +74,7 @@ export default function MusicPage() {
                         href={l.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 border border-rule hover:border-accent hover:text-accent text-ink-soft transition-colors font-medium px-4 py-2 rounded-full text-xs"
+                        className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-4 py-2 rounded-full text-xs"
                       >
                         {l.label}
                       </a>
@@ -91,8 +91,10 @@ export default function MusicPage() {
         <section>
           <div className="max-w-3xl mx-auto px-6 lg:px-8 py-20">
             <div
-              className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-accent prose-strong:text-ink"
-              dangerouslySetInnerHTML={{ __html: page.content }}
+              className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-brass prose-strong:text-ink"
+              dangerouslySetInnerHTML={{
+                __html: openExternalLinksInNewTab(page.content),
+              }}
             />
           </div>
         </section>
