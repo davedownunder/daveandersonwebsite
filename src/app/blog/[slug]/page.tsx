@@ -5,7 +5,7 @@ import {
   getPostBySlug,
   formatDate,
   getFeaturedImageUrl,
-  openExternalLinksInNewTab,
+  renderContent,
 } from "@/lib/content";
 import type { Metadata } from "next";
 
@@ -76,7 +76,7 @@ export default async function BlogPost({
         <div
           className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-light prose-a:text-brass prose-strong:text-ink prose-blockquote:border-brass prose-blockquote:text-ink-soft"
           dangerouslySetInnerHTML={{
-            __html: openExternalLinksInNewTab(post.content),
+            __html: renderContent(post.content),
           }}
         />
       </div>
