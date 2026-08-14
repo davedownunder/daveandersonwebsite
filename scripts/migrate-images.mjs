@@ -10,14 +10,13 @@
  *
  * Only images that actually render on the new site are worth keeping, so this
  * walks the same code paths the site does rather than grabbing every URL in
- * the export. Many of the old 2014-16 posts reference images that are already
- * gone; those are reported and skipped rather than silently downloaded as
- * error pages.
+ * the export.
  *
- * Recovery is attempted in three stages, cheapest first:
+ * Recovery is attempted in order, cheapest first:
  *   1. the URL as written
  *   2. the Jetpack CDN copy (i0.wp.com), which survives the origin going away
- *   3. FTPS straight off the host, with --ftp
+ *   3. a locally-extracted wp-content/uploads folder, via --from=DIR
+ *   4. FTPS straight off the host, via --ftp
  *
  * Usage:
  *   node scripts/migrate-images.mjs                  # audit only, writes no files
@@ -28,12 +27,14 @@
  *   --download   fetch images that responded 200 with an image content-type
  *   --rewrite    rewrite wp-content.json and src/**\/*.tsx to the local paths
  *   --all        include images from posts hidden by the retired/demo filters
- *   --ftp        for images the web can't serve, pull them off the host over
- *                FTPS using FTP_HOST / FTP_USER / FTP_PASS from the environment
+ *   --from=DIR   for images the web can't serve, look in a locally-extracted
+ *                wp-content/uploads folder (the easiest route — no credentials)
+ *   --ftp        same, but pull off the host over FTPS using
+ *                FTP_HOST / FTP_USER / FTP_PASS from the environment
  *   --concurrency=N   parallel requests (default 12)
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync, copyFileSync } from "node:fs";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { createHash } from "node:crypto";
@@ -54,9 +55,9 @@ const CONCURRENCY = Number(
 );
 
 /**
- * Last-resort fallback: pull straight off the host over FTPS for images that
- * neither the origin nor the CDN will serve. Credentials come from the
- * environment so they never live in the repo:
+ * Pull straight off the host over FTPS for images that neither the origin nor
+ * the CDN will serve. Credentials come from the environment so they never live
+ * in the repo:
  *
  *   FTP_HOST=host.example.com \
  *   FTP_USER='you@example.com' \
@@ -71,6 +72,16 @@ const FTP_HOST = process.env.FTP_HOST;
 const FTP_USER = process.env.FTP_USER;
 const FTP_PASS = process.env.FTP_PASS;
 const FTP_ROOT = process.env.FTP_ROOT || "public_html/wp-content/uploads";
+
+/**
+ * Simplest path of all: download wp-content/uploads from the host's file
+ * manager as a zip, unzip it, and point --from at the resulting folder. No
+ * credentials, no network. The folder should contain the year directories
+ * (2014/, 2015/, ...) directly.
+ *
+ *   node scripts/migrate-images.mjs --download --from=~/Downloads/uploads --rewrite
+ */
+const FROM_DIR = (args.find((a) => a.startsWith("--from=")) || "").split("=")[1] || "";
 const execFileAsync = promisify(execFile);
 
 // Kept in sync with RETIRED_CATEGORIES in src/lib/content.ts
@@ -151,7 +162,7 @@ async function fetchViaFtp(url, dest) {
       "curl",
       [
         "--fail", "--silent", "--show-error",
-        "--ssl", "--ftp-pasv",
+        "--ssl-reqd", "--ftp-pasv",
         "--connect-timeout", "20", "--max-time", "120",
         "--user", `${FTP_USER}:${FTP_PASS}`,
         "--output", dest,
@@ -163,6 +174,26 @@ async function fetchViaFtp(url, dest) {
   } catch {
     return false;
   }
+}
+
+/** Copy an image out of a locally-extracted uploads folder. */
+function copyFromDir(url, dest) {
+  const rel = uploadsPathOf(url);
+  if (!rel || !FROM_DIR) return false;
+  const base = FROM_DIR.replace(/^~/, process.env.HOME || "~");
+  // Try the path as-is, then without any WordPress -WxH size suffix, since
+  // the export often references a resized variant that was never generated.
+  const candidates = [
+    join(base, rel),
+    join(base, rel.replace(/-\d+x\d+(\.[a-z]+)$/i, "$1")),
+  ];
+  for (const src of candidates) {
+    if (existsSync(src) && statSync(src).isFile()) {
+      copyFileSync(src, dest);
+      return true;
+    }
+  }
+  return false;
 }
 
 function walk(dir, out = []) {
@@ -303,7 +334,9 @@ async function main() {
 
   console.log(`  live:  ${live.length}  (${viaCdn} recovered via the Jetpack CDN)`);
   console.log(
-    `  dead:  ${dead.length}  ${USE_FTP ? "(will try FTPS)" : "(neither origin nor CDN will serve these)"}`
+    `  dead:  ${dead.length}  ${
+      FROM_DIR || USE_FTP ? "(will try local folder / FTPS)" : "(neither origin nor CDN will serve these)"
+    }`
   );
 
   const bytes = live.reduce((n, c) => n + (c.length || 0), 0);
@@ -356,7 +389,22 @@ async function main() {
     }
   });
 
-  // Anything the web could not serve: try the host directly.
+  // Anything the web could not serve: try a locally-extracted uploads folder.
+  let viaDir = 0;
+  if (FROM_DIR) {
+    console.log(`\nLooking in ${FROM_DIR} for ${dead.length} unreachable image(s)...`);
+    for (const c of dead) {
+      const name = localNameFor(c.url);
+      const dest = join(OUT_DIR, name);
+      if (existsSync(dest) || copyFromDir(c.url, dest)) {
+        manifest[c.url] = `/media/${name}`;
+        viaDir++;
+      }
+    }
+    console.log(`  recovered from disk: ${viaDir} of ${dead.length}`);
+  }
+
+  // Still missing: try the host directly.
   let viaFtp = 0;
   if (USE_FTP) {
     if (!FTP_HOST || !FTP_USER || !FTP_PASS) {
@@ -381,7 +429,11 @@ async function main() {
   }
 
   writeFileSync(MANIFEST, JSON.stringify(manifest, null, 2));
-  console.log(`\nDownloaded ${ok}, failed ${failed}${USE_FTP ? `, ${viaFtp} via FTPS` : ""}`);
+  console.log(
+    `\nDownloaded ${ok}, failed ${failed}` +
+      (FROM_DIR ? `, ${viaDir} from disk` : "") +
+      (USE_FTP ? `, ${viaFtp} via FTPS` : "")
+  );
   console.log(`Files in public/media, manifest at ${MANIFEST.replace(ROOT + "/", "")}`);
 
   if (!DO_REWRITE) {
