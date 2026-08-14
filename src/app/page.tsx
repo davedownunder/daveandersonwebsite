@@ -116,7 +116,7 @@ export default function Home() {
                 <Link href="/podcasts" className="text-brass hover:underline underline-offset-4">
                   Tech Seeking Human
                 </Link>
-                . In my other life I make records, and cabinets.
+                . In my other life I make records, DIY and Peloton.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <Link
