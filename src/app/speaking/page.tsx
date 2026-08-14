@@ -292,9 +292,9 @@ export default function SpeakingPage() {
       {/* Client roster grouped by kind */}
       <section className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Selected client list</p>
+          <p className="eyebrow mb-4">Selected stages</p>
           <h2 className="font-serif text-3xl md:text-4xl font-light max-w-3xl leading-tight">
-            Some of the stages where Dave has delivered keynote presentations.
+            Companies and conferences I&rsquo;ve presented to.
           </h2>
           <TickRule className="mt-10 mb-10 opacity-50" />
 
