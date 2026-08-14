@@ -146,7 +146,7 @@ export default function Home() {
                 />
               </div>
               <span className="hidden md:inline-flex shop-tag absolute -bottom-3 left-4">
-                Boston · MA
+                Aussie in Boston
               </span>
             </div>
           </div>
@@ -175,8 +175,9 @@ export default function Home() {
               </p>
               <p>
                 On stage that shows up as keynotes for CBA, NAB, Telstra,
-                Forrester, Red Hat Summit and AWS re:Invent, across APAC,
-                North America and EMEA. In headphones it&rsquo;s{" "}
+                Forrester, Red Hat Summit and AWS re:Invent. Australian,
+                working out of Boston &mdash; the accent hasn&rsquo;t
+                shifted. In headphones it&rsquo;s{" "}
                 <em>Tech Seeking Human</em> &mdash; long-form conversations
                 with people who are changing what technology means for the
                 rest of us.
@@ -189,39 +190,57 @@ export default function Home() {
               {
                 num: "01",
                 title: "Speaking",
-                desc: "Mainstage keynote presentations for enterprise events and conferences across APAC, North America and EMEA.",
+                desc: "Mainstage keynote presentations for enterprise events and conferences.",
                 href: "/speaking",
+                image: "https://img.youtube.com/vi/lBMUyDymaIY/hqdefault.jpg",
+                alt: "Dave Anderson presenting",
               },
               {
                 num: "02",
                 title: "Podcasts",
                 desc: "Host of Tech Seeking Human — long-form conversations at the intersection of technology and humanity.",
                 href: "/podcasts",
+                image:
+                  "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/626x0w.webp",
+                alt: "Tech Seeking Human podcast artwork",
               },
               {
                 num: "03",
                 title: "Music",
                 desc: "Two albums. Wish It All Away (2009) and These Lies That Divide Us (2023).",
                 href: "/music",
+                image:
+                  "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/07/album-cover-poster.jpg",
+                alt: "These Lies That Divide Us album cover",
               },
             ].map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="bg-kraft hover:bg-kraft-alt transition-colors p-8 group flex flex-col"
+                className="bg-kraft hover:bg-kraft-alt transition-colors group flex flex-col"
               >
-                <p className="font-mono text-xs tracking-widest uppercase text-brass-dark">
-                  {item.num}
-                </p>
-                <h3 className="font-serif text-2xl font-medium mt-4 group-hover:text-brass transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-ink-soft text-sm mt-3 leading-relaxed flex-1">
-                  {item.desc}
-                </p>
-                <span className="text-brass text-sm mt-6 inline-flex items-center gap-1">
-                  Explore <span aria-hidden>→</span>
-                </span>
+                <div className="aspect-[4/3] overflow-hidden bg-kraft-alt border-b border-rule">
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-8 flex flex-col flex-1">
+                  <p className="font-mono text-xs tracking-widest uppercase text-brass-dark">
+                    {item.num}
+                  </p>
+                  <h3 className="font-serif text-2xl font-medium mt-4 group-hover:text-brass transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-ink-soft text-sm mt-3 leading-relaxed flex-1">
+                    {item.desc}
+                  </p>
+                  <span className="text-brass text-sm mt-6 inline-flex items-center gap-1">
+                    Explore <span aria-hidden>→</span>
+                  </span>
+                </div>
               </Link>
             ))}
           </div>

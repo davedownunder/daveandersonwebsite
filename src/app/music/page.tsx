@@ -11,7 +11,7 @@ const albums = [
   {
     title: "These Lies That Divide Us",
     year: "2023",
-    cover: "https://daveanderson.com.au/wp-content/uploads/2023/07/album-cover-poster.jpg",
+    cover: "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/07/album-cover-poster.jpg",
     blurb: "Second full-length. Rock, storytelling, raw emotion.",
     links: [
       { label: "Spotify", href: "https://open.spotify.com/album/2nrNpSbpWPsZaDOyfu3EaB" },
