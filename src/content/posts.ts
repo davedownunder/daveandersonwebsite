@@ -16,6 +16,7 @@ export const nativePosts: WPPost[] = [
     categories: ["Blog: Marketing"],
     tags: ["AI", "Marketing", "Leadership", "PointFive"],
     featured_image_id: "",
+    featured_image_url: "/Dave.jpeg",
     type: "post",
     excerpt:
       "My advice for marketers in the AI era, from a conversation Mattia Santin wrote up — seven things I actually do differently.",
