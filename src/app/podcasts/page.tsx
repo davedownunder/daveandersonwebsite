@@ -30,49 +30,49 @@ const guests = [
     name: "Magic Johnson",
     role: "NBA legend, entrepreneur",
     image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2021/02/cropped-cropped-cropped-cropped-aaa052f0-b98c-452e-b59a-02c4f0566eeb-1-1.jpg",
+      "/media/cropped-cropped-cropped-cropped-aaa052f0-b98c-452e-b59a--3af68281.jpg",
     videoId: "VTIEc07ycZI",
   },
   {
     name: "Marc Randolph",
     role: "Netflix co-founder",
     image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2021/02/cropped-cropped-cropped-cropped-cropped-cropped-image-e1634694692472.png",
+      "/media/cropped-cropped-cropped-cropped-cropped-cropped-image-e1-16c1169e.jpg",
     videoId: "0LoGTmr4s3k",
   },
   {
     name: "Hannah Fry",
     role: "Mathematician, broadcaster",
     image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-hannah-fry.jpeg",
+      "/media/cropped-hannah-fry-1b6566fe.jpeg",
     videoId: "hqEtaOHpjIQ",
   },
   {
     name: "Baratunde Thurston",
     role: "Writer, host",
     image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/02/cropped-cropped-nyt_likeabossbaratunde10.jpeg",
+      "/media/cropped-cropped-nyt_likeabossbaratunde10-0256ea49.jpeg",
     href: "https://www.youtube.com/@techseekinghuman/search?query=Baratunde",
   },
   {
     name: "Adam Cheyer",
     role: "Siri co-founder",
     image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2021/10/cropped-cropped-adam_cheyer.jpeg",
+      "/media/cropped-cropped-adam_cheyer-335548d0.jpeg",
     videoId: "dezsoPQsVCE",
   },
   {
     name: "Gene Kim",
     role: "Author, DevOps researcher",
     image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-Gene-Kim.jpeg",
+      "/media/cropped-Gene-Kim-e11ba47b.jpeg",
     videoId: "bCjsaJ3c_3A",
   },
   {
     name: "Tricia Wang",
     role: "Tech ethnographer",
     image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-preview_tricia-wang.jpeg",
+      "/media/cropped-preview_tricia-wang-2bef5afa.jpeg",
     videoId: "O_pPucSljYI",
   },
   {

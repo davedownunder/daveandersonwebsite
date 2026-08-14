@@ -11,7 +11,7 @@ const albums = [
   {
     title: "These Lies That Divide Us",
     year: "2023",
-    cover: "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/07/album-cover-poster.jpg",
+    cover: "/media/album-cover-poster-66445f5f.jpg",
     blurb: "Second full-length. Rock, storytelling, raw emotion.",
     links: [
       { label: "Spotify", href: "https://open.spotify.com/album/2nrNpSbpWPsZaDOyfu3EaB" },
@@ -22,7 +22,7 @@ const albums = [
     title: "Wish It All Away",
     year: "2009",
     cover:
-      "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/02/ab67616d0000b2731dbc32de9163e99338f2ff61.jpeg",
+      "/media/ab67616d0000b2731dbc32de9163e99338f2ff61-97d16ce2.jpeg",
     blurb: "Debut album. 4/5 in the Sydney Morning Herald. A track from it was placed on the ABC drama The Lying Game.",
     links: [
       { label: "Spotify", href: "https://open.spotify.com/album/1zX2Q7Dq2zTJ8Ksn5ChJQ6" },

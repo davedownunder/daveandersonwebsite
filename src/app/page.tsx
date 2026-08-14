@@ -9,43 +9,43 @@ const podcastGuests = [
   {
     name: "Magic Johnson",
     image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2021/02/cropped-cropped-cropped-cropped-aaa052f0-b98c-452e-b59a-02c4f0566eeb-1-1.jpg",
+      "/media/cropped-cropped-cropped-cropped-aaa052f0-b98c-452e-b59a--3af68281.jpg",
     videoId: "VTIEc07ycZI",
   },
   {
     name: "Marc Randolph",
     image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2021/02/cropped-cropped-cropped-cropped-cropped-cropped-image-e1634694692472.png",
+      "/media/cropped-cropped-cropped-cropped-cropped-cropped-image-e1-16c1169e.jpg",
     videoId: "0LoGTmr4s3k",
   },
   {
     name: "Hannah Fry",
     image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-hannah-fry.jpeg",
+      "/media/cropped-hannah-fry-1b6566fe.jpeg",
     videoId: "hqEtaOHpjIQ",
   },
   {
     name: "Baratunde Thurston",
     image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/02/cropped-cropped-nyt_likeabossbaratunde10.jpeg",
+      "/media/cropped-cropped-nyt_likeabossbaratunde10-0256ea49.jpeg",
     href: "https://www.youtube.com/@techseekinghuman/search?query=Baratunde",
   },
   {
     name: "Adam Cheyer",
     image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2021/10/cropped-cropped-adam_cheyer.jpeg",
+      "/media/cropped-cropped-adam_cheyer-335548d0.jpeg",
     videoId: "dezsoPQsVCE",
   },
   {
     name: "Gene Kim",
     image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-Gene-Kim.jpeg",
+      "/media/cropped-Gene-Kim-e11ba47b.jpeg",
     videoId: "bCjsaJ3c_3A",
   },
   {
     name: "Tricia Wang",
     image:
-      "https://i0.wp.com/daveandersononline.com/wp-content/uploads/2022/05/cropped-preview_tricia-wang.jpeg",
+      "/media/cropped-preview_tricia-wang-2bef5afa.jpeg",
     videoId: "O_pPucSljYI",
   },
   {
@@ -269,7 +269,7 @@ export default function Home() {
                 desc: "Two albums. Wish It All Away (2009) and These Lies That Divide Us (2023).",
                 href: "/music",
                 image:
-                  "https://i0.wp.com/daveanderson.com.au/wp-content/uploads/2023/07/album-cover-poster.jpg",
+                  "/media/album-cover-poster-66445f5f.jpg",
                 alt: "These Lies That Divide Us album cover",
               },
             ].map((item) => (
