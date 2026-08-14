@@ -56,8 +56,14 @@ export function getContent(): WPContent {
   return _content!;
 }
 
+// Categories retired from the site. The 2023 Japan travel diary was a
+// personal trip log; it dilutes a site whose job is speaking, podcasting
+// and marketing, and nearly all of its images died with the old host.
+const RETIRED_CATEGORIES = new Set(["travel"]);
+
 function isPublishablePost(post: WPPost): boolean {
-  return !THEME_DEMO_SLUGS.has(post.slug);
+  if (THEME_DEMO_SLUGS.has(post.slug)) return false;
+  return !post.categories.some((c) => RETIRED_CATEGORIES.has(c.toLowerCase()));
 }
 
 export function getAllPosts(category?: string): WPPost[] {
@@ -76,8 +82,7 @@ export function getAllPosts(category?: string): WPPost[] {
 
 // Categories covering Dave's professional output — marketing and tech
 // commentary, media appearances, talks and podcast work. Personal
-// categories (Travel, Lifestyle, Photography, Design) are deliberately
-// excluded: they have their own homes under /passions and /blog.
+// categories (Lifestyle, Photography, Design) are deliberately excluded.
 const PROFESSIONAL_CATEGORIES = new Set([
   "blog: marketing",
   "spokesperson",
@@ -89,8 +94,8 @@ const PROFESSIONAL_CATEGORIES = new Set([
 ]);
 
 /**
- * Professional writing only — used on the homepage so the travel diary
- * doesn't surface alongside business content. /blog still lists everything.
+ * Professional writing only — used on the homepage so personal posts don't
+ * surface alongside business content. /blog still lists everything published.
  */
 export function getProfessionalPosts(): WPPost[] {
   return getAllPosts().filter((post) =>

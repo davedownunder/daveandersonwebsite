@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
       { source: "/events/video-storytelling", destination: "/media", permanent: true },
       { source: "/speaking/content", destination: "/speaking", permanent: true },
       { source: "/speaking/video", destination: "/media", permanent: true },
+      // Travel diary retired; /passions hub collapsed to its one remaining page.
+      { source: "/passions", destination: "/passions/peloton", permanent: true },
+      { source: "/passions/travel", destination: "/passions/peloton", permanent: true },
     ];
   },
 };

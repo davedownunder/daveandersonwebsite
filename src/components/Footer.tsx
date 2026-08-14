@@ -37,7 +37,7 @@ export default function Footer() {
               <Link href="/podcasts" className="block text-sm text-ink-soft hover:text-brass transition-colors">Podcasts</Link>
               <Link href="/music" className="block text-sm text-ink-soft hover:text-brass transition-colors">Music</Link>
               <Link href="/blog" className="block text-sm text-ink-soft hover:text-brass transition-colors">Writing</Link>
-              <Link href="/passions" className="block text-sm text-ink-soft hover:text-brass transition-colors">Passions</Link>
+              <Link href="/passions/peloton" className="block text-sm text-ink-soft hover:text-brass transition-colors">Peloton</Link>
             </nav>
           </div>
 
