@@ -78,7 +78,7 @@ const guests = [
   {
     name: "Max Tegmark",
     role: "MIT physicist, Future of Life Institute",
-    image: "https://techseekinghuman.ai/wp-content/uploads/2021/03/maxtegmark.jpg",
+    image: "/media/maxtegmark-1ef7aecf.jpg",
     href: "https://techseekinghuman.ai/podcasts/episode-2-max-tegmark",
   },
 ];
