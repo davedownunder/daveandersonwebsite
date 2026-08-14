@@ -12,6 +12,11 @@ export interface WPPost {
   tags: string[];
   featured_image_id: string;
   type: string;
+  /**
+   * Direct image URL. Native posts use this instead of featured_image_id,
+   * which only resolves against the WordPress attachment table.
+   */
+  featured_image_url?: string;
 }
 
 export interface WPContent {
@@ -104,6 +109,7 @@ export function getPageBySlug(slug: string): WPPost | undefined {
 }
 
 export function getFeaturedImageUrl(post: WPPost): string | null {
+  if (post.featured_image_url) return post.featured_image_url;
   if (!post.featured_image_id) return null;
   const { attachments } = getContent();
   return attachments[post.featured_image_id] || null;
