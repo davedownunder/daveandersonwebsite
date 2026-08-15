@@ -159,6 +159,66 @@ export function GrowthBars({ rows }: { rows: GrowthRow[] }) {
   );
 }
 
+/* ── Before / after ───────────────────────────────────────────
+   The engine either exists or it does not. A percentage cannot
+   express a move from nothing, so this does not try. */
+
+export interface BeforeAfterRow {
+  thing: string;
+  now: string;
+}
+
+export function BeforeAfter({ rows }: { rows: BeforeAfterRow[] }) {
+  const { ref, shown } = useReveal<HTMLDivElement>();
+
+  return (
+    <div ref={ref} className="mt-12 border-t border-rule">
+      <div className="hidden md:grid grid-cols-12 gap-8 py-3 border-b border-rule">
+        <span className="col-span-5 font-mono text-[0.6rem] tracking-[0.2em] uppercase text-ink-muted">
+          January
+        </span>
+        <span className="col-span-7 font-mono text-[0.6rem] tracking-[0.2em] uppercase text-brass-dark">
+          Now
+        </span>
+      </div>
+      {rows.map((r, i) => (
+        <div
+          key={r.thing}
+          className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-5 border-b border-rule items-baseline"
+        >
+          <div className="md:col-span-5 flex items-baseline gap-3">
+            <span
+              aria-hidden
+              className="font-mono text-sm text-stroke shrink-0 leading-none"
+            >
+              &times;
+            </span>
+            <span className="text-base text-ink-muted line-through decoration-stroke">
+              {r.thing}
+            </span>
+          </div>
+          <div
+            className="md:col-span-7 flex items-baseline gap-3 transition-all duration-700"
+            style={{
+              opacity: shown ? 1 : 0,
+              transform: shown ? "none" : "translateX(-8px)",
+              transitionDelay: `${i * 90}ms`,
+            }}
+          >
+            <span
+              aria-hidden
+              className="font-mono text-sm text-brass shrink-0 leading-none"
+            >
+              &#10003;
+            </span>
+            <span className="text-base text-ink">{r.now}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 /* ── Usage bars ───────────────────────────────────────────────
    Where the agent actually spent its time. */
 

@@ -9,9 +9,11 @@ import {
   OutputInventory,
   GrowthBars,
   UsageBars,
+  BeforeAfter,
   type InventoryGroup,
   type GrowthRow,
   type UsageRow,
+  type BeforeAfterRow,
 } from "@/components/StoryCharts";
 
 export const metadata: Metadata = {
@@ -166,6 +168,29 @@ const growth: GrowthRow[] = [
     label: "Organic search clicks",
     pct: 73,
     detail: "Peaked at +157% in June, the month the new site landed.",
+  },
+];
+
+const engine: BeforeAfterRow[] = [
+  {
+    thing: "No conversion tracking at all",
+    now: "Every conversion instrumented and reported weekly",
+  },
+  {
+    thing: "No forms on the site",
+    now: "Demo bookings, webinar registration, event registration",
+  },
+  {
+    thing: "HubSpot not connected to Salesforce",
+    now: "Connected — a submission becomes a routed record",
+  },
+  {
+    thing: "No way to attribute a lead to a channel",
+    now: "Source, campaign and landing page on every contact",
+  },
+  {
+    thing: "No pipeline number marketing could stand behind",
+    now: "Sourced pipeline, reported against the same numbers sales uses",
   },
 ];
 
@@ -426,10 +451,75 @@ export default function AiNativePage() {
         </div>
       </section>
 
-      {/* ── The five ─────────────────────────────────────────── */}
+      {/* ── The demand engine ────────────────────────────────── */}
       <section className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5">04 · The team</p>
+          <p className="eyebrow mb-5">04 · The demand engine</p>
+          <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
+            This is not a team that did not exist.{" "}
+            <span className="italic text-brass">
+              It is an engine that was not running.
+            </span>
+          </h2>
+          <p className="mt-7 text-lg text-ink-soft leading-relaxed max-w-2xl">
+            The distinction matters. There were good people here in January.
+            What there was not was a way for interest to become a record, a
+            record to become a routed lead, or any of it to become a number
+            anyone could stand behind in a board meeting.
+          </p>
+
+          <BeforeAfter rows={engine} />
+
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-px bg-rule border border-rule rounded-md overflow-hidden">
+            <div className="bg-paper px-7 py-8">
+              <span className="block font-serif text-4xl text-verdigris-dark tabular-nums leading-none">
+                +382%
+              </span>
+              <span className="block mt-3 text-base text-ink">
+                Form submissions a month
+              </span>
+              <span className="block mt-1.5 text-sm text-ink-muted leading-snug">
+                First-quarter average against the April-onward average.
+              </span>
+            </div>
+            <div className="bg-paper px-7 py-8">
+              <span className="block font-serif text-4xl text-verdigris-dark tabular-nums leading-none">
+                +709%
+              </span>
+              <span className="block mt-3 text-base text-ink">
+                Best month against January
+              </span>
+              <span className="block mt-1.5 text-sm text-ink-muted leading-snug">
+                Same site, same category, same sales team.
+              </span>
+            </div>
+            <div className="bg-ink px-7 py-8">
+              <span className="block font-serif text-4xl !text-kraft leading-none">
+                Zero
+              </span>
+              <span className="block mt-3 text-base text-kraft">
+                Conversions recorded before August
+              </span>
+              <span className="block mt-1.5 text-sm text-kraft/55 leading-snug">
+                Not a low number. An empty field, every month, until the
+                tracking went in.
+              </span>
+            </div>
+          </div>
+
+          <p className="mt-8 text-sm text-ink-muted leading-relaxed max-w-2xl">
+            The last one is the honest centre of this section. Analytics
+            returns nothing for conversions in every month from January to
+            July — because nothing was measuring them. You cannot improve a
+            number that does not exist, and the first job was making it exist.
+          </p>
+        </div>
+      </section>
+
+      {/* ── The five ─────────────────────────────────────────── */}
+      <section className="border-b border-rule bg-kraft-soft">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
+          <p className="eyebrow mb-5">05 · The team</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
             Five roles, each holding what used to be four or five.
           </h2>
@@ -467,7 +557,7 @@ export default function AiNativePage() {
       {/* ── The loop ─────────────────────────────────────────── */}
       <section className="border-b border-rule bg-ink text-kraft">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5 !text-brass-soft">05 · The flow</p>
+          <p className="eyebrow mb-5 !text-brass-soft">06 · The flow</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight !text-kraft max-w-3xl">
             One loop, run over and over, on everything.
           </h2>
@@ -506,7 +596,7 @@ export default function AiNativePage() {
       {/* ── The stack ────────────────────────────────────────── */}
       <section className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5">06 · The ground truth</p>
+          <p className="eyebrow mb-5">07 · The ground truth</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
             The knowledge is already there.{" "}
             <span className="italic text-brass">Reach further down.</span>
@@ -569,7 +659,7 @@ export default function AiNativePage() {
       {/* ── The record ───────────────────────────────────────── */}
       <section className="border-b border-rule bg-ink text-kraft">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5 !text-brass-soft">07 · The working record</p>
+          <p className="eyebrow mb-5 !text-brass-soft">08 · The working record</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight !text-kraft max-w-3xl">
             Nine weeks inside the machine.
           </h2>
@@ -623,7 +713,7 @@ export default function AiNativePage() {
       {/* ── Limits ───────────────────────────────────────────── */}
       <section className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5">08 · The honest part</p>
+          <p className="eyebrow mb-5">09 · The honest part</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
             What this does not do.
           </h2>
@@ -671,7 +761,7 @@ export default function AiNativePage() {
       {/* ── For leaders ──────────────────────────────────────── */}
       <section className="border-b border-rule bg-kraft-soft">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5">09 · If you run a team</p>
+          <p className="eyebrow mb-5">10 · If you run a team</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
             Four changes that did the work.
           </h2>
