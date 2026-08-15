@@ -187,12 +187,26 @@ const stories = [
 export default function SpeakingPage() {
   return (
     <>
-      {/* Hero — deliberately unphotographed. Every available stage frame is a
-          mid-shot with a large bright slide in it, and behind a headline that
-          reads as noise rather than atmosphere. The reel's own poster frame is
-          already a full auditorium, so the room still lands immediately. */}
-      <section className="bg-ink text-kraft">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-14 pb-16 md:pt-16 md:pb-20">
+      {/* Hero — a booker's first question is whether this person can hold a
+          stage, and a full room answers it before they decide whether to click
+          play. This frame works where the closer stage shots do not: the screen
+          is small and distant, so nothing competes with the headline. */}
+      <section className="relative bg-ink text-kraft overflow-hidden">
+        <div aria-hidden className="absolute inset-0">
+          <img
+            src="/media/stage-perform-room.jpg"
+            alt=""
+            /* Anchored below centre so the visible band is seated audience and
+               stage rather than ceiling rig. */
+            className="w-full h-full object-cover object-[center_62%]"
+          />
+          {/* Horizontal scrim holds the headline; vertical settles the image
+              into the section edges. */}
+          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-ink/60" />
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-6 lg:px-8 pt-14 pb-16 md:pt-16 md:pb-20">
           <div className="max-w-3xl">
             <p className="eyebrow text-brass-soft mb-5">Speaking · Keynotes</p>
             <h1 className="font-serif text-5xl md:text-6xl font-light leading-[1.05] tracking-tight text-kraft">
