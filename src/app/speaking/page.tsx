@@ -132,6 +132,35 @@ const keynotes = [
   },
 ];
 
+// Three faces lifted from the podcast roster. On a speaking page these are not
+// a podcast plug — they are the fastest available proof that the person on
+// stage can hold a conversation with anyone in the room. Images are the same
+// files /podcasts uses.
+const interviewees = [
+  {
+    name: "Magic Johnson",
+    role: "No intro needed",
+    image:
+      "/media/cropped-cropped-cropped-cropped-aaa052f0-b98c-452e-b59a--3af68281.jpg",
+  },
+  {
+    name: "Marc Randolph",
+    role: "Netflix co-founder",
+    image:
+      "/media/cropped-cropped-cropped-cropped-cropped-cropped-image-e1-16c1169e.jpg",
+  },
+  {
+    name: "Hannah Fry",
+    role: "BBC, Genius",
+    image: "/media/cropped-hannah-fry-1b6566fe.jpeg",
+  },
+  {
+    name: "Max Tegmark",
+    role: "Future of Life, Life 3.0",
+    image: "/media/maxtegmark-1ef7aecf.jpg",
+  },
+];
+
 const stories = [
   {
     year: "Las Vegas · 2020",
@@ -158,9 +187,23 @@ const stories = [
 export default function SpeakingPage() {
   return (
     <>
-      {/* Hero — the showreel is the page, everything else is evidence */}
-      <section className="bg-ink text-kraft">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-14 pb-16 md:pt-16 md:pb-20">
+      {/* Hero — the room lands before the reel does. A booker's first question
+          is "can he hold a stage", and a photograph of 4,000 people answers it
+          without asking them to click play. The reel then does the convincing. */}
+      <section className="relative bg-ink text-kraft overflow-hidden">
+        <div aria-hidden className="absolute inset-0">
+          <img
+            src="/media/stage-perform-room.jpg"
+            alt=""
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Two scrims: horizontal keeps the headline legible over the crowd,
+              vertical settles the image into the section edges. */}
+          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/45" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-ink/70" />
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-6 lg:px-8 pt-14 pb-16 md:pt-16 md:pb-20">
           <div className="max-w-3xl">
             <p className="eyebrow text-brass-soft mb-5">Speaking · Keynotes</p>
             <h1 className="font-serif text-5xl md:text-6xl font-light leading-[1.05] tracking-tight text-kraft">
@@ -239,7 +282,7 @@ export default function SpeakingPage() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
           <p className="eyebrow mb-3">The talks</p>
           <h2 className="font-serif text-3xl md:text-4xl font-light max-w-2xl leading-tight">
-            Three keynotes I&rsquo;m booked for right now.
+            Four keynotes I&rsquo;m booked for right now.
           </h2>
           <p className="mt-5 text-ink-soft leading-relaxed max-w-2xl">
             Each one gets rewritten for the room &mdash; your industry, your
@@ -345,26 +388,108 @@ export default function SpeakingPage() {
         </div>
       </section>
 
-      {/* Stats strip — verifiable credentials */}
+      {/* Stats strip — the numbers sit next to a picture of the person, so the
+          credential and the human land together rather than as abstract figures. */}
       <section className="border-b border-rule bg-ink text-kraft">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-12 md:py-14">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4">
-            {[
-              { big: "3 continents", small: "APAC · North America · EMEA" },
-              { big: "4,000+", small: "at Dynatrace Perform, Las Vegas" },
-              { big: "30,000+", small: "virtual audience, Perform 2020" },
-              { big: "Saxton", small: "listed speaker, Australia & NZ" },
-            ].map((s) => (
-              <div key={s.big} className="text-left md:text-center">
-                <p className="font-serif text-4xl md:text-5xl font-light text-kraft leading-none">
-                  {s.big}
-                </p>
-                <p className="mt-2 text-sm text-kraft/70 font-mono uppercase tracking-widest">
-                  {s.small}
-                </p>
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-12 md:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <div className="lg:col-span-5">
+              <div className="aspect-[16/10] overflow-hidden rounded-md border border-brass/25 bg-black">
+                <img
+                  src="/media/stage-cxcircle-mindy.jpg"
+                  alt="Dave Anderson on stage at CX Circle, presenting an AI sales agent demo"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
               </div>
-            ))}
+              <p className="mt-3 font-mono text-[0.65rem] uppercase tracking-widest text-kraft/50">
+                CX Circle by Contentsquare
+              </p>
+            </div>
+
+            <div className="lg:col-span-7 grid grid-cols-2 gap-8 md:gap-6">
+              {[
+                { big: "3 continents", small: "APAC · North America · EMEA" },
+                { big: "4,000+", small: "at Dynatrace Perform, Las Vegas" },
+                { big: "30,000+", small: "virtual audience, Perform 2020" },
+                { big: "Saxton", small: "listed speaker, Australia & NZ" },
+              ].map((s) => (
+                <div key={s.big} className="text-left">
+                  <p className="font-serif text-4xl md:text-5xl font-light text-kraft leading-none">
+                    {s.big}
+                  </p>
+                  <p className="mt-2 text-sm text-kraft/70 font-mono uppercase tracking-widest leading-snug">
+                    {s.small}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* Audience band — the phones are the point: this is what a room does
+          with the parts it wants to keep. */}
+      <section className="relative border-b border-rule bg-ink overflow-hidden">
+        <div aria-hidden className="absolute inset-0">
+          <img
+            src="/media/stage-cxcircle-wide.jpg"
+            alt=""
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-ink/65" />
+        </div>
+        <div className="relative max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
+          <p className="font-serif text-2xl md:text-4xl font-light leading-snug text-kraft max-w-3xl text-balance">
+            The measure of a keynote is not the applause. It&rsquo;s how much of
+            it the room takes a photograph of.
+          </p>
+        </div>
+      </section>
+
+      {/* Interview roster — an on-stage interview or fireside is a different
+          booking to a keynote, and this is the evidence for it. */}
+      <section className="border-b border-rule">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <p className="eyebrow mb-3">Also available to host</p>
+              <h2 className="font-serif text-3xl md:text-4xl font-light max-w-2xl leading-tight">
+                I interview people like this for a living.
+              </h2>
+              <p className="mt-5 text-ink-soft leading-relaxed max-w-2xl">
+                Forty-one long-form episodes of{" "}
+                <Link
+                  href="/podcasts"
+                  className="text-brass-dark hover:text-brass underline underline-offset-2"
+                >
+                  Tech Seeking Human
+                </Link>
+                . If your event needs a mainstage interview, a fireside or a
+                panel chair rather than a keynote, that is the same job and
+                I&rsquo;m happy to do it.
+              </p>
+            </div>
+          </div>
+          <TickRule className="mt-10 mb-10 opacity-50" />
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-5">
+            {interviewees.map((g) => (
+              <li key={g.name}>
+                <div className="aspect-square overflow-hidden rounded-md border border-rule bg-kraft-alt">
+                  <img
+                    src={g.image}
+                    alt={g.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="font-serif text-base mt-3 text-ink">{g.name}</p>
+                <p className="text-ink-muted text-xs mt-0.5 leading-snug">
+                  {g.role}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -462,7 +587,35 @@ export default function SpeakingPage() {
           <h2 className="font-serif text-3xl md:text-4xl font-light max-w-2xl leading-tight">
             A handful of keynotes I&rsquo;m still proud of.
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+
+          {/* The guitar sits here rather than up top: it is personality, and it
+              reads as range only once the operator credentials have landed. */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-10 items-center">
+            <div className="md:col-span-5">
+              <div className="aspect-[4/3] overflow-hidden rounded-md border border-rule bg-ink">
+                <img
+                  src="/media/stage-cxcircle-guitar.jpg"
+                  alt="Dave Anderson closing a CX Circle keynote with a guitar, in a Socceroos jersey"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="md:col-span-7">
+              <p className="font-serif text-2xl md:text-3xl font-light leading-snug text-ink text-balance">
+                Some rooms get the rap. Some get the guitar.
+              </p>
+              <p className="mt-4 text-ink-soft leading-relaxed max-w-xl">
+                Twenty years of opening keynotes has taught me that the first
+                ninety seconds decide whether a room is with you. Occasionally
+                that means an instrument. Mostly it means knowing exactly what
+                the audience came for and getting there faster than they
+                expected.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12">
             {stories.map((s) => (
               <div
                 key={s.title}
