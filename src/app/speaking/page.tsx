@@ -72,19 +72,53 @@ const talks = [
 const keynotes = [
   {
     audience: "For CMOs and marketing leaders",
-    title: "The Agentic Marketing Squad",
+    format: "Flagship · 30–45 min",
+    fits: "UNBOUND · MAICON · Drive · Mumbrella360",
+    title: "The Marketing Team That Ships Code",
     hook:
-      "The org chart you inherited assumes a human does every task. That assumption is now the most expensive line in your budget.",
+      "Five marketers, production access, eighty-two pull requests. Almost nobody in marketing can say that.",
     body:
-      "What a marketing team actually looks like when agents do the work — smaller squads, more output, and the handful of things that must stay human. Built from running an AI-native marketing function at PointFive, not from a vendor deck.",
+      "Plenty of people talk about AI in marketing. Very few marketing organisations write and merge their own code. This is what happened when mine did — what broke, what the org chart looks like now, and the four changes that actually did the work.",
     takeaways: [
-      "Where agents genuinely beat headcount, and where they quietly cost more",
-      "How to restructure around squads instead of functions",
-      "What stays human: taste, judgement and the customer relationship",
+      "What changes when the person with the idea can also publish it",
+      "The four changes that mattered, and the three that did nothing",
+      "Where the bottleneck moves once production stops being the constraint",
+    ],
+  },
+  {
+    audience: "For engineering and dev-adjacent rooms",
+    format: "Technical · 20–30 min, with a live demo",
+    fits: "Code with Claude · AI Tinkerers · dev-adjacent tracks",
+    title: "Non-Engineers in the Repo",
+    hook:
+      "What happens when the people writing the copy also open the pull request.",
+    body:
+      "A working session rather than a slide deck. Permissions, review gates, and the fact-checking bottleneck that speed created — built live, against a real repository, including the parts that go wrong.",
+    takeaways: [
+      "The permission model that makes non-engineer commits safe",
+      "Review gates that catch claims, not just syntax",
+      "Why faster production made quality assurance the scarce resource",
+    ],
+  },
+  {
+    audience: "For boards, exec teams and risk-aware rooms",
+    format: "Board / exec · 20 min",
+    fits: "Forrester · CMO Alliance · ADMA · enterprise internals",
+    title: "Does the Claim Survive an Audit?",
+    hook:
+      "Every published number needs a source, a date and a named human approver. Most do not have one.",
+    body:
+      "Why governance — not model choice — is what separates AI theatre from AI output. Drawn from getting this wrong first: a launch where our own number appeared at three different values across three of our own surfaces, and the gate that now prevents it.",
+    takeaways: [
+      "The fact register, and why it costs nothing until you need it",
+      "Freezing the claim set before anything gets built against it",
+      "How to tell a governed AI programme from a demo, in one question",
     ],
   },
   {
     audience: "For opening keynotes, summits and all-hands",
+    format: "Opening keynote · 30–45 min",
+    fits: "Summits, all-hands and main-stage openers",
     title: "Tech Seeking Human",
     hook:
       "Forty-one conversations with the people building AI — and the thing they all quietly worry about.",
@@ -94,19 +128,6 @@ const keynotes = [
       "What the people closest to AI actually believe about the next five years",
       "The difference between automation that compounds and automation that decays",
       "Why the future-of-work question is really a what-stays-human question",
-    ],
-  },
-  {
-    audience: "For CX, digital and product teams",
-    title: "How High-Performing CX Teams Win",
-    hook:
-      "The best experience teams don't have better tools. They have fewer arguments about who owns the customer.",
-    body:
-      "Why digital experience only works when the whole organisation owns it, and what the teams who get it right do differently. Delivered at CX Circle in Sydney and Melbourne, to Contentsquare and Qualtrics audiences, and to CX leaders across three continents.",
-    takeaways: [
-      "Why CX stalls the moment it lives inside one department",
-      "The metrics that make product, engineering and marketing pull the same way",
-      "How to run the first ninety days of a CX turnaround",
     ],
   },
 ];
@@ -233,9 +254,14 @@ export default function SpeakingPage() {
                 key={k.title}
                 className="border border-rule bg-kraft-soft rounded-md p-7 md:p-8 flex flex-col"
               >
-                <p className="font-mono text-xs tracking-widest text-brass-dark">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
+                <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                  <p className="font-mono text-xs tracking-widest text-brass-dark">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <p className="font-mono text-[0.65rem] uppercase tracking-widest text-ink-muted">
+                    {k.format}
+                  </p>
+                </div>
                 <h3 className="font-serif text-2xl md:text-[1.7rem] font-light mt-4 leading-tight text-ink">
                   {k.title}
                 </h3>
@@ -264,9 +290,14 @@ export default function SpeakingPage() {
                   ))}
                 </ul>
 
-                <p className="font-mono text-[0.65rem] uppercase tracking-widest text-ink-muted mt-7 pt-5 border-t border-rule-soft">
-                  {k.audience}
-                </p>
+                <div className="mt-7 pt-5 border-t border-rule-soft">
+                  <p className="font-mono text-[0.65rem] uppercase tracking-widest text-ink-muted">
+                    {k.audience}
+                  </p>
+                  <p className="mt-2 text-[0.8rem] leading-snug text-ink-muted">
+                    <span className="text-brass-dark">Fits:</span> {k.fits}
+                  </p>
+                </div>
               </article>
             ))}
           </div>
