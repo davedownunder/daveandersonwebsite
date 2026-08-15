@@ -350,17 +350,15 @@ export default function AiNativePage() {
       <section className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-16 pb-16 md:pt-20 md:pb-20">
           <p className="eyebrow mb-5">Field note · Marketing operations · 2026</p>
-          <h1 className="font-serif text-5xl md:text-7xl font-light leading-[1.02] tracking-tight text-ink max-w-4xl">
-            Five people.{" "}
-            <span className="italic text-brass">
-              The output of thirty.
-            </span>
+          <h1 className="font-serif text-5xl md:text-7xl font-light leading-[1.02] tracking-tight text-ink max-w-5xl text-balance">
+            Five people. The output of thirty.{" "}
+            <span className="italic text-brass">Months of work in days.</span>
           </h1>
           <p className="mt-8 text-lg md:text-xl text-ink-soft leading-relaxed max-w-2xl">
-            Months became days. Weeks became hours. The difference is not effort
-            or talent or longer days — it is that the knowledge and the data are
-            already sitting there, wired in and ready. All that is left is to
-            ideate and execute.
+            Weeks of it in hours. The difference is not effort, or talent, or
+            longer days — it is that the knowledge and the data are already
+            sitting there, wired in and ready. All that is left is to ideate and
+            execute.
           </p>
           <p className="mt-5 text-base text-ink-muted leading-relaxed max-w-2xl">
             Every person on this team is AI-native. All five have GitHub and
