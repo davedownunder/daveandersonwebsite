@@ -1,6 +1,9 @@
+/* Must precede everything: `@import "tailwindcss"` expands inline, so a font
+   @import placed after it is no longer at the top of the stylesheet and CSS
+   parsing fails. */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap");
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap");
 
 :root {
   --color-kraft: #eae3d2;
