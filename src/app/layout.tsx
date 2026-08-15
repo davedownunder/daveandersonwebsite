@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+// GA4 Measurement ID — from the data stream, not the numeric property ID
+// (410986708), which gtag does not accept. Public by design: it ships in the
+// page source on every GA-tagged site, so it is not a secret.
+// Guarded below so an empty value renders no tag rather than a broken script.
+const GA_MEASUREMENT_ID = "G-EK3PC0JPXY";
 
 const DESCRIPTION =
   "CMO at PointFive (the AI Efficiency OS), Saxton-listed keynote speaker, host of Tech Seeking Human. Australian, based in Boston.";
@@ -42,6 +49,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
       </body>
+      {GA_MEASUREMENT_ID && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
     </html>
   );
 }
