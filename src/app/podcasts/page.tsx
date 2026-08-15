@@ -24,6 +24,51 @@ const listen = [
   { label: "techseekinghuman.ai", href: "https://techseekinghuman.ai" },
 ];
 
+// Shows Dave has appeared on as a guest. Links carried over from the previous
+// site; verify before adding more — the Software Sales Podcast block on the old
+// site held two episode links and it is not clear both are Dave's.
+const appearances = [
+  {
+    show: "How I Made It In Marketing",
+    episode: "Customer experience: great experiences are invisible",
+    links: [
+      {
+        label: "Apple",
+        href: "https://podcasts.apple.com/us/podcast/customer-experience-great-experiences-are-invisible/id1604635130?i=1000716720601",
+      },
+      {
+        label: "Spotify",
+        href: "https://open.spotify.com/episode/7KaYVuIaTYkATms2fJaArV",
+      },
+    ],
+  },
+  {
+    show: "Tech Talks Daily",
+    episode: "The tech helping businesses understand customers",
+    links: [
+      {
+        label: "Apple",
+        href: "https://podcasts.apple.com/us/podcast/the-tech-helping-businesses-understand-customers/id1018727913?i=1000590501348",
+      },
+      {
+        label: "Spotify",
+        href: "https://open.spotify.com/episode/4p1W3TJFMSvVrAEcw03Qly",
+      },
+    ],
+  },
+  {
+    show: "Software Sales Podcast",
+    episode: "On marketing, category and the long game",
+    links: [
+      {
+        label: "Spotify",
+        href: "https://open.spotify.com/episode/3cYgBY2vsSdSSqiNWPUDdB",
+      },
+      { label: "YouTube", href: "https://youtu.be/G1Y9lfSuOaU" },
+    ],
+  },
+];
+
 // Guests with a known single-video id open in a lightbox; the rest link out.
 const guests = [
   {
@@ -217,6 +262,45 @@ export default function PodcastsPage() {
               <GuestTile key={guest.name} guest={guest} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* On the other side of the mic */}
+      <section className="border-b border-rule">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
+          <p className="eyebrow mb-3">On the other side of the mic</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-light max-w-2xl leading-tight">
+            Shows I&rsquo;ve been a guest on.
+          </h2>
+          <TickRule className="mt-8 mb-10 opacity-50" />
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {appearances.map((a) => (
+              <li
+                key={a.show}
+                className="border border-rule bg-kraft-soft rounded-md p-6 flex flex-col gap-3"
+              >
+                <p className="font-serif text-xl text-ink leading-snug">
+                  {a.show}
+                </p>
+                <p className="text-ink-muted text-sm leading-snug flex-1">
+                  {a.episode}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {a.links.map((l) => (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 border border-rule text-ink hover:bg-ink hover:text-kraft transition-colors font-medium px-3 py-1.5 rounded-full text-xs"
+                    >
+                      {l.label}
+                    </a>
+                  ))}
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
