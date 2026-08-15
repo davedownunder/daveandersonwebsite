@@ -443,6 +443,16 @@ export default function AiNativePage() {
               </p>
             </div>
             <GrowthBars rows={reach} />
+
+            <div className="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-2 border border-rule rounded-md bg-paper px-7 py-6">
+              <span className="font-serif text-4xl text-verdigris-dark leading-none">
+                #1
+              </span>
+              <span className="text-base text-ink">
+                Average position in AI search, of the twenty-five brands tracked
+                in our category — ahead of every competitor.
+              </span>
+            </div>
           </div>
 
           <div className="mt-16">
@@ -455,53 +465,18 @@ export default function AiNativePage() {
               </p>
             </div>
             <GrowthBars rows={conversion} />
-            <p className="mt-6 text-base text-ink-soft leading-relaxed max-w-2xl">
-              Webinar registrations per month grew{" "}
-              <strong className="font-medium">roughly 145-fold</strong> over the
-              same period — left off the chart because at that scale it flattens
-              everything beside it. There was no webinar program in the first
-              quarter, so it is growth from a standing start rather than an
-              improvement on a baseline.
-            </p>
+
+            <div className="mt-6 flex flex-wrap items-baseline gap-x-6 gap-y-2 border border-rule rounded-md bg-paper px-7 py-6">
+              <span className="font-serif text-4xl text-verdigris-dark leading-none tabular-nums">
+                145&times;
+              </span>
+              <span className="text-base text-ink">
+                Webinar registrations a month, from a standing start — there was
+                no webinar program in the first quarter.
+              </span>
+            </div>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div>
-              <h3 className="font-serif text-2xl font-normal text-ink">
-                On AI search, position beats volume
-              </h3>
-              <p className="mt-3 text-base text-ink-soft leading-relaxed">
-                Across the twenty-five brands tracked in our category, PointFive
-                holds the <strong className="font-medium">best average position of any of them</strong> —
-                ahead of every competitor including the two with nearly three
-                times our visibility.
-              </p>
-              <p className="mt-3 text-base text-ink-muted leading-relaxed">
-                Being named less often but named first is a better problem than
-                the reverse. Visibility itself has been flat since May, and I
-                would rather say that plainly than dress it up — it is the next
-                thing to fix.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-serif text-2xl font-normal text-ink">
-                The research campaign is five days old
-              </h3>
-              <p className="mt-3 text-base text-ink-soft leading-relaxed">
-                It launched on 10 August. The analytics container was not live on
-                the research pages until the 11th, and conversion events were not
-                wired until the 13th — so the real traffic is{" "}
-                <strong className="font-medium">higher than anything currently measured</strong>,
-                and the early conversion picture is incomplete by construction.
-              </p>
-              <p className="mt-3 text-base text-ink-muted leading-relaxed">
-                What is already true: the two research posts engaged at two to
-                three times our baseline, on smaller reach than the posts they
-                beat. Judging any of it as a finished result this week would be
-                the wrong call.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
