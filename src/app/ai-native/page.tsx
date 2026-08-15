@@ -17,9 +17,9 @@ import {
 } from "@/components/StoryCharts";
 
 export const metadata: Metadata = {
-  title: "How five people run an AI-native marketing team",
+  title: "AI-native marketing: when the marketers ship the code",
   description:
-    "A field note from inside a five-person marketing team. What months of work compressed to days actually looks like — measured in time, in people, and in what it did to the numbers.",
+    "A field note from a five-person marketing team where every marketer opens pull requests to production. The method, the instrumented counts across a fixed window, and the limitations.",
 };
 
 /**
@@ -351,25 +351,55 @@ export default function AiNativePage() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-16 pb-16 md:pt-20 md:pb-20">
           <p className="eyebrow mb-5">Field note · Marketing operations · 2026</p>
           <h1 className="font-serif text-5xl md:text-7xl font-light leading-[1.02] tracking-tight text-ink max-w-5xl text-balance">
-            Five people. The output of thirty.{" "}
-            <span className="italic text-brass">Months of work in days.</span>
+            The marketers ship the code.{" "}
+            <span className="italic text-brass">All five of them.</span>
           </h1>
           <p className="mt-8 text-lg md:text-xl text-ink-soft leading-relaxed max-w-2xl">
-            Weeks of it in hours. The difference is not effort, or talent, or
-            longer days — it is that the knowledge and the data are already
-            sitting there, wired in and ready. All that is left is to ideate and
-            execute.
+            Not a metaphor for moving fast. Every person on this marketing team
+            has GitHub and Vercel, and opens pull requests against the
+            production website. No ticket, no queue, no waiting on a sprint that
+            belongs to someone else.
           </p>
           <p className="mt-5 text-base text-ink-muted leading-relaxed max-w-2xl">
-            Every person on this team is AI-native. All five have GitHub and
-            Vercel. All five can publish a page, ship an app, and open a pull
-            request against the production site. That is the baseline now, not
-            the exception.
+            What follows is the working record of what that changes — counted
+            from git history and session transcripts over a fixed window, with
+            the things it does not solve stated at the end. The method first.
+            The multiples are a consequence of it.
           </p>
 
           <div className="mt-9">
             <ShopTag>Counted, not estimated · Jan – Aug 2026</ShopTag>
           </div>
+
+          {/* Receipts. The claim above is unusual, so evidence comes early. */}
+          <dl className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-px bg-rule border border-rule rounded-md overflow-hidden">
+            {[
+              { n: "82", l: "pull requests to production" },
+              { n: "439", l: "live pages, from zero" },
+              { n: "14", l: "systems wired in" },
+              { n: "99", l: "measured working sessions" },
+              { n: "5", l: "people" },
+            ].map((s, i) => (
+              <div
+                key={s.l}
+                /* Five tiles in a two-column grid leaves a dead cell — the
+                   last one spans the row until the five-up kicks in. */
+                className={`bg-paper px-5 py-6 ${
+                  i === 4 ? "col-span-2 md:col-span-1" : ""
+                }`}
+              >
+                <dt className="sr-only">{s.l}</dt>
+                <dd>
+                  <span className="block font-serif text-4xl text-ink tabular-nums leading-none">
+                    {s.n}
+                  </span>
+                  <span className="block mt-2 text-sm text-ink-muted leading-snug">
+                    {s.l}
+                  </span>
+                </dd>
+              </div>
+            ))}
+          </dl>
 
           <TickRule className="mt-12 opacity-60" />
         </div>
@@ -389,6 +419,11 @@ export default function AiNativePage() {
             in sequence, each waiting on the last. Two axes below: how long it
             took, and how many people it took. Multiply them and you get the
             real number.
+          </p>
+          <p className="mt-5 text-lg text-ink-soft leading-relaxed max-w-2xl">
+            Added up, it is roughly the output of a team six times the size. That
+            is the consequence, not the argument — the argument is the method,
+            and the method is on the rows below.
           </p>
 
           <CompressionLedger rows={ledger} />
