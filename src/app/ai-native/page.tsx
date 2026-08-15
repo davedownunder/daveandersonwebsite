@@ -173,24 +173,24 @@ const growth: GrowthRow[] = [
 
 const engine: BeforeAfterRow[] = [
   {
-    thing: "No conversion tracking at all",
-    now: "Every conversion instrumented and reported weekly",
+    thing: "Legacy forms, no campaign coding",
+    now: "Every form carries a date, a type and a program it belongs to",
   },
   {
-    thing: "No forms on the site",
-    now: "Demo bookings, webinar registration, event registration",
+    thing: "Two webinar registrations in the whole first quarter",
+    now: "A running webinar program — 387 registrations across four months",
+  },
+  {
+    thing: "No repeatable event registration path",
+    now: "Event registration as a standing flow, on-demand versions included",
   },
   {
     thing: "HubSpot not connected to Salesforce",
     now: "Connected — a submission becomes a routed record",
   },
   {
-    thing: "No way to attribute a lead to a channel",
-    now: "Source, campaign and landing page on every contact",
-  },
-  {
-    thing: "No pipeline number marketing could stand behind",
-    now: "Sourced pipeline, reported against the same numbers sales uses",
+    thing: "No conversion measurement in analytics",
+    now: "Instrumented in August, so both systems now agree",
   },
 ];
 
@@ -462,56 +462,71 @@ export default function AiNativePage() {
             </span>
           </h2>
           <p className="mt-7 text-lg text-ink-soft leading-relaxed max-w-2xl">
-            The distinction matters. There were good people here in January.
-            What there was not was a way for interest to become a record, a
-            record to become a routed lead, or any of it to become a number
-            anyone could stand behind in a board meeting.
+            The distinction matters. There were good people here in January, and
+            there were forms — inherited ones, mostly whitepaper downloads,
+            belonging to no program and coded to no campaign. What there was not
+            was a machine: a webinar running every month, an event path that
+            repeated, and an attribution trail from a click to a routed record.
           </p>
 
           <BeforeAfter rows={engine} />
 
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-px bg-rule border border-rule rounded-md overflow-hidden">
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-rule border border-rule rounded-md overflow-hidden">
+            <div className="bg-ink px-7 py-8">
+              <span className="block font-serif text-4xl !text-kraft tabular-nums leading-none">
+                2 &rarr; 387
+              </span>
+              <span className="block mt-3 text-base text-kraft">
+                Webinar registrations
+              </span>
+              <span className="block mt-1.5 text-sm text-kraft/55 leading-snug">
+                The whole of Q1, against April to July.
+              </span>
+            </div>
+            <div className="bg-paper px-7 py-8">
+              <span className="block font-serif text-4xl text-verdigris-dark tabular-nums leading-none">
+                +1,450%
+              </span>
+              <span className="block mt-3 text-base text-ink">
+                Event registrations a month
+              </span>
+              <span className="block mt-1.5 text-sm text-ink-muted leading-snug">
+                From nine a month to a hundred and forty.
+              </span>
+            </div>
             <div className="bg-paper px-7 py-8">
               <span className="block font-serif text-4xl text-verdigris-dark tabular-nums leading-none">
                 +382%
               </span>
               <span className="block mt-3 text-base text-ink">
-                Form submissions a month
+                All form submissions a month
               </span>
               <span className="block mt-1.5 text-sm text-ink-muted leading-snug">
-                First-quarter average against the April-onward average.
+                Q1 average against the April-onward average.
               </span>
             </div>
             <div className="bg-paper px-7 py-8">
               <span className="block font-serif text-4xl text-verdigris-dark tabular-nums leading-none">
-                +709%
+                +167%
               </span>
               <span className="block mt-3 text-base text-ink">
-                Best month against January
+                Demo requests a month
               </span>
               <span className="block mt-1.5 text-sm text-ink-muted leading-snug">
-                Same site, same category, same sales team.
-              </span>
-            </div>
-            <div className="bg-ink px-7 py-8">
-              <span className="block font-serif text-4xl !text-kraft leading-none">
-                Zero
-              </span>
-              <span className="block mt-3 text-base text-kraft">
-                Conversions recorded before August
-              </span>
-              <span className="block mt-1.5 text-sm text-kraft/55 leading-snug">
-                Not a low number. An empty field, every month, until the
-                tracking went in.
+                The bottom of the funnel moved too, not just the top.
               </span>
             </div>
           </div>
 
           <p className="mt-8 text-sm text-ink-muted leading-relaxed max-w-2xl">
-            The last one is the honest centre of this section. Analytics
-            returns nothing for conversions in every month from January to
-            July — because nothing was measuring them. You cannot improve a
-            number that does not exist, and the first job was making it exist.
+            All of it from the CRM, which is the only system that held the
+            answer for the whole period. Analytics did not measure conversions
+            until August, so it cannot be used to compare against January — the
+            measurement changed, and reading that as a change in performance
+            would be wrong. The composition is the real finding: in January not
+            one submission carried a campaign code. From April, every single one
+            does, and the old whitepaper forms that made up most of the early
+            volume have been retired.
           </p>
         </div>
       </section>
