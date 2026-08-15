@@ -187,23 +187,12 @@ const stories = [
 export default function SpeakingPage() {
   return (
     <>
-      {/* Hero — the room lands before the reel does. A booker's first question
-          is "can he hold a stage", and a photograph of 4,000 people answers it
-          without asking them to click play. The reel then does the convincing. */}
-      <section className="relative bg-ink text-kraft overflow-hidden">
-        <div aria-hidden className="absolute inset-0">
-          <img
-            src="/media/stage-perform-room.jpg"
-            alt=""
-            className="w-full h-full object-cover object-center"
-          />
-          {/* Two scrims: horizontal keeps the headline legible over the crowd,
-              vertical settles the image into the section edges. */}
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/45" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-ink/70" />
-        </div>
-
-        <div className="relative max-w-6xl mx-auto px-6 lg:px-8 pt-14 pb-16 md:pt-16 md:pb-20">
+      {/* Hero — deliberately unphotographed. Every available stage frame is a
+          mid-shot with a large bright slide in it, and behind a headline that
+          reads as noise rather than atmosphere. The reel's own poster frame is
+          already a full auditorium, so the room still lands immediately. */}
+      <section className="bg-ink text-kraft">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-14 pb-16 md:pt-16 md:pb-20">
           <div className="max-w-3xl">
             <p className="eyebrow text-brass-soft mb-5">Speaking · Keynotes</p>
             <h1 className="font-serif text-5xl md:text-6xl font-light leading-[1.05] tracking-tight text-kraft">
@@ -428,18 +417,11 @@ export default function SpeakingPage() {
         </div>
       </section>
 
-      {/* Audience band — the phones are the point: this is what a room does
-          with the parts it wants to keep. */}
-      <section className="relative border-b border-rule bg-ink overflow-hidden">
-        <div aria-hidden className="absolute inset-0">
-          <img
-            src="/media/stage-cxcircle-wide.jpg"
-            alt=""
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-ink/65" />
-        </div>
-        <div className="relative max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
+      {/* Quote band — kept as flat ink for the same reason as the hero: a
+          bright slide behind display type competes with it rather than
+          supporting it. */}
+      <section className="border-b border-rule bg-ink">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
           <p className="font-serif text-2xl md:text-4xl font-light leading-snug text-kraft max-w-3xl text-balance">
             The measure of a keynote is not the applause. It&rsquo;s how much of
             it the room takes a photograph of.
