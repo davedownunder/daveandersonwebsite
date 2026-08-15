@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Dave Anderson">
+  <rect width="64" height="64" rx="13" fill="#211D18"/>
+  <path fill="#EAE3D2" fill-rule="evenodd"
+        d="M9.5 15.5h10.6c7.7 0 12.2 6.5 12.2 15.5S27.8 46.5 20.1 46.5H9.5V15.5zm7.2 6.8v17.4h3c3.9 0 5.6-3.9 5.6-8.7s-1.7-8.7-5.6-8.7h-3z"/>
+  <path fill="#EAE3D2" fill-rule="evenodd"
+        d="M34.4 46.5 44.7 15.5l10.3 31h-6.2l-1.9-5.8h-4.4l-1.9 5.8h-6.2zm10.3-21.2-2.3 10h4.6l-2.3-10z"/>
+  <rect x="15" y="51.6" width="34" height="1.8" rx="0.9" fill="#9C7A34"/>
+</svg>
