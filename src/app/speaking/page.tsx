@@ -37,15 +37,22 @@ const analystEvents = ["Forrester Digital Summit", "Gartner"];
 // maxresdefault thumbnail available, which the collage uses.
 // NOTE: the old Dynatrace "Reinvention" IPO film (IzgmwbpHxWQ) referenced by
 // the previous WordPress site is now unavailable, so it is deliberately omitted.
-const feature = {
-  id: "huWsHT-AX5s",
-  note: "CX Circle · Keynote",
-  title: "Succeeding at digital experience is a team sport",
-  body:
-    "Twenty minutes on why digital experience only works when the whole organisation owns it. Guitar and Socceroos jersey included.",
+
+// The showreel leads the page — it is the shortest, fastest answer to the only
+// question a booker has before anything else: what is he like on stage?
+const showreel = {
+  id: "lBMUyDymaIY",
+  title: "Dave Anderson — speaker reel",
 };
 
 const talks = [
+  {
+    id: "huWsHT-AX5s",
+    note: "CX Circle · Keynote",
+    title: "Succeeding at digital experience is a team sport",
+    body:
+      "Twenty minutes on why digital experience only works when the whole organisation owns it. Guitar and Socceroos jersey included.",
+  },
   {
     id: "8kZDfD7msuQ",
     note: "CX Circle Melbourne · 2025",
@@ -58,11 +65,49 @@ const talks = [
     title: "Customer experience in an AI-first world",
     body: "Full session.",
   },
+];
+
+// The three keynotes currently on offer. Each is rewritten for the room, so
+// the takeaways are the fixed part and the examples are not.
+const keynotes = [
   {
-    id: "lBMUyDymaIY",
-    note: "Speaker reel",
-    title: "Dave Anderson — Tech Evangelist",
-    body: "A short cut of stage work.",
+    audience: "For CMOs and marketing leaders",
+    title: "The Agentic Marketing Squad",
+    hook:
+      "The org chart you inherited assumes a human does every task. That assumption is now the most expensive line in your budget.",
+    body:
+      "What a marketing team actually looks like when agents do the work — smaller squads, more output, and the handful of things that must stay human. Built from running an AI-native marketing function at PointFive, not from a vendor deck.",
+    takeaways: [
+      "Where agents genuinely beat headcount, and where they quietly cost more",
+      "How to restructure around squads instead of functions",
+      "What stays human: taste, judgement and the customer relationship",
+    ],
+  },
+  {
+    audience: "For opening keynotes, summits and all-hands",
+    title: "Tech Seeking Human",
+    hook:
+      "Forty-one conversations with the people building AI — and the thing they all quietly worry about.",
+    body:
+      "The state of AI with the hype taken out, drawn from interviews with Max Tegmark, Hannah Fry, Adam Cheyer and Marc Randolph on my podcast. Where the technology honestly is, where it is going, and why the human parts of work get more valuable rather than less.",
+    takeaways: [
+      "What the people closest to AI actually believe about the next five years",
+      "The difference between automation that compounds and automation that decays",
+      "Why the future-of-work question is really a what-stays-human question",
+    ],
+  },
+  {
+    audience: "For CX, digital and product teams",
+    title: "How High-Performing CX Teams Win",
+    hook:
+      "The best experience teams don't have better tools. They have fewer arguments about who owns the customer.",
+    body:
+      "Why digital experience only works when the whole organisation owns it, and what the teams who get it right do differently. Delivered at CX Circle in Sydney and Melbourne, to Contentsquare and Qualtrics audiences, and to CX leaders across three continents.",
+    takeaways: [
+      "Why CX stalls the moment it lives inside one department",
+      "The metrics that make product, engineering and marketing pull the same way",
+      "How to run the first ninety days of a CX turnaround",
+    ],
   },
 ];
 
@@ -92,53 +137,138 @@ const stories = [
 export default function SpeakingPage() {
   return (
     <>
-      {/* Hero */}
+      {/* Hero — the showreel is the page, everything else is evidence */}
+      <section className="bg-ink text-kraft">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-14 pb-16 md:pt-16 md:pb-20">
+          <div className="max-w-3xl">
+            <p className="eyebrow text-brass-soft mb-5">Speaking · Keynotes</p>
+            <h1 className="font-serif text-5xl md:text-6xl font-light leading-[1.05] tracking-tight text-kraft">
+              Mainstage keynotes on{" "}
+              <span className="italic text-brass-soft">
+                technology, marketing and AI
+              </span>
+              .
+            </h1>
+          </div>
+
+          {/* Showreel, front and centre */}
+          <div className="mt-10 md:mt-12">
+            <div className="aspect-video overflow-hidden rounded-md border border-brass/40 bg-black shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${showreel.id}?rel=0`}
+                title={showreel.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
+            <p className="mt-4 font-mono text-xs uppercase tracking-widest text-kraft/60">
+              Speaker reel · 81 seconds
+            </p>
+          </div>
+
+          <div className="mt-10 flex flex-col md:flex-row md:items-center gap-8 md:gap-10">
+            <div className="flex items-center gap-4 shrink-0">
+              <img
+                src="/Dave.jpeg"
+                alt="Dave Anderson"
+                width={800}
+                height={800}
+                loading="lazy"
+                className="w-14 h-14 rounded-full object-cover border border-brass/40"
+              />
+              <div>
+                <p className="font-serif text-lg text-kraft leading-tight">
+                  Dave Anderson
+                </p>
+                <p className="text-kraft/60 text-sm leading-tight mt-0.5">
+                  CMO at PointFive · Saxton-listed speaker
+                </p>
+              </div>
+            </div>
+            <p className="text-kraft/75 leading-relaxed max-w-xl">
+              For twenty years I&rsquo;ve been the marketer explaining
+              technology to non-technical audiences &mdash; and the technologist
+              explaining marketing to boards. On stage that shows up as clear,
+              funny, story-first keynotes that leave a room with something they
+              can use on Monday.
+            </p>
+          </div>
+
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-brass text-ink hover:bg-brass-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
+            >
+              Enquire about a keynote
+              <span aria-hidden>→</span>
+            </Link>
+            <a
+              href="mailto:daveando@gmail.com"
+              className="inline-flex items-center gap-2 border border-kraft/30 hover:border-brass-soft hover:text-brass-soft text-kraft/80 transition-colors font-medium px-6 py-3 rounded-full text-sm"
+            >
+              daveando@gmail.com
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Keynote topics */}
       <section className="border-b border-rule">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-16 pb-16 md:pt-20 md:pb-20">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-center">
-            <div className="md:col-span-7">
-              <p className="eyebrow mb-5">Speaking · Keynotes</p>
-              <h1 className="font-serif text-5xl md:text-6xl font-light leading-[1.05] tracking-tight text-ink">
-                Mainstage keynotes on{" "}
-                <span className="italic text-brass">
-                  technology, marketing and AI
-                </span>
-                .
-              </h1>
-              <p className="mt-8 text-lg text-ink-soft leading-relaxed max-w-xl">
-                For twenty years I&rsquo;ve been the marketer explaining
-                technology to non-technical audiences &mdash; and the
-                technologist explaining marketing to boards. On stage that
-                shows up as clear, funny, story-first keynotes that leave a
-                room with something they can use on Monday.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-6 py-3 rounded-full text-sm"
-                >
-                  Enquire about a keynote
-                  <span aria-hidden>→</span>
-                </Link>
-                <a
-                  href="mailto:daveando@gmail.com"
-                  className="inline-flex items-center gap-2 border border-rule hover:border-brass hover:text-brass text-ink-soft transition-colors font-medium px-6 py-3 rounded-full text-sm"
-                >
-                  daveando@gmail.com
-                </a>
-              </div>
-            </div>
-            <div className="md:col-span-5">
-              <div className="aspect-square max-w-sm mx-auto md:max-w-none overflow-hidden rounded-md border border-rule bg-kraft-alt shadow-[0_2px_0_rgba(33,29,24,0.08)] rotate-[-1.2deg]">
-                <img
-                  src="/Dave.jpeg"
-                  alt="Dave Anderson"
-                  width={800}
-                  height={800}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
+          <p className="eyebrow mb-3">The talks</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-light max-w-2xl leading-tight">
+            Three keynotes I&rsquo;m booked for right now.
+          </h2>
+          <p className="mt-5 text-ink-soft leading-relaxed max-w-2xl">
+            Each one gets rewritten for the room &mdash; your industry, your
+            numbers, your people on stage. If none of these is quite the talk
+            you need, say what the room needs to hear and I&rsquo;ll build it.
+          </p>
+          <TickRule className="mt-10 mb-10 opacity-50" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            {keynotes.map((k, i) => (
+              <article
+                key={k.title}
+                className="border border-rule bg-kraft-soft rounded-md p-7 md:p-8 flex flex-col"
+              >
+                <p className="font-mono text-xs tracking-widest text-brass-dark">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <h3 className="font-serif text-2xl md:text-[1.7rem] font-light mt-4 leading-tight text-ink">
+                  {k.title}
+                </h3>
+                <p className="mt-4 font-serif text-lg italic leading-snug text-brass-dark">
+                  {k.hook}
+                </p>
+                <p className="mt-4 text-ink-soft leading-relaxed text-[0.95rem]">
+                  {k.body}
+                </p>
+
+                <p className="eyebrow eyebrow-verdigris mt-7 mb-3">
+                  A room leaves with
+                </p>
+                <ul className="space-y-2.5 flex-1">
+                  {k.takeaways.map((t) => (
+                    <li
+                      key={t}
+                      className="text-ink-soft text-[0.95rem] leading-snug pl-4 relative"
+                    >
+                      <span
+                        aria-hidden
+                        className="absolute left-0 top-[0.55em] w-1.5 h-1.5 rounded-full bg-brass"
+                      />
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="font-mono text-[0.65rem] uppercase tracking-widest text-ink-muted mt-7 pt-5 border-t border-rule-soft">
+                  {k.audience}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -148,37 +278,12 @@ export default function SpeakingPage() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
           <p className="eyebrow mb-3">Watch</p>
           <h2 className="font-serif text-3xl md:text-4xl font-light max-w-2xl leading-tight">
-            See me on stage before you book me.
+            Full talks, if you want more than the reel.
           </h2>
           <TickRule className="mt-8 mb-10 opacity-50" />
 
-          {/* Feature: plays inline so a booker never has to leave */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            <div className="lg:col-span-2">
-              <div className="aspect-video overflow-hidden rounded-md border border-rule bg-ink">
-                <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${feature.id}`}
-                  title={feature.title}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
-              </div>
-            </div>
-            <div className="lg:pt-2">
-              <p className="eyebrow">{feature.note}</p>
-              <h3 className="font-serif text-2xl md:text-3xl font-light mt-3 leading-tight text-ink">
-                {feature.title}
-              </h3>
-              <p className="mt-4 text-ink-soft leading-relaxed">
-                {feature.body}
-              </p>
-            </div>
-          </div>
-
           {/* Collage */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {talks.map((t) => (
               <VideoLightbox key={t.id} videoId={t.id} title={t.title}>
                 <div className="aspect-video overflow-hidden rounded-md border border-rule bg-ink relative">

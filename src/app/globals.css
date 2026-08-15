@@ -64,11 +64,16 @@ body {
   background-position: 0 0, 1px 2px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Fraunces", ui-serif, Georgia, serif;
-  font-optical-sizing: auto;
-  letter-spacing: -0.015em;
-  color: var(--color-ink);
+/* Must live in @layer base. Unlayered rules outrank every Tailwind utility,
+   so an unlayered `h1 { color }` silently beat `text-kraft` on headings sitting
+   on the ink bands — they rendered ink-on-ink. */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Fraunces", ui-serif, Georgia, serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
+    color: var(--color-ink);
+  }
 }
 
 ::selection {
