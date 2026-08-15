@@ -5,83 +5,197 @@ import ShopTag from "@/components/ShopTag";
 import CompressionLedger, {
   type LedgerRow,
 } from "@/components/CompressionLedger";
+import {
+  OutputInventory,
+  GrowthBars,
+  UsageBars,
+  type InventoryGroup,
+  type GrowthRow,
+  type UsageRow,
+} from "@/components/StoryCharts";
 
 export const metadata: Metadata = {
   title: "How five people run an AI-native marketing team",
   description:
-    "A field note from inside a five-person marketing team at PointFive. What months of work compressed to days looks like in practice, measured from nine weeks of the actual working record.",
+    "A field note from inside a five-person marketing team. What months of work compressed to days actually looks like — measured in time, in people, and in what it did to the numbers.",
 };
 
 /**
- * Conventional durations are estimates from twenty years of running these
- * functions with conventional teams — they are labelled as estimates on the
- * page. Measured durations are counted from the working record: git history,
- * session transcripts and published artefacts, 18 Jun – 15 Aug 2026.
+ * Conventional figures are estimates from twenty years of running these
+ * functions with conventional teams, and are labelled as estimates on the
+ * page. Measured figures are counted from the working record: git history,
+ * session transcripts and published work.
  */
 const ledger: LedgerRow[] = [
   {
     work: "Rebuild the company website",
-    note: "Empty repository to a live marketing site — design tokens, navigation, page migration, demo redesign.",
+    note: "Not a reskin. Reimagined, rebranded, and roughly three times the size of the site it replaced — design tokens, navigation, page migration, demo redesign.",
+    wasPeople: 6,
     wasDays: 110,
     wasLabel: "4–6 months",
+    nowPeople: 2,
     nowDays: 8,
     nowLabel: "8 days",
     source:
-      "First commit 1 Jun 2026. 205 commits in the first eight days, driven as phased agent tasks.",
+      "Repository opens with Initial commit on 1 Jun 2026. 205 commits in the first eight days, run as phased agent tasks.",
   },
   {
     work: "Turn a research paper into a launch program",
     note: "Landing page, gated guide, sources page, blog, press release, two videos, podcast, PR pack, social sequence.",
+    wasPeople: 6,
     wasDays: 45,
     wasLabel: "8–10 weeks",
+    nowPeople: 1,
     nowDays: 14,
     nowLabel: "14 days",
-    source: "Token Efficiency Study, live paper to full program, Aug 2026.",
+    source:
+      "Token Efficiency Study. Every asset produced by one person — the CMO — not a launch team.",
   },
   {
-    work: "Campaign concept to something you can play",
-    note: "Not a mockup or a storyboard — a working prototype the team played before anyone pitched it.",
-    wasDays: 18,
-    wasLabel: "3–4 weeks",
+    work: "Build a campaign from concept to playable",
+    note: "A working app, a horse race, AI-generated video, landing pages and a brand system around it. Not a deck describing a campaign — the campaign.",
+    wasPeople: 6,
+    wasDays: 40,
+    wasLabel: "2+ months",
+    nowPeople: 1,
     nowDays: 1,
     nowLabel: "1 day",
-    source: "Cloud casino card deck, built and rendered in a single session.",
+    source:
+      "Cloud casino. Conventionally this is an agency brief, a production schedule and a branding round.",
+  },
+  {
+    work: "Build a webinar campaign, end to end",
+    note: "Story arc, the three reasons for PointFive on Google Cloud, the technical opportunities that differentiate us, landing page, registration form, email copy, ad copy, social posts, branding.",
+    wasPeople: 4,
+    wasDays: 5,
+    wasLabel: "1 week",
+    nowPeople: 1,
+    nowDays: 0.125,
+    nowLabel: "1 hour",
+    source:
+      "A week of coordinated work across four functions, executed inside a single session.",
   },
   {
     work: "Produce a 90-second product explainer",
-    note: "Written as code. Narration-timed scenes, cloned voiceover, brand-locked frames — re-rendered on a copy change, not re-edited.",
-    wasDays: 25,
-    wasLabel: "4–6 weeks",
-    nowDays: 1,
-    nowLabel: "1 day",
-    source: "MCP setup, Datadog and MongoDB support videos. No crew, no vendor.",
-  },
-  {
-    work: "Build a competitor comparison page",
-    note: "Positioning, claim sourcing, page build, browser QA, pull request. Every claim carries a capture date.",
+    note: "Conventionally: brand, product marketing, an animation specialist, storyboarding and approval rounds. Now: narration-timed scenes written as code.",
+    wasPeople: 4,
     wasDays: 12,
     wasLabel: "2–3 weeks",
-    nowDays: 1,
+    nowPeople: 1,
+    nowDays: 0.125,
+    nowLabel: "1 hour",
+    source:
+      "Re-rendered on a copy change rather than re-edited, so revisions cost minutes instead of another approval cycle.",
+  },
+  {
+    work: "Build and maintain competitor comparison pages",
+    note: "Positioning from internal IP, claim sourcing with capture dates, page build, browser QA, pull request.",
+    wasPeople: 3,
+    wasDays: 25,
+    wasLabel: "4–6 weeks",
+    nowPeople: 1,
+    nowDays: 0.5,
     nowLabel: "1 session",
-    source: "Eighteen comparison pages now live, from Vantage to IBM Turbonomic.",
+    source:
+      "Eighteen pages live. An agent now reviews all of them weekly and recommends updates as competitors ship and our own product moves.",
   },
   {
     work: "Report the week across every channel",
-    note: "Analytics, search, social, CRM, community and AI visibility read in one pass and reconciled where they disagree.",
+    note: "Analytics, search, social, CRM, community and AI visibility, read in one pass and reconciled where the sources disagree.",
+    wasPeople: 2,
     wasDays: 2,
     wasLabel: "2 days a week",
-    nowDays: 0.15,
-    nowLabel: "One refresh",
-    source: "Six sources into one live app, presented in the team meeting.",
+    nowPeople: 0,
+    nowDays: 0.05,
+    nowLabel: "Automatic",
+    source:
+      "Runs on its own. The CMO reads the output; nobody assembles it.",
+    recurring: true,
   },
+];
+
+const inventory: InventoryGroup[] = [
+  {
+    label: "Blog posts",
+    count: 356,
+    tone: "ink",
+    note: "Migrated and newly written, all searchable",
+  },
+  {
+    label: "Event and webinar pages",
+    count: 44,
+    tone: "brass",
+    note: "Registration, live and on-demand",
+  },
+  {
+    label: "Guides",
+    count: 21,
+    tone: "verdigris",
+    note: "Including 16 AEO pieces in one release",
+  },
+  {
+    label: "Comparison pages",
+    count: 18,
+    tone: "kraft",
+    note: "Bottom-funnel, agent-maintained",
+  },
+];
+
+const growth: GrowthRow[] = [
+  {
+    label: "Unique visitors",
+    pct: 123,
+    detail: "People reaching the site, January against July.",
+  },
+  {
+    label: "Search impressions",
+    pct: 119,
+    detail: "How often the site surfaces in search at all.",
+  },
+  {
+    label: "Website sessions",
+    pct: 109,
+    detail: "Traffic more than doubled over the same seven months.",
+  },
+  {
+    label: "Pages viewed",
+    pct: 77,
+    detail: "Depth held up as volume climbed.",
+  },
+  {
+    label: "Organic search clicks",
+    pct: 73,
+    detail: "Peaked at +157% in June, the month the new site landed.",
+  },
+];
+
+const systems: UsageRow[] = [
+  { label: "Supermetrics", value: 863, note: "analytics, search, social, ads" },
+  { label: "Notion", value: 362, note: "plans and positioning" },
+  { label: "HubSpot", value: 342, note: "CRM and campaigns" },
+  { label: "Common Room", value: 194, note: "community signal" },
+  { label: "Slack", value: 172, note: "decisions and internal data" },
+  { label: "Peec", value: 110, note: "AI visibility" },
+  { label: "Webflow", value: 77, note: "legacy surfaces" },
+  { label: "Google Drive", value: 43, note: "documents" },
+  { label: "G2", value: 43, note: "buyer intent" },
+];
+
+const actions: UsageRow[] = [
+  { label: "Shell commands", value: 5410, note: "builds, renders, git" },
+  { label: "Browser control", value: 3337, note: "QA on real pages" },
+  { label: "File edits", value: 1906 },
+  { label: "File reads", value: 1508 },
+  { label: "Web research", value: 993, note: "fetch and search" },
+  { label: "Files written", value: 776 },
+  { label: "Video renders", value: 650, note: "ffmpeg and Remotion" },
 ];
 
 const team = [
   {
     role: "Story and brand",
     covers: "Narrative, positioning, brand system, the CEO readout.",
-    conventional:
-      "Brand lead, copy chief, content strategist, internal comms.",
+    conventional: "Brand lead, copy chief, content strategist, internal comms.",
   },
   {
     role: "Growth and digital",
@@ -92,7 +206,8 @@ const team = [
   },
   {
     role: "Product marketing",
-    covers: "Use cases, product launches, positioning source of truth, enablement.",
+    covers:
+      "Use cases, product launches, positioning source of truth, enablement.",
     conventional: "Two to three PMMs, plus a competitive intelligence analyst.",
   },
   {
@@ -131,7 +246,7 @@ const loop = [
   {
     step: "04",
     title: "Prove",
-    body: "Read the result back through the same systems that built it. The agent that made the funnel reports the 0.47% as readily as the 13.9%.",
+    body: "Read the result back through the same systems that built it. The agent that made the funnel reports the disappointing number as readily as the good one.",
     detail: "Measured, not estimated",
   },
 ];
@@ -159,17 +274,6 @@ const stack = [
   },
 ];
 
-const counted = [
-  { n: "99", l: "working sessions" },
-  { n: "15", l: "parallel workstreams" },
-  { n: "17,566", l: "tool actions executed" },
-  { n: "131", l: "subagents run in parallel" },
-  { n: "5,680", l: "calls into business systems" },
-  { n: "82", l: "pull requests to production" },
-  { n: "650", l: "video render operations" },
-  { n: "278", l: "artefacts published" },
-];
-
 const limits = [
   {
     h: "Output is raw material, not a finished story",
@@ -177,15 +281,15 @@ const limits = [
   },
   {
     h: "Speed moves the bottleneck, it does not remove it",
-    p: "Two weeks from paper to full program was deliverable. Fact-checking it in two weeks was not. Build capacity outran data quality, and that is a sequencing failure, not a tooling one.",
+    p: "Two weeks from paper to full program was deliverable. Fact-checking it in two weeks was not. Build capacity outran data quality — a sequencing failure, not a tooling one.",
   },
   {
     h: "No agent owns a claim",
     p: "Every published number needs a source, a capture date and a named human approver. Competitor claims are the highest-risk content any team publishes, and agents write them at scale.",
   },
   {
-    h: "It does not fill an empty seat",
-    p: "Where a role is genuinely missing, the work waits. Faster production makes that gap more obvious, not less.",
+    h: "A missing leader is still a missing leader",
+    p: "This does fill seats — but only underneath a leader who is already there. Where we have no brand lead, we have a gap, and no amount of agent capacity closes it.",
   },
 ];
 
@@ -197,23 +301,26 @@ export default function AiNativePage() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-16 pb-16 md:pt-20 md:pb-20">
           <p className="eyebrow mb-5">Field note · Marketing operations · 2026</p>
           <h1 className="font-serif text-5xl md:text-7xl font-light leading-[1.02] tracking-tight text-ink max-w-4xl">
-            Months became days.{" "}
-            <span className="italic text-brass">Weeks became hours.</span>
+            Five people.{" "}
+            <span className="italic text-brass">
+              The output of thirty.
+            </span>
           </h1>
           <p className="mt-8 text-lg md:text-xl text-ink-soft leading-relaxed max-w-2xl">
-            There are five of us. We ship the output of a marketing department
-            three times the size, and the difference is not effort or talent or
-            longer days. It is that the knowledge and the data are already
-            sitting there, wired in and ready. All that is left is to ideate and
-            execute.
+            Months became days. Weeks became hours. The difference is not effort
+            or talent or longer days — it is that the knowledge and the data are
+            already sitting there, wired in and ready. All that is left is to
+            ideate and execute.
           </p>
           <p className="mt-5 text-base text-ink-muted leading-relaxed max-w-2xl">
-            This is the working record, not a theory. Nine weeks, counted from
-            git history, session transcripts and published work.
+            Every person on this team is AI-native. All five have GitHub and
+            Vercel. All five can publish a page, ship an app, and open a pull
+            request against the production site. That is the baseline now, not
+            the exception.
           </p>
 
           <div className="mt-9">
-            <ShopTag>Measured 18 Jun – 15 Aug 2026</ShopTag>
+            <ShopTag>Counted, not estimated · Jan – Aug 2026</ShopTag>
           </div>
 
           <TickRule className="mt-12 opacity-60" />
@@ -225,29 +332,104 @@ export default function AiNativePage() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
           <p className="eyebrow mb-5">01 · The compression</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
-            Same work. Same standard.{" "}
-            <span className="italic">A fraction of the calendar.</span>
+            It was never only about time.{" "}
+            <span className="italic">It was about people.</span>
           </h2>
           <p className="mt-7 text-lg text-ink-soft leading-relaxed max-w-2xl">
-            Both bars are drawn to one scale. The top bar is what each of these
-            has cost me with a conventional team over twenty years of doing this
-            job. The bar underneath is what it actually took.
+            Every one of these used to need a room of specialists — brand,
+            product marketing, engineering, animation, SEO, copywriting — moving
+            in sequence, each waiting on the last. Two axes below: how long it
+            took, and how many people it took. Multiply them and you get the
+            real number.
           </p>
 
           <CompressionLedger rows={ledger} />
 
           <p className="mt-8 text-sm text-ink-muted leading-relaxed max-w-2xl">
-            Conventional durations are my estimates and are labelled as such.
-            Measured durations are counted — first commit dates, session records,
-            merged pull requests. Where the two disagree, believe the second one.
+            Conventional headcount and duration are my estimates from twenty
+            years of running these functions, and are labelled as estimates.
+            Measured figures are counted — commit dates, session records, merged
+            pull requests.
           </p>
+        </div>
+      </section>
+
+      {/* ── What that produced ───────────────────────────────── */}
+      <section className="border-b border-rule">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
+          <p className="eyebrow mb-5">02 · What got built</p>
+          <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
+            One square per page.
+          </h2>
+          <p className="mt-7 text-lg text-ink-soft leading-relaxed max-w-2xl">
+            A number in a sentence is easy to skim past. This is the same number,
+            drawn.
+          </p>
+
+          <OutputInventory groups={inventory} />
+        </div>
+      </section>
+
+      {/* ── The numbers moved ────────────────────────────────── */}
+      <section className="border-b border-rule bg-kraft-soft">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
+          <p className="eyebrow mb-5">03 · What it did to the numbers</p>
+          <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
+            Output is not the point.{" "}
+            <span className="italic text-brass">This is the point.</span>
+          </h2>
+          <p className="mt-7 text-lg text-ink-soft leading-relaxed max-w-2xl">
+            I took the CMO seat in January. These are the January-to-July moves
+            on pointfive.co, as percentage change — the underlying counts stay
+            in the building.
+          </p>
+
+          <GrowthBars rows={growth} />
+
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div>
+              <h3 className="font-serif text-2xl font-normal text-ink">
+                On AI search, position beats volume
+              </h3>
+              <p className="mt-3 text-base text-ink-soft leading-relaxed">
+                Across the twenty-five brands tracked in our category, PointFive
+                holds the <strong className="font-medium">best average position of any of them</strong> —
+                ahead of every competitor including the two with nearly three
+                times our visibility.
+              </p>
+              <p className="mt-3 text-base text-ink-muted leading-relaxed">
+                Being named less often but named first is a better problem than
+                the reverse. Visibility itself has been flat since May, and I
+                would rather say that plainly than dress it up — it is the next
+                thing to fix.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-serif text-2xl font-normal text-ink">
+                The research campaign is five days old
+              </h3>
+              <p className="mt-3 text-base text-ink-soft leading-relaxed">
+                It launched on 10 August. The analytics container was not live on
+                the research pages until the 11th, and conversion events were not
+                wired until the 13th — so the real traffic is{" "}
+                <strong className="font-medium">higher than anything currently measured</strong>,
+                and the early conversion picture is incomplete by construction.
+              </p>
+              <p className="mt-3 text-base text-ink-muted leading-relaxed">
+                What is already true: the two research posts engaged at two to
+                three times our baseline, on smaller reach than the posts they
+                beat. Judging any of it as a finished result this week would be
+                the wrong call.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── The five ─────────────────────────────────────────── */}
       <section className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5">02 · The team</p>
+          <p className="eyebrow mb-5">04 · The team</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
             Five roles, each holding what used to be four or five.
           </h2>
@@ -285,9 +467,7 @@ export default function AiNativePage() {
       {/* ── The loop ─────────────────────────────────────────── */}
       <section className="border-b border-rule bg-ink text-kraft">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow eyebrow-verdigris mb-5 !text-brass-soft">
-            03 · The flow
-          </p>
+          <p className="eyebrow mb-5 !text-brass-soft">05 · The flow</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight !text-kraft max-w-3xl">
             One loop, run over and over, on everything.
           </h2>
@@ -326,7 +506,7 @@ export default function AiNativePage() {
       {/* ── The stack ────────────────────────────────────────── */}
       <section className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5">04 · The ground truth</p>
+          <p className="eyebrow mb-5">06 · The ground truth</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
             The knowledge is already there.{" "}
             <span className="italic text-brass">Reach further down.</span>
@@ -386,51 +566,56 @@ export default function AiNativePage() {
         </div>
       </section>
 
-      {/* ── Counted ──────────────────────────────────────────── */}
-      <section className="border-b border-rule bg-kraft-soft">
+      {/* ── The record ───────────────────────────────────────── */}
+      <section className="border-b border-rule bg-ink text-kraft">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5">05 · The record</p>
-          <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
-            Nine weeks, counted.
+          <p className="eyebrow mb-5 !text-brass-soft">07 · The working record</p>
+          <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight !text-kraft max-w-3xl">
+            Nine weeks inside the machine.
           </h2>
+          <p className="mt-7 text-lg text-kraft/70 leading-relaxed max-w-2xl">
+            Ninety-nine working sessions across fifteen parallel workstreams,
+            18 June to 15 August. Not chat transcripts — a log of what was
+            actually read, built, queried and shipped.
+          </p>
 
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-rule border border-rule rounded-md overflow-hidden">
-            {counted.map((c) => (
-              <div key={c.l} className="bg-paper px-6 py-7">
-                <span className="block font-serif text-3xl md:text-4xl font-normal text-ink tabular-nums">
+          <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
+            <div>
+              <h3 className="font-serif text-2xl font-light !text-kraft">
+                Where the evidence came from
+              </h3>
+              <p className="mt-2 text-sm text-kraft/55 leading-relaxed">
+                5,680 calls into systems that already held the answer.
+              </p>
+              <UsageBars rows={systems} unit="Calls per system" dark />
+            </div>
+            <div>
+              <h3 className="font-serif text-2xl font-light !text-kraft">
+                What the agent actually did
+              </h3>
+              <p className="mt-2 text-sm text-kraft/55 leading-relaxed">
+                17,566 actions. Mostly building and checking, not writing prose.
+              </p>
+              <UsageBars rows={actions} unit="Actions by type" dark />
+            </div>
+          </div>
+
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-ink-soft border border-ink-soft rounded-md overflow-hidden">
+            {[
+              { n: "131", l: "subagents run in parallel" },
+              { n: "82", l: "pull requests to production" },
+              { n: "278", l: "artefacts published" },
+              { n: "91", l: "encoded house rules invoked" },
+            ].map((c) => (
+              <div key={c.l} className="bg-ink px-6 py-7">
+                <span className="block font-serif text-3xl md:text-4xl !text-kraft tabular-nums">
                   {c.n}
                 </span>
-                <span className="block mt-2 text-sm text-ink-muted leading-snug">
+                <span className="block mt-2 text-sm text-kraft/55 leading-snug">
                   {c.l}
                 </span>
               </div>
             ))}
-          </div>
-
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div>
-              <h3 className="font-serif text-2xl font-normal text-ink">
-                Quality did not go down
-              </h3>
-              <p className="mt-3 text-base text-ink-soft leading-relaxed">
-                The two research posts from that period engaged at 13.9% and
-                11.8% against a 4.3–5.8% baseline — two to three times anything
-                else published, on smaller reach. The finding itself was
-                independently reproduced by another company running the same
-                question with a different method.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-serif text-2xl font-normal text-ink">
-                And the honest number is right there too
-              </h3>
-              <p className="mt-3 text-base text-ink-soft leading-relaxed">
-                640 sessions landed on that campaign page. Three genuine external
-                contacts came out the other end. Content quality was not the
-                constraint; distribution was. Knowing that within days is the
-                actual advantage.
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -438,7 +623,7 @@ export default function AiNativePage() {
       {/* ── Limits ───────────────────────────────────────────── */}
       <section className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5">06 · The honest part</p>
+          <p className="eyebrow mb-5">08 · The honest part</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
             What this does not do.
           </h2>
@@ -459,13 +644,34 @@ export default function AiNativePage() {
               </div>
             ))}
           </div>
+
+          <div className="mt-16 max-w-3xl">
+            <p className="eyebrow mb-4">The shape of the next hire</p>
+            <h3 className="font-serif text-3xl md:text-4xl font-light leading-[1.15] text-ink">
+              We do not need five brand designers. We need one, with AI.
+            </h3>
+            <p className="mt-6 text-lg text-ink-soft leading-relaxed">
+              The same is true everywhere. Not five operations people — one or
+              two, with AI. What this model scales is not headcount, it is
+              leverage per person, and the constraint moves accordingly: every
+              function needs someone good enough to direct it, and after that the
+              volume takes care of itself.
+            </p>
+            <p className="mt-5 text-lg text-ink-soft leading-relaxed">
+              Which is why the gaps that hurt are leadership gaps, not capacity
+              gaps. Where we are missing a leader — brand, right now — no amount
+              of agent throughput closes it, because there is nobody to point it
+              anywhere. <strong className="font-medium">Scale intelligent
+              people with AI, not more people.</strong>
+            </p>
+          </div>
         </div>
       </section>
 
       {/* ── For leaders ──────────────────────────────────────── */}
       <section className="border-b border-rule bg-kraft-soft">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5">07 · If you run a team</p>
+          <p className="eyebrow mb-5">09 · If you run a team</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
             Four changes that did the work.
           </h2>
@@ -477,12 +683,12 @@ export default function AiNativePage() {
                 p: "An assistant that drafts copy saves an hour. An agent that reads the warehouse, builds the page, opens the pull request and measures the result replaces a workflow. The difference is write access, and it is the whole difference.",
               },
               {
-                h: "Wire the evidence in before you ask for output",
-                p: "Every hour spent connecting a system to the place the work happens comes back the first time someone needs a number at 6pm on a Thursday. The data was never the problem. The distance to it was.",
+                h: "Make everyone able to ship",
+                p: "All five of us have GitHub and Vercel. When the person with the idea is also the person who can publish it, the handover — and the week it costs — disappears. This is a permissions decision far more than a training one.",
               },
               {
-                h: "Encode the house rules once",
-                p: "Brand, tone, format and structure written down as something the agent reads every time. Consistency then costs nothing to enforce, and the rules travel to whoever joins next.",
+                h: "Wire the evidence in before you ask for output",
+                p: "Every hour spent connecting a system to the place the work happens comes back the first time someone needs a number at 6pm on a Thursday. The data was never the problem. The distance to it was.",
               },
               {
                 h: "Move the gate to the front",
