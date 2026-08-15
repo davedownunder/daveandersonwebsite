@@ -143,11 +143,12 @@ const inventory: InventoryGroup[] = [
   },
 ];
 
-const growth: GrowthRow[] = [
+/** Reach — January against July, from analytics and Search Console. */
+const reach: GrowthRow[] = [
   {
     label: "Unique visitors",
     pct: 123,
-    detail: "People reaching the site, January against July.",
+    detail: "People reaching the site.",
   },
   {
     label: "Search impressions",
@@ -157,7 +158,7 @@ const growth: GrowthRow[] = [
   {
     label: "Website sessions",
     pct: 109,
-    detail: "Traffic more than doubled over the same seven months.",
+    detail: "Traffic more than doubled.",
   },
   {
     label: "Pages viewed",
@@ -171,14 +172,38 @@ const growth: GrowthRow[] = [
   },
 ];
 
+/**
+ * Conversion — first-quarter monthly average against the April-to-July
+ * monthly average, from the CRM. Webinar growth is an order of magnitude
+ * above the rest and is called out separately rather than flattening the
+ * chart.
+ */
+const conversion: GrowthRow[] = [
+  {
+    label: "Event registrations",
+    pct: 1450,
+    detail: "A repeatable registration path where there was none.",
+  },
+  {
+    label: "All form submissions",
+    pct: 382,
+    detail: "Every conversion path on the site, combined.",
+  },
+  {
+    label: "Demo requests",
+    pct: 167,
+    detail: "The bottom of the funnel moved, not just the top.",
+  },
+];
+
 const engine: BeforeAfterRow[] = [
   {
     thing: "Legacy forms, no campaign coding",
     now: "Every form carries a date, a type and a program it belongs to",
   },
   {
-    thing: "Two webinar registrations in the whole first quarter",
-    now: "A running webinar program — 387 registrations across four months",
+    thing: "No webinar program running",
+    now: "A webinar every month, each with an on-demand version behind it",
   },
   {
     thing: "No repeatable event registration path",
@@ -404,12 +429,41 @@ export default function AiNativePage() {
             <span className="italic text-brass">This is the point.</span>
           </h2>
           <p className="mt-7 text-lg text-ink-soft leading-relaxed max-w-2xl">
-            I took the CMO seat in January. These are the January-to-July moves
-            on pointfive.co, as percentage change — the underlying counts stay
-            in the building.
+            I took the CMO seat in January. These are the moves since, as
+            percentage change — the underlying counts stay in the building.
+            Reach is what arrived. Conversion is what happened next, which is
+            the half that actually matters.
           </p>
 
-          <GrowthBars rows={growth} />
+          <div className="mt-14">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+              <h3 className="font-serif text-2xl font-normal text-ink">Reach</h3>
+              <p className="font-mono text-[0.65rem] tracking-[0.16em] uppercase text-ink-muted">
+                January against July
+              </p>
+            </div>
+            <GrowthBars rows={reach} />
+          </div>
+
+          <div className="mt-16">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+              <h3 className="font-serif text-2xl font-normal text-ink">
+                Conversion
+              </h3>
+              <p className="font-mono text-[0.65rem] tracking-[0.16em] uppercase text-ink-muted">
+                Jan–Mar monthly average vs Apr–Jul monthly average
+              </p>
+            </div>
+            <GrowthBars rows={conversion} />
+            <p className="mt-6 text-base text-ink-soft leading-relaxed max-w-2xl">
+              Webinar registrations per month grew{" "}
+              <strong className="font-medium">roughly 145-fold</strong> over the
+              same period — left off the chart because at that scale it flattens
+              everything beside it. There was no webinar program in the first
+              quarter, so it is growth from a standing start rather than an
+              improvement on a baseline.
+            </p>
+          </div>
 
           <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
@@ -471,62 +525,22 @@ export default function AiNativePage() {
 
           <BeforeAfter rows={engine} />
 
-          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-rule border border-rule rounded-md overflow-hidden">
-            <div className="bg-ink px-7 py-8">
-              <span className="block font-serif text-4xl !text-kraft tabular-nums leading-none">
-                2 &rarr; 387
-              </span>
-              <span className="block mt-3 text-base text-kraft">
-                Webinar registrations
-              </span>
-              <span className="block mt-1.5 text-sm text-kraft/55 leading-snug">
-                The whole of Q1, against April to July.
-              </span>
-            </div>
-            <div className="bg-paper px-7 py-8">
-              <span className="block font-serif text-4xl text-verdigris-dark tabular-nums leading-none">
-                +1,450%
-              </span>
-              <span className="block mt-3 text-base text-ink">
-                Event registrations a month
-              </span>
-              <span className="block mt-1.5 text-sm text-ink-muted leading-snug">
-                From nine a month to a hundred and forty.
-              </span>
-            </div>
-            <div className="bg-paper px-7 py-8">
-              <span className="block font-serif text-4xl text-verdigris-dark tabular-nums leading-none">
-                +382%
-              </span>
-              <span className="block mt-3 text-base text-ink">
-                All form submissions a month
-              </span>
-              <span className="block mt-1.5 text-sm text-ink-muted leading-snug">
-                Q1 average against the April-onward average.
-              </span>
-            </div>
-            <div className="bg-paper px-7 py-8">
-              <span className="block font-serif text-4xl text-verdigris-dark tabular-nums leading-none">
-                +167%
-              </span>
-              <span className="block mt-3 text-base text-ink">
-                Demo requests a month
-              </span>
-              <span className="block mt-1.5 text-sm text-ink-muted leading-snug">
-                The bottom of the funnel moved too, not just the top.
-              </span>
-            </div>
-          </div>
-
-          <p className="mt-8 text-sm text-ink-muted leading-relaxed max-w-2xl">
-            All of it from the CRM, which is the only system that held the
-            answer for the whole period. Analytics did not measure conversions
-            until August, so it cannot be used to compare against January — the
-            measurement changed, and reading that as a change in performance
-            would be wrong. The composition is the real finding: in January not
-            one submission carried a campaign code. From April, every single one
-            does, and the old whitepaper forms that made up most of the early
-            volume have been retired.
+          <p className="mt-10 text-base text-ink-soft leading-relaxed max-w-2xl">
+            The percentages above come from the CRM, which is the only system
+            that held the answer for the whole period. Analytics did not measure
+            conversions until August, so it cannot be compared against January —
+            the measurement changed, and reading that as a change in performance
+            would be wrong.
+          </p>
+          <p className="mt-5 text-base text-ink-soft leading-relaxed max-w-2xl">
+            <strong className="font-medium">
+              Composition is the real finding, not volume.
+            </strong>{" "}
+            In January, not one submission carried a campaign code — the forms
+            were inherited, mostly whitepaper downloads, attributable to
+            nothing. From April, every single submission does, and the old forms
+            have been retired. That is the difference between collecting names
+            and running an engine.
           </p>
         </div>
       </section>
@@ -663,7 +677,7 @@ export default function AiNativePage() {
 
           <p className="mt-8 text-sm text-ink-muted leading-relaxed max-w-2xl">
             The discipline that makes the speed defensible: before a printed
-            guide went to fifty named accounts, the ask to the data layer was
+            guide went out to a named account list, the ask to the data layer was
             explicit — aggregates only, state the sample size you used, flag
             anything you would not want quoted. The answer came back that one set
             of totals could not be defended. Those totals were dropped.

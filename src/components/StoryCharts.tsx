@@ -150,7 +150,7 @@ export function GrowthBars({ rows }: { rows: GrowthRow[] }) {
           </div>
           <div className="md:col-span-2 md:text-right">
             <span className="font-serif text-3xl text-verdigris-dark tabular-nums">
-              +{r.pct}%
+              +{r.pct.toLocaleString("en-GB")}%
             </span>
           </div>
         </div>
