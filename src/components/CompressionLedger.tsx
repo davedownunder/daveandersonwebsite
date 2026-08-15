@@ -223,7 +223,7 @@ function LedgerLine({
                 does this now
               </span>
               <p className="mt-2 text-[0.78rem] leading-snug text-ink-muted tabular-nums">
-                {effort(wasEffort)} a week &rarr; none
+                {`${effort(wasEffort)} a week → none`}
               </p>
             </>
           ) : (
