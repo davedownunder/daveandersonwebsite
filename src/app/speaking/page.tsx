@@ -78,10 +78,11 @@ const keynotes = [
     hook:
       "Five marketers, production access, eighty-two pull requests. Almost nobody in marketing can say that.",
     body:
-      "Plenty of people talk about AI in marketing. Very few marketing organisations write and merge their own code. This is what happened when mine did — what broke, what the org chart looks like now, and the four changes that actually did the work.",
+      "Plenty of people talk about AI in marketing. Very few marketing organisations write and merge their own code. This is what happened when mine did — but the part worth stealing is underneath it. We did not build a content pipeline, we built an evidence layer: fourteen systems of record wired into the working session, so nothing gets made until the real numbers have been fetched and frozen. Every output format is a renderer hanging off that. Same spine, whether what comes out is a landing page, a press release, a competitor audit or a narrated ninety-second video.",
     takeaways: [
+      "Why the source of truth is the product, and the artefact is close to free",
       "What changes when the person with the idea can also publish it",
-      "The four changes that mattered, and the three that did nothing",
+      "How one grounded dataset renders as text, web, video and audio",
       "Where the bottleneck moves once production stops being the constraint",
     ],
   },
@@ -93,11 +94,12 @@ const keynotes = [
     hook:
       "What happens when the people writing the copy also open the pull request.",
     body:
-      "A working session rather than a slide deck. Permissions, review gates, and the fact-checking bottleneck that speed created — built live, against a real repository, including the parts that go wrong.",
+      "A working session rather than a slide deck. I run one grounding pass against the live systems, freeze the dataset, then fork it into two unrelated outputs in front of the room — a demand page with attribution wired in, and a scene from the video pipeline rendering off the identical numbers. Then the permission model, the review gates, and a deliberate attempt to publish something unsourced so you can watch it get blocked.",
     takeaways: [
+      "Ground, freeze, then render — and why skipping the freeze causes drift",
       "The permission model that makes non-engineer commits safe",
-      "Review gates that catch claims, not just syntax",
-      "Why faster production made quality assurance the scarce resource",
+      "Video as a build artefact: versionable, regenerable, diffable",
+      "Why faster production made verification the scarce resource",
     ],
   },
   {
@@ -108,8 +110,9 @@ const keynotes = [
     hook:
       "Every published number needs a source, a date and a named human approver. Most do not have one.",
     body:
-      "Why governance — not model choice — is what separates AI theatre from AI output. Drawn from getting this wrong first: a launch where our own number appeared at three different values across three of our own surfaces, and the gate that now prevents it.",
+      "Why governance — not model choice — is what separates AI theatre from AI output. Drawn from getting this wrong first: a launch where our own number appeared at three different values across three of our own surfaces, and the gate that now prevents it. The fix was architectural rather than editorial. An agent wired to the system of record cannot invent a figure, because it has to go and fetch one.",
     takeaways: [
+      "Why a single source of truth beats any amount of reviewing",
       "The fact register, and why it costs nothing until you need it",
       "Freezing the claim set before anything gets built against it",
       "How to tell a governed AI programme from a demo, in one question",

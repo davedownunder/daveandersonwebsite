@@ -284,13 +284,13 @@ const loop = [
   {
     step: "02",
     title: "Ground",
-    body: "Pull the real numbers before writing a word. Fourteen systems are wired into the working session, so the agent reaches the billing record rather than a summary of it.",
+    body: "The load-bearing step, and the one most teams skip. Fourteen systems are wired into the session, so the agent reaches the billing record rather than a summary of it — then the dataset is frozen before a word is written. An agent that cannot invent a number does not need to be talked out of inventing one.",
     detail: "5,680 system calls",
   },
   {
     step: "03",
     title: "Execute",
-    body: "Build the thing. A page, a video, a deck, a campaign, a pull request. The output is a merged commit or a finished file — not a suggestion to be actioned later.",
+    body: "Render it. A page, a press release, a competitor audit, a narrated video, a pull request — all off the same frozen dataset, which is why the format is close to free. The output is a merged commit or a finished file, not a suggestion to be actioned later.",
     detail: "17,566 tool actions",
   },
   {
@@ -359,6 +359,21 @@ export default function AiNativePage() {
             has GitHub and Vercel, and opens pull requests against the
             production website. No ticket, no queue, no waiting on a sprint that
             belongs to someone else.
+          </p>
+          <p className="mt-5 text-lg text-ink-soft leading-relaxed max-w-2xl">
+            Underneath it is one idea. We did not build a content pipeline, we
+            built an evidence layer — fourteen systems of record wired into the
+            working session — and every output format is a renderer hanging off
+            it. Nothing is generated from a prompt and a memory. The numbers get
+            fetched, the dataset gets frozen, and only then does anything get
+            built.
+          </p>
+          <p className="mt-5 text-lg text-ink-soft leading-relaxed max-w-2xl">
+            Which is why the range is what it is. The same spine produces a
+            landing page, a press release, a competitor audit, a weekly report
+            nobody assembles, and a ninety-second explainer with narration-timed
+            scenes and a generated voice track. Text, web, video, audio. Add a
+            format and you are adding a renderer, not starting a project.
           </p>
           <p className="mt-5 text-base text-ink-muted leading-relaxed max-w-2xl">
             What follows is the working record of what that changes — counted
@@ -643,6 +658,13 @@ export default function AiNativePage() {
             to it at the moment they are making something. Surface metrics are
             cheap and frequently wrong; the answer sits in the layer underneath.
           </p>
+          <p className="mt-5 text-lg text-ink-soft leading-relaxed max-w-2xl">
+            This is the part that actually matters, and the part that is easiest
+            to skip. Everything else on this page — the multiples, the page
+            count, the videos — is downstream of the four layers below. Get the
+            source of truth wired in and the outputs become cheap. Skip it and
+            you have a very fast way to publish things that are wrong.
+          </p>
 
           <div className="mt-12 rounded-md overflow-hidden border border-rule">
             {stack.map((s, i) => (
@@ -690,6 +712,70 @@ export default function AiNativePage() {
             anything you would not want quoted. The answer came back that one set
             of totals could not be defended. Those totals were dropped.
           </p>
+
+          {/* The renderer side. The layers above are the argument; this is what
+              makes it visible — the same frozen dataset leaving as four
+              different media, not four flavours of text. */}
+          <div className="mt-16">
+            <p className="eyebrow mb-5">And out the other side</p>
+            <h3 className="font-serif text-3xl md:text-4xl font-light leading-tight text-ink max-w-3xl">
+              One dataset in.{" "}
+              <span className="italic text-brass">Four kinds of thing out.</span>
+            </h3>
+            <p className="mt-6 text-lg text-ink-soft leading-relaxed max-w-2xl">
+              This is the test of whether an evidence layer is real. If it only
+              produces prose, it is a writing tool. If the same frozen dataset
+              can leave as a web page, a press release, an audit and a narrated
+              video, it is infrastructure.
+            </p>
+
+            <dl className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-rule border border-rule rounded-md overflow-hidden">
+              {[
+                {
+                  k: "Web",
+                  v: "Landing pages, guides, comparison pages",
+                  h: "Next.js, shipped by pull request",
+                },
+                {
+                  k: "Written",
+                  v: "Press releases, briefs, weekly reporting",
+                  h: "Assembled from the systems, not retyped",
+                },
+                {
+                  k: "Analysis",
+                  v: "Competitor audits, brand and claim reviews",
+                  h: "Re-run on a schedule as the market moves",
+                },
+                {
+                  k: "Video and audio",
+                  v: "Ninety-second explainers and how-tos",
+                  h: "Scenes timed to a generated narration track",
+                },
+              ].map((r) => (
+                <div key={r.k} className="bg-paper px-5 py-6">
+                  <dt className="font-mono text-[0.65rem] tracking-[0.22em] uppercase text-brass-dark">
+                    {r.k}
+                  </dt>
+                  <dd className="mt-3 text-base text-ink leading-snug">
+                    {r.v}
+                  </dd>
+                  <dd className="mt-2 text-sm text-ink-muted leading-snug">
+                    {r.h}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+
+            <p className="mt-8 text-sm text-ink-muted leading-relaxed max-w-2xl">
+              The video work is the clearest case. Rendered as code rather than
+              cut in a timeline, an explainer is versionable and regenerable —
+              when the product changes you re-run it instead of re-shooting it.
+              Early and on low volume, average view duration on the short
+              explainers has run at roughly 49% against a ~28% baseline. That
+              retention signal is the reason the format is still being tested,
+              and the volume is not yet there to call it more than a signal.
+            </p>
+          </div>
         </div>
       </section>
 
