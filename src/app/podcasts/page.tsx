@@ -249,8 +249,72 @@ export default function PodcastsPage() {
         </div>
       </section>
 
-      {/* Guests */}
+      {/* How it's made. The interviews are the show; this is the format built
+          alongside them, and the production method is the interesting part. */}
       <section className="border-b border-rule">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
+          <p className="eyebrow mb-3">The Real Odds</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-light max-w-2xl leading-tight">
+            Fifteen minutes of finished video.{" "}
+            <span className="italic text-brass">No editor.</span>
+          </h2>
+          <p className="mt-6 text-ink-soft leading-relaxed max-w-2xl text-lg">
+            Alongside the interviews there is a second format, and it is made
+            differently. Two episodes so far — one on whether AI takes your job
+            by 2030, one on when AGI actually arrives. Both fifteen minutes,
+            both fully rendered, neither of them touched by a video editor or a
+            timeline.
+          </p>
+          <p className="mt-5 text-ink-soft leading-relaxed max-w-2xl">
+            The reason that matters is not the time saved. It is that an episode
+            built this way is versionable. When the numbers move, or a forecast
+            I quoted turns out to be wrong, I re-render it rather than re-record
+            it. The episode is a build, not a take.
+          </p>
+
+          <TickRule className="mt-10 mb-10 opacity-50" />
+
+          <dl className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-rule border border-rule rounded-md overflow-hidden">
+            {[
+              { k: "Remotion", v: "Scenes written as React and rendered deterministically" },
+              { k: "Claude", v: "Script, structure and the build itself" },
+              { k: "ElevenLabs", v: "Narration — and scene timing follows the track" },
+              { k: "Suno", v: "Score, written for the cut rather than dropped under it" },
+            ].map((t) => (
+              <div key={t.k} className="bg-kraft-soft px-5 py-6">
+                <dt className="font-mono text-[0.65rem] tracking-[0.2em] uppercase text-brass-dark">
+                  {t.k}
+                </dt>
+                <dd className="mt-3 text-sm text-ink-soft leading-snug">
+                  {t.v}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <div className="mt-8 flex flex-wrap gap-2">
+            <a
+              href="https://techseekinghuman.ai/podcasts/will-ai-take-your-job-by-2030-the-real-odds"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-4 py-2 rounded-full text-xs"
+            >
+              Will AI take your job by 2030?
+            </a>
+            <a
+              href="https://techseekinghuman.ai/podcasts/when-does-agi-actually-arrive-the-real-odds"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-ink text-kraft hover:bg-brass hover:text-ink transition-colors font-medium px-4 py-2 rounded-full text-xs"
+            >
+              When does AGI actually arrive?
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Guests */}
+      <section className="border-b border-rule bg-kraft-soft">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
           <p className="eyebrow mb-3">Featured conversations</p>
           <h2 className="font-serif text-3xl md:text-4xl font-light max-w-2xl leading-tight">
