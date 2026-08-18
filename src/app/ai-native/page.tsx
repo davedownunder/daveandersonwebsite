@@ -99,7 +99,7 @@ const ledger: LedgerRow[] = [
     nowDays: 0.5,
     nowLabel: "1 session",
     source:
-      "Eighteen pages live. An agent now reviews all of them weekly and recommends updates as competitors ship and our own product moves.",
+      "Seventeen pages live. An agent now reviews all of them weekly and recommends updates as competitors ship and our own product moves.",
   },
   {
     work: "Report the week across every channel",
@@ -119,27 +119,27 @@ const ledger: LedgerRow[] = [
 const inventory: InventoryGroup[] = [
   {
     label: "Blog posts",
-    count: 356,
+    count: 96,
     tone: "ink",
     note: "Migrated and newly written, all searchable",
   },
   {
-    label: "Event and webinar pages",
-    count: 44,
+    label: "Product and core pages",
+    count: 36,
     tone: "brass",
-    note: "Registration, live and on-demand",
+    note: "Fourteen are product pages — the rebuild replaced these, not just the content around them",
   },
   {
-    label: "Guides",
-    count: 21,
+    label: "Guides and knowledge base",
+    count: 41,
     tone: "verdigris",
-    note: "Including 16 AEO pieces in one release",
+    note: "24 guides, including 16 AEO pieces in one release, plus 17 knowledge-base entries",
   },
   {
-    label: "Comparison pages",
-    count: 18,
+    label: "Seven other sections",
+    count: 76,
     tone: "kraft",
-    note: "Bottom-funnel, agent-maintained",
+    note: "17 comparisons, 15 press, 14 events, 13 careers, 8 case studies, 7 research, 2 campaigns",
   },
 ];
 
@@ -390,7 +390,7 @@ export default function AiNativePage() {
           <dl className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-px bg-rule border border-rule rounded-md overflow-hidden">
             {[
               { n: "82", l: "pull requests to production" },
-              { n: "439", l: "live pages, from zero" },
+              { n: "249", l: "live pages, whole site rebuilt" },
               { n: "14", l: "systems wired in" },
               { n: "99", l: "measured working sessions" },
               { n: "5", l: "people" },
@@ -461,7 +461,14 @@ export default function AiNativePage() {
           </h2>
           <p className="mt-7 text-lg text-ink-soft leading-relaxed max-w-2xl">
             A number in a sentence is easy to skim past. This is the same number,
-            drawn.
+            drawn. Two hundred and forty-nine live pages, grouped by the
+            sections the site itself uses, so any of it can be checked against
+            the sitemap rather than taken on trust.
+          </p>
+          <p className="mt-5 text-lg text-ink-soft leading-relaxed max-w-2xl">
+            Worth saying plainly: this was a replacement, not an extension.
+            Fourteen product pages were rebuilt alongside everything else.
+            Counted from the live sitemap on 18 August 2026.
           </p>
 
           <OutputInventory groups={inventory} />
