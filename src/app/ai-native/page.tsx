@@ -829,7 +829,7 @@ export default function AiNativePage() {
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-ink-soft border border-ink-soft rounded-md overflow-hidden">
             {[
               { n: "131", l: "subagents run in parallel" },
-              { n: "82", l: "pull requests to production" },
+              { n: "82", l: "pull requests I opened, across all repos" },
               { n: "278", l: "artefacts published" },
               { n: "91", l: "encoded house rules invoked" },
             ].map((c) => (
