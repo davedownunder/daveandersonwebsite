@@ -285,13 +285,13 @@ const loop = [
     step: "02",
     title: "Ground",
     body: "The load-bearing step, and the one most teams skip. Fourteen systems are wired into the session, so the agent reaches the billing record rather than a summary of it — then the dataset is frozen before a word is written. An agent that cannot invent a number does not need to be talked out of inventing one.",
-    detail: "5,680 system calls",
+    detail: "Fourteen systems of record",
   },
   {
     step: "03",
     title: "Execute",
     body: "Render it. A page, a press release, a competitor audit, a narrated video, a pull request — all off the same frozen dataset, which is why the format is close to free. The output is a merged commit or a finished file, not a suggestion to be actioned later.",
-    detail: "17,566 tool actions",
+    detail: "A commit, not a draft",
   },
   {
     step: "04",
@@ -811,18 +811,20 @@ export default function AiNativePage() {
                 Where the evidence came from
               </h3>
               <p className="mt-2 text-sm text-kraft/55 leading-relaxed">
-                5,680 calls into systems that already held the answer.
+                5,680 calls from my sessions into systems that already held
+                the answer. Andrew and Melissa run their own, uncounted here.
               </p>
-              <UsageBars rows={systems} unit="Calls per system" dark />
+              <UsageBars rows={systems} unit="Calls per system · my sessions only" dark />
             </div>
             <div>
               <h3 className="font-serif text-2xl font-light !text-kraft">
                 What the agent actually did
               </h3>
               <p className="mt-2 text-sm text-kraft/55 leading-relaxed">
-                17,566 actions. Mostly building and checking, not writing prose.
+                17,566 actions, mine alone. Mostly building and checking, not
+                writing prose.
               </p>
-              <UsageBars rows={actions} unit="Actions by type" dark />
+              <UsageBars rows={actions} unit="Actions by type · my sessions only" dark />
             </div>
           </div>
 
