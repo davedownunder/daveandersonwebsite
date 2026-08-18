@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "AI-native marketing: when the marketers ship the code",
   description:
-    "A field note from a five-person marketing team where every marketer opens pull requests to production. The method, the instrumented counts across a fixed window, and the limitations.",
+    "A field note from a five-person marketing team with production access to its own website — 108 merged pull requests from marketing, not engineering. The method, the counts, and the limitations.",
 };
 
 /**
@@ -356,9 +356,10 @@ export default function AiNativePage() {
           </h1>
           <p className="mt-8 text-lg md:text-xl text-ink-soft leading-relaxed max-w-2xl">
             Not a metaphor for moving fast. Every person on this marketing team
-            has GitHub and Vercel, and opens pull requests against the
-            production website. No ticket, no queue, no waiting on a sprint that
-            belongs to someone else.
+            has GitHub and Vercel and can open a pull request against the
+            production website — two of us have merged to it so far, and the one
+            who has done it most is not the CMO. No ticket, no queue, no waiting
+            on a sprint that belongs to someone else.
           </p>
           <p className="mt-5 text-lg text-ink-soft leading-relaxed max-w-2xl">
             Underneath it is one idea. We did not build a content pipeline, we
@@ -376,10 +377,9 @@ export default function AiNativePage() {
             format and you are adding a renderer, not starting a project.
           </p>
           <p className="mt-5 text-base text-ink-muted leading-relaxed max-w-2xl">
-            What follows is the working record of what that changes — counted
-            from git history and session transcripts over a fixed window, with
-            the things it does not solve stated at the end. The method first.
-            The multiples are a consequence of it.
+            The counts below come from git — a shared record a stranger can
+            audit, not a self-report. What follows is the method behind them, the
+            working log, and the things it does not solve.
           </p>
 
           <div className="mt-9">
@@ -389,10 +389,10 @@ export default function AiNativePage() {
           {/* Receipts. The claim above is unusual, so evidence comes early. */}
           <dl className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-px bg-rule border border-rule rounded-md overflow-hidden">
             {[
-              { n: "82", l: "pull requests to production" },
+              { n: "108", l: "merged pull requests to production" },
+              { n: "275", l: "commits, from marketing not engineering" },
               { n: "249", l: "live pages, whole site rebuilt" },
               { n: "14", l: "systems wired in" },
-              { n: "99", l: "measured working sessions" },
               { n: "5", l: "people" },
             ].map((s, i) => (
               <div
@@ -791,12 +791,18 @@ export default function AiNativePage() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
           <p className="eyebrow mb-5 !text-brass-soft">08 · The working record</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight !text-kraft max-w-3xl">
-            Nine weeks inside the machine.
+            Nine weeks inside the machine. One person&rsquo;s log.
           </h2>
           <p className="mt-7 text-lg text-kraft/70 leading-relaxed max-w-2xl">
             Ninety-nine working sessions across fifteen parallel workstreams,
             18 June to 15 August. Not chat transcripts — a log of what was
             actually read, built, queried and shipped.
+          </p>
+          <p className="mt-5 text-base text-kraft/60 leading-relaxed max-w-2xl">
+            Everything in this section is from my machine alone. The rest of the
+            team runs the same way on their own, and none of it is counted here —
+            so read these as one marketer&rsquo;s floor, not the team&rsquo;s
+            total. The git numbers at the top are the team&rsquo;s.
           </p>
 
           <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
