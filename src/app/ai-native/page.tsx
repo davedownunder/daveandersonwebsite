@@ -927,6 +927,122 @@ export default function AiNativePage() {
         </div>
       </section>
 
+      {/* ── Outside the team ─────────────────────────────────── */}
+      {/* Deliberately fenced off and labelled. Everything above is bounded to
+          the PointFive marketing function over a fixed window; this is not, and
+          conflating the two would be the fair criticism. It earns its place
+          because it answers the obvious objection — that this only works with a
+          funded team behind it. */}
+      <section className="border-b border-rule bg-kraft-soft">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
+          <p className="eyebrow mb-5">11 · Outside the team</p>
+          <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
+            The obvious objection is that this needs a company behind it.{" "}
+            <span className="italic text-brass">It does not.</span>
+          </h2>
+          <p className="mt-7 text-lg text-ink-soft leading-relaxed max-w-2xl">
+            Everything above is bounded to one marketing team over one measured
+            window, and it should be read that way. So here is the same method
+            with no team, no budget and no stakeholders — three websites I have
+            written and published on the same stack, one of which is my mum&rsquo;s
+            garden maintenance business on the Mornington Peninsula.
+          </p>
+
+          <ul className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-px bg-rule border border-rule rounded-md overflow-hidden">
+            {[
+              {
+                site: "techseekinghuman.ai",
+                what: "The podcast — 41 episodes, plus the rendered video format",
+                href: "https://techseekinghuman.ai",
+              },
+              {
+                site: "daveanderson.com.au",
+                what: "This site. Including the page you are reading",
+                href: "https://www.daveanderson.com.au",
+              },
+              {
+                site: "dirtgirls.com.au",
+                what: "Garden maintenance, Mornington Peninsula. My mum's business",
+                href: "https://dirtgirls.com.au",
+              },
+            ].map((s) => (
+              <li key={s.site} className="bg-paper px-5 py-6">
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-xs tracking-wide text-brass-dark hover:text-ink transition-colors break-words"
+                >
+                  {s.site}
+                </a>
+                <p className="mt-3 text-sm text-ink-soft leading-snug">
+                  {s.what}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
+            <div>
+              <h3 className="font-serif text-2xl font-light text-ink leading-snug">
+                A whole category of tooling stopped being necessary
+              </h3>
+              <p className="mt-4 text-ink-soft leading-relaxed">
+                All three run on Claude, GitHub and Vercel. No WordPress, no
+                plugins, no hosting account, no theme to maintain. That removes
+                about $500 a year, which is not the interesting number — the
+                interesting part is that the line item disappeared rather than
+                got cheaper. There is no CMS to log into because the site is a
+                repository.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-serif text-2xl font-light text-ink leading-snug">
+                And one of them writes itself
+              </h3>
+              <p className="mt-4 text-ink-soft leading-relaxed">
+                Dirt Girls has an agent that researches and publishes gardening
+                and maintenance advice to the site on its own. Nobody briefs it
+                and nobody publishes it. It is the smallest possible version of
+                the argument on this page, running unattended for a business with
+                no marketing function at all.
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-12 text-sm text-ink-muted leading-relaxed max-w-2xl">
+            The video renderer generalises the same way. Two fifteen-minute
+            episodes of{" "}
+            <Link
+              href="/podcasts"
+              className="text-brass-dark hover:text-brass underline underline-offset-2"
+            >
+              Tech Seeking Human
+            </Link>{" "}
+            are fully rendered with no editor and no timeline —{" "}
+            <a
+              href="https://techseekinghuman.ai/podcasts/will-ai-take-your-job-by-2030-the-real-odds"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brass-dark hover:text-brass underline underline-offset-2"
+            >
+              whether AI takes your job by 2030
+            </a>{" "}
+            and{" "}
+            <a
+              href="https://techseekinghuman.ai/podcasts/when-does-agi-actually-arrive-the-real-odds"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brass-dark hover:text-brass underline underline-offset-2"
+            >
+              when AGI actually arrives
+            </a>
+            . Same pipeline as the ninety-second product explainers, just more of
+            it, and built by one person rather than a team.
+          </p>
+        </div>
+      </section>
+
       {/* ── Close ────────────────────────────────────────────── */}
       <section>
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
