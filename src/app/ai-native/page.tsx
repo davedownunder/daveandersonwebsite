@@ -219,26 +219,31 @@ const engine: BeforeAfterRow[] = [
   },
 ];
 
+/**
+ * Systems of record only. Browser and preview automation is deliberately
+ * excluded — it is 61% of all MCP traffic and it is verification, not
+ * evidence. Conflating the two inflates the claim.
+ */
 const systems: UsageRow[] = [
-  { label: "Supermetrics", value: 863, note: "analytics, search, social, ads" },
-  { label: "Notion", value: 362, note: "plans and positioning" },
-  { label: "HubSpot", value: 342, note: "CRM and campaigns" },
-  { label: "Common Room", value: 194, note: "community signal" },
-  { label: "Slack", value: 172, note: "decisions and internal data" },
-  { label: "Peec", value: 110, note: "AI visibility" },
+  { label: "Supermetrics", value: 1016, note: "analytics, search, social, ads" },
+  { label: "Notion", value: 349, note: "plans and positioning" },
+  { label: "HubSpot", value: 344, note: "CRM and campaigns" },
+  { label: "Common Room", value: 199, note: "community signal" },
+  { label: "Slack", value: 182, note: "decisions and internal data" },
+  { label: "Peec", value: 146, note: "AI visibility" },
   { label: "Webflow", value: 77, note: "legacy surfaces" },
-  { label: "Google Drive", value: 43, note: "documents" },
-  { label: "G2", value: 43, note: "buyer intent" },
+  { label: "G2", value: 45, note: "buyer intent" },
+  { label: "Google Drive", value: 42, note: "documents" },
 ];
 
 const actions: UsageRow[] = [
-  { label: "Shell commands", value: 5410, note: "builds, renders, git" },
-  { label: "Browser control", value: 3337, note: "QA on real pages" },
-  { label: "File edits", value: 1906 },
-  { label: "File reads", value: 1508 },
-  { label: "Web research", value: 993, note: "fetch and search" },
-  { label: "Files written", value: 776 },
-  { label: "Video renders", value: 650, note: "ffmpeg and Remotion" },
+  { label: "Shell commands", value: 6095, note: "builds, renders, git" },
+  { label: "Browser control", value: 3222, note: "QA on real pages" },
+  { label: "File edits", value: 1953 },
+  { label: "File reads", value: 1480 },
+  { label: "Web research", value: 1043, note: "fetch and search" },
+  { label: "Files written", value: 788 },
+  { label: "Video renders", value: 784, note: "ffmpeg and Remotion, a subset of shell" },
 ];
 
 const team = [
@@ -795,7 +800,7 @@ export default function AiNativePage() {
           </h2>
           <p className="mt-7 text-lg text-kraft/70 leading-relaxed max-w-2xl">
             Ninety-nine working sessions across fifteen parallel workstreams,
-            18 June to 15 August. Not chat transcripts — a log of what was
+            18 June to 18 August. Not chat transcripts — a log of what was
             actually read, built, queried and shipped.
           </p>
           <p className="mt-5 text-base text-kraft/60 leading-relaxed max-w-2xl">
@@ -811,8 +816,10 @@ export default function AiNativePage() {
                 Where the evidence came from
               </h3>
               <p className="mt-2 text-sm text-kraft/55 leading-relaxed">
-                5,680 calls from my sessions into systems that already held
-                the answer. Andrew and Melissa run their own, uncounted here.
+                2,445 reads from systems that already held the answer — my
+                sessions only. A further 3,858 calls drove a browser to verify
+                the result, which is checking rather than evidence, so it is not
+                counted here.
               </p>
               <UsageBars rows={systems} unit="Calls per system · my sessions only" dark />
             </div>
@@ -821,7 +828,7 @@ export default function AiNativePage() {
                 What the agent actually did
               </h3>
               <p className="mt-2 text-sm text-kraft/55 leading-relaxed">
-                17,566 actions, mine alone. Mostly building and checking, not
+                18,995 actions, mine alone. Mostly building and checking, not
                 writing prose.
               </p>
               <UsageBars rows={actions} unit="Actions by type · my sessions only" dark />
