@@ -242,10 +242,58 @@ export default function SixMonthsPage() {
         </div>
       </section>
 
+      {/* ── The commit split ─────────────────────────────────── */}
+      <section className="border-b border-rule">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
+          <p className="eyebrow mb-5">02 · The number I would lead with</p>
+          <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
+            The person on my team who ships the most code{" "}
+            <span className="italic">is not me</span>.
+          </h2>
+          <p className="mt-7 text-lg text-ink-soft leading-relaxed max-w-2xl">
+            Of the 275 commits marketing has made to production this year, 103
+            are mine. I could have left the other number out.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-rule border border-rule rounded-md overflow-hidden mt-12 max-w-2xl">
+            <div className="bg-paper px-8 py-9">
+              <span className="block font-serif text-6xl text-brass-dark tabular-nums leading-none">
+                172
+              </span>
+              <p className="mt-4 text-ink leading-snug">
+                Andrew Brown, who runs growth
+              </p>
+            </div>
+            <div className="bg-paper px-8 py-9">
+              <span className="block font-serif text-6xl text-ink-muted tabular-nums leading-none">
+                103
+              </span>
+              <p className="mt-4 text-ink-muted leading-snug">
+                Me, the CMO who writes about this
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-10 text-lg text-ink-soft leading-relaxed max-w-2xl">
+            It is the most useful fact I have, because it kills the easiest
+            objection to everything above: that this is one enthusiast with an
+            expensive hobby, a CMO with a side project and a flattering
+            spreadsheet. It is not. It is a way of working that transferred to
+            the person sitting next to me &mdash; and he is better at it than I
+            am.
+          </p>
+          <p className="mt-5 text-lg text-ink-soft leading-relaxed max-w-2xl">
+            That is also why this is a six-month problem rather than a five-year
+            one. If it only worked for the person who enjoys it, you could wait
+            it out.
+          </p>
+        </div>
+      </section>
+
       {/* ── Ten minutes ──────────────────────────────────────── */}
       <section className="border-b border-rule bg-kraft-soft">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5">02 · What ten minutes buys</p>
+          <p className="eyebrow mb-5">03 · What ten minutes buys</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
             A complete marketing program, built in under ten minutes.
           </h2>
@@ -304,7 +352,7 @@ export default function SixMonthsPage() {
       {/* ── Using AI is not the same thing ───────────────────── */}
       <section className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5">03 · The distinction</p>
+          <p className="eyebrow mb-5">04 · The distinction</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-4xl">
             Almost every marketer is using AI. Almost none are{" "}
             <span className="italic">AI-native</span>.
@@ -358,7 +406,7 @@ export default function SixMonthsPage() {
       {/* ── The org chart ────────────────────────────────────── */}
       <section className="border-b border-rule bg-kraft-soft">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5">04 · The consequence</p>
+          <p className="eyebrow mb-5">05 · The consequence</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
             We do not need five brand designers.{" "}
             <span className="italic">We need one, with AI.</span>
@@ -404,7 +452,7 @@ export default function SixMonthsPage() {
       <section className="border-b border-rule bg-ink text-kraft">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
           <p className="eyebrow text-brass-soft mb-5">
-            05 · The part nobody is ready for
+            06 · The part nobody is ready for
           </p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-kraft max-w-3xl">
             Agent sprawl is the{" "}
@@ -445,7 +493,7 @@ export default function SixMonthsPage() {
       {/* ── Monday ───────────────────────────────────────────── */}
       <section className="border-b border-rule">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5">06 · What I would do on Monday</p>
+          <p className="eyebrow mb-5">07 · What I would do on Monday</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
             <div>
               <h3 className="font-serif text-3xl font-light text-ink leading-tight">

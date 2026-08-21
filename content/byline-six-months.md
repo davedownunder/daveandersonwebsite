@@ -24,6 +24,16 @@ You are entitled to think my conventional estimates are generous. So halve them.
 
 There is no version of this arithmetic that lands anywhere near the 10 or 20% efficiency gain the industry is comfortable talking about. The gap between those two numbers is the story, and it is the reason I think most marketers have about six months.
 
+## The number I would actually lead with
+
+One more figure, and it is the one I would put first if I were trying to convince a sceptic rather than sell a headline.
+
+Of the 275 commits my marketing team has made to production this year, 103 are mine. **172 belong to Andrew Brown, who runs growth.** He out-commits me by two thirds.
+
+I could have left that out. It is the single most useful fact I have, because it kills the easiest objection to everything above: that this is one enthusiast with an expensive hobby, a CMO with a side project and a flattering spreadsheet. It is not. It is a way of working that transferred to the person sitting next to me, and the person sitting next to me is better at it than I am.
+
+That is also the reason I think this is a six-month problem rather than a five-year one. If it only worked for the guy who likes it, you could wait it out.
+
 ## Why "using AI" is not the same thing
 
 Almost every marketer I meet is using AI. Almost none of them are AI-native, and the difference is not enthusiasm or prompt quality. It is write access.
@@ -76,11 +86,12 @@ You have six months to find out where.
 |---|---|---|
 | 108 merged pull requests to production | git history, PointFive site repo | Counted |
 | 249 live pages, 275 commits, 14 systems wired, 5 people | git history + session records | Counted |
+| 275 commits split 172 Andrew Brown / 103 Dave | git history, by author | Counted |
 | 1,313 conventional person-days vs 31.75 actual | Compression ledger, `daveanderson.com.au/ai-native` | Conventional column is Dave's estimate and labelled as such; actual column is counted |
 | 41.4× / 4,035%; 20.7× at half the estimates | Arithmetic on the above | Derived — method published |
 | Event registrations +1,450%, all form submissions +382%, demo requests +167% | HubSpot, Q1 monthly average vs Apr–Jul monthly average | Counted |
 | Unique visitors +123%, search impressions +119% | GA4 + Search Console, January vs July | Counted |
-| 5,680 system-of-record calls, 18,995 actions | Session transcripts, Dave's sessions only. Excludes 3,858 browser-verification calls, which are checking not evidence | Counted |
+| 5,680 system-of-record calls, 18,995 actions | Session transcripts, **Dave's sessions only** — pulled from one laptop, so they are one operator's log and are labelled that way on the site. Excludes 3,858 browser-verification calls, which are checking not evidence | Counted, single-operator |
 | "Close to a hundred agents" | **NEEDS SOURCE — see below** | Unverified |
 | 10-minute program vs 2–3 weeks / 5 people | **NEEDS SOURCE — see below** | Dave's account; not yet in the ledger |
 

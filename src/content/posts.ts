@@ -41,6 +41,16 @@ export const nativePosts: WPPost[] = [
 
 <p>The gap between those two numbers is the story, and it is why I think most marketers have about six months.</p>
 
+<h2>The number I would actually lead with</h2>
+
+<p>One more figure, and it is the one I would put first if I were trying to convince a sceptic rather than sell a headline.</p>
+
+<p>Of the 275 commits my marketing team has made to production this year, 103 are mine. <strong>172 belong to Andrew Brown, who runs growth.</strong> He out-commits me by two thirds.</p>
+
+<p>I could have left that out. It is the most useful fact I have, because it kills the easiest objection to everything above: that this is one enthusiast with an expensive hobby, a CMO with a side project and a flattering spreadsheet. It is not. It is a way of working that transferred to the person sitting next to me, and he is better at it than I am.</p>
+
+<p>That is also why this is a six-month problem rather than a five-year one. If it only worked for the person who enjoys it, you could wait it out.</p>
+
 <h2>Using AI is not the same as being AI-native</h2>
 
 <p>Almost every marketer I meet is using AI. Almost none of them are AI-native, and the difference is not enthusiasm or prompt quality. It is <strong>write access</strong>.</p>
