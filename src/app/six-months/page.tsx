@@ -35,12 +35,58 @@ const HALVED = TOTAL_WAS / 2 / TOTAL_NOW;
  * optimisations are the part I am not qualified to write.
  */
 const program = [
-  { thing: "The top five AI optimisations at the core of it", tech: true },
-  { thing: "A webinar, end to end", tech: false },
-  { thing: "Its landing page, live on production", tech: false },
-  { thing: "A guide", tech: false },
+  { thing: "The top five AI optimisations the campaign is about", tech: true },
+  { thing: "A recurring 20-minute series, five episodes mapped", tech: false },
+  { thing: "Episode one's run of show, minute by minute", tech: false },
+  { thing: "Landing page copy and the built page, HubSpot form slot marked", tech: false },
+  { thing: "A four-email sequence: invite, reminder, last call, replay", tech: false },
   { thing: "A blog post", tech: false },
-  { thing: "Webinar slides (in progress as this went up)", tech: false },
+  { thing: "Slide designs, in progress as this went up", tech: false },
+];
+
+/**
+ * The technical core, named. This is the whole argument: a CMO does not write
+ * "right-size provisioned throughput against p95 utilisation" from general
+ * knowledge. Savings figures from the kit are deliberately omitted — they are
+ * directional industry ranges pending live measurement, and the campaign's own
+ * gate says replace them before anything ships.
+ */
+const optimisations = [
+  {
+    n: "01",
+    title: "Complete visibility and forecasting of AI workloads",
+    ships:
+      "Allocate every token, GPU-hour and managed-AI dollar to a team, a product and a feature. Forecast per workload. Alert on anomalies before the invoice does.",
+    why: "The multiplier. Without allocation, every fix below is a one-off that regresses because nobody owns the number.",
+  },
+  {
+    n: "02",
+    title: "Model selection policies",
+    ships:
+      "Enforce which model tier each use case may call. Route classification, extraction and eval traffic to smaller models, enforced at the gateway, with evals so exceptions earn their cost.",
+    why: "Frontier models are the default because nobody set a different default.",
+  },
+  {
+    n: "03",
+    title: "Token efficiency",
+    ships:
+      "Prompt caching on repeated system prompts, context pruning, and batch endpoints for work that was never interactive.",
+    why: "Interactive endpoints doing batch work pay full price for tokens a cache would discount.",
+  },
+  {
+    n: "04",
+    title: "Bedrock commitment and capacity optimisation",
+    ships:
+      "Right-size provisioned throughput against p95 utilisation, move batch-tolerant jobs to batch inference, use cross-region inference profiles to absorb burst.",
+    why: "Provisioned throughput bought for a launch spike rarely gets revisited.",
+  },
+  {
+    n: "05",
+    title: "GPU and inference infrastructure right-sizing",
+    ships:
+      "Reclaim idle GPU capacity, autoscale endpoints to observed demand, checkpoint training onto spot.",
+    why: "Classic infrastructure hygiene. It just has not reached the AI stack yet.",
+  },
 ];
 
 const conventionally = [
@@ -358,6 +404,54 @@ export default function SixMonthsPage() {
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* The technical core, named. Without this the SME claim is a
+              phrase; with it the reader can judge for themselves. */}
+          <div className="mt-16">
+            <p className="eyebrow eyebrow-verdigris mb-4">
+              The part I could not have written
+            </p>
+            <h3 className="font-serif text-3xl md:text-4xl font-light leading-tight text-ink max-w-3xl">
+              Read these five and decide whether a CMO wrote them.
+            </h3>
+            <p className="mt-6 text-lg text-ink-soft leading-relaxed max-w-2xl">
+              This is the technical core of the campaign &mdash; the countdown
+              the webinar is built around. I can follow every line of it. I
+              could not have produced any of it.
+            </p>
+
+            <div className="mt-10 space-y-px bg-rule border border-rule rounded-md overflow-hidden">
+              {optimisations.map((o) => (
+                <div key={o.n} className="bg-kraft px-6 py-7 md:px-8">
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
+                    <p className="md:col-span-1 font-mono text-xs text-brass-dark pt-1">
+                      {o.n}
+                    </p>
+                    <div className="md:col-span-4">
+                      <h4 className="font-serif text-xl font-normal text-ink leading-snug">
+                        {o.title}
+                      </h4>
+                      <p className="mt-2 text-sm text-ink-muted leading-snug italic">
+                        {o.why}
+                      </p>
+                    </div>
+                    <p className="md:col-span-7 text-ink-soft leading-relaxed">
+                      {o.ships}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-8 text-sm text-ink-muted leading-relaxed max-w-2xl">
+              The savings range attached to each of these in the campaign is
+              deliberately left off this page. Those figures are directional
+              industry ranges pending measurement against live data, and the
+              campaign&rsquo;s own gate says replace them before anything ships.
+              Publishing them here as fact would break the rule the rest of this
+              page is arguing for.
+            </p>
           </div>
         </div>
       </section>
