@@ -69,7 +69,9 @@ export const nativePosts: WPPost[] = [
 
 <p>Here is what I did not expect, and the reason this is not a triumphalist post.</p>
 
-<p>Running this way, I am operating close to a hundred agents. Not a hundred sessions &mdash; a hundred running things, doing work on my behalf, against live systems. Nobody handed me a budget for that. Nobody approved it. There is no cost centre, no owner of record, no dashboard where a CFO can see what any of it costs or whether it is worth it.</p>
+<p>Running this way, I could not tell you exactly how many agents are working on my behalf. Somewhere near a hundred. Not a hundred sessions &mdash; a hundred running things, doing work against live systems while I am doing something else.</p>
+
+<p>And the imprecision is the point. This entire post argues for counted numbers over estimated ones, and I cannot put a firm number on my own agent count. Nobody handed me a budget for it. Nobody approved it. There is no cost centre, no owner of record, no dashboard where a CFO could see what any of it costs or whether it is worth it.</p>
 
 <p>I run marketing for a company whose entire product is finding the waste in cloud spend, so I recognise this shape immediately. It is 2013 and someone just discovered they can spin up instances on a credit card. The productivity was real. The bill, three years later, was also real &mdash; and by then nobody could remember who started what, or why.</p>
 

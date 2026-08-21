@@ -52,7 +52,9 @@ So: you are either excellent with AI, or you are out of a job. I do not know how
 
 Here is what I did not expect, and it is the reason I am not writing a triumphalist piece.
 
-Running this way, I am currently operating close to a hundred agents. Not a hundred sessions — a hundred running things, doing work, on my behalf, against live systems. Nobody handed me a budget for that. Nobody approved it. There is no cost centre, no owner of record, no dashboard where a CFO can see what any of it costs or whether it is worth it.
+Running this way, I could not tell you exactly how many agents are working on my behalf. Somewhere near a hundred. Not a hundred sessions — a hundred running things, doing work against live systems while I am doing something else.
+
+And the imprecision is the point. This whole piece argues for counted numbers over estimated ones, and I cannot put a firm number on my own agent count. Nobody handed me a budget for it. Nobody approved it. There is no cost centre, no owner of record, no dashboard where a CFO could see what any of it costs or whether it is worth it.
 
 I run marketing for a company whose entire product is finding the waste in cloud spend, so I recognise the shape of this immediately. It is 2013 and someone just discovered they can spin up EC2 instances on a credit card. The productivity was real. The bill, three years later, was also real, and by then nobody could remember who started what or why.
 

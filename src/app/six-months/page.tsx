@@ -459,10 +459,16 @@ export default function SixMonthsPage() {
             <span className="italic text-brass-soft">next cloud bill</span>.
           </h2>
           <p className="mt-7 text-lg text-kraft/75 leading-relaxed max-w-2xl">
-            Running this way, I am operating close to a hundred agents. Not a
-            hundred sessions &mdash; a hundred running things, doing work on my
-            behalf, against live systems. Nobody handed me a budget for that.
-            Nobody approved it.
+            Running this way, I could not tell you exactly how many agents are
+            working on my behalf. Somewhere near a hundred. Not a hundred
+            sessions &mdash; a hundred running things, doing work against live
+            systems while I am doing something else.
+          </p>
+          <p className="mt-5 text-lg text-kraft/75 leading-relaxed max-w-2xl">
+            And the imprecision is the point. This whole page argues for counted
+            numbers over estimated ones, and I cannot put a firm number on my
+            own agent count. Nobody handed me a budget for it. Nobody approved
+            it.
           </p>
           <p className="mt-5 text-lg text-kraft/75 leading-relaxed max-w-2xl">
             I run marketing for a company whose entire product is finding the
