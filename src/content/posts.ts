@@ -16,18 +16,19 @@ export const nativePosts: WPPost[] = [
     categories: ["Blog: Marketing", "Technology"],
     tags: ["AI", "Marketing", "Agents", "Leadership", "PointFive"],
     featured_image_id: "",
-    featured_image_url: "/Dave.jpeg",
     type: "post",
     excerpt:
-      "1,313 conventional person-days of marketing work, delivered in 31.75. That is 41x. Halve every one of my estimates and it is still 21x. Here is what that does to your org chart.",
+      "A webinar, a landing page, a guide, a blog and the five technical optimisations at the core of it — in twenty minutes, by someone not qualified to write them. Marketing efficiency, measured at 41x.",
     content: `
-<p class="lead">Two weeks ago I built a complete marketing program in under ten minutes. Not a brief for a program. Not a deck describing one. The program.</p>
+<p class="lead">This week I built a complete marketing program in about twenty minutes. A webinar, its landing page, a guide, a blog post &mdash; and, at the technical core of it, the top five AI optimisations the whole thing is about.</p>
 
-<p>The topic, the story arc, the landing page, the registration form, the email copy, the ad copy, the social sequence, the branding. Live, on our production site, behind a merged pull request with my name on it.</p>
+<p>I am not qualified to write those five optimisations. That is the part worth stopping on.</p>
 
-<p>Conventionally that is two to three weeks and five people minimum &mdash; someone to ideate, someone to write, someone to design, someone to build it, someone to run the schedule keeping the other four in sync. There were no meetings. No planning session. No developer. No creative round. One person, one session, and a set of agents with access to every system that holds our numbers.</p>
+<p>The rest of it I could have done slowly and badly on my own: the topic, the story arc, the landing page, the copy, the branding. The technical substance is different. It needs somebody who genuinely knows how AI workloads get optimised &mdash; a subject-matter expert, the kind of person you book a week of calls with and then wait for a review cycle. I do not have that knowledge. I have never had that knowledge. I now have work that carries it anyway, grounded in our own systems rather than in something a model remembered.</p>
 
-<p>I want to be precise about what that means, because &ldquo;AI made me faster&rdquo; is the most boring sentence in marketing right now, and it is not what happened.</p>
+<p>Conventionally that program is two to three weeks and five people minimum &mdash; someone to ideate, someone to write, someone to design, someone to build it, someone to run the schedule keeping the other four in sync &mdash; plus the SME whose calendar sets the actual timeline. There were no meetings. No planning session. No developer. No creative round. No waiting on an expert. One person, one session, and a set of agents with access to every system that holds our numbers. I am building the webinar slides as I write this.</p>
+
+<p>I want to be precise about what that means, because &ldquo;AI made me faster&rdquo; is the most boring sentence in marketing right now, and it is not what happened. Speed is the least interesting part. The ceiling moved from <em>how fast can I produce</em> to <em>what do I know</em> &mdash; and then that ceiling moved too.</p>
 
 <h2>The number</h2>
 

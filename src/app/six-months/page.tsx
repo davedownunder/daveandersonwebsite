@@ -29,23 +29,27 @@ const TOTAL_NOW = projects.reduce((n, p) => n + p.nowPd, 0);
 const MULTIPLE = TOTAL_WAS / TOTAL_NOW;
 const HALVED = TOTAL_WAS / 2 / TOTAL_NOW;
 
-/** What one session produced, in ten minutes, as a merged pull request. */
+/**
+ * What one session produced in about twenty minutes. The technical core is
+ * listed first deliberately: the artefacts are the easy part, and the five
+ * optimisations are the part I am not qualified to write.
+ */
 const program = [
-  "The topic and the story arc",
-  "Landing page, live on production",
-  "Registration form, wired to the CRM",
-  "Email copy",
-  "Ad copy",
-  "Social sequence",
-  "Branding applied throughout",
+  { thing: "The top five AI optimisations at the core of it", tech: true },
+  { thing: "A webinar, end to end", tech: false },
+  { thing: "Its landing page, live on production", tech: false },
+  { thing: "A guide", tech: false },
+  { thing: "A blog post", tech: false },
+  { thing: "Webinar slides (in progress as this went up)", tech: false },
 ];
 
 const conventionally = [
+  "A subject-matter expert, whose calendar sets the real timeline",
   "Someone to ideate",
   "Someone to write",
   "Someone to design",
   "Someone to build it",
-  "Someone to run the schedule keeping the other four in sync",
+  "Someone to run the schedule keeping the others in sync",
 ];
 
 /**
@@ -293,9 +297,9 @@ export default function SixMonthsPage() {
       {/* ── Ten minutes ──────────────────────────────────────── */}
       <section className="border-b border-rule bg-kraft-soft">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-24">
-          <p className="eyebrow mb-5">03 · What ten minutes buys</p>
+          <p className="eyebrow mb-5">03 · What twenty minutes buys</p>
           <h2 className="font-serif text-4xl md:text-5xl font-light leading-[1.08] tracking-tight text-ink max-w-3xl">
-            A complete marketing program, built in under ten minutes.
+            A complete marketing program, built in about twenty minutes.
           </h2>
           <p className="mt-7 text-lg text-ink-soft leading-relaxed max-w-2xl">
             Not a brief for a program. Not a deck describing one. The program
@@ -310,14 +314,23 @@ export default function SixMonthsPage() {
               <ul className="mt-7 space-y-3">
                 {program.map((p) => (
                   <li
-                    key={p}
-                    className="text-ink leading-snug pl-5 relative"
+                    key={p.thing}
+                    className={`leading-snug pl-5 relative ${
+                      p.tech ? "text-ink font-medium" : "text-ink"
+                    }`}
                   >
                     <span
                       aria-hidden
-                      className="absolute left-0 top-[0.5em] w-2 h-2 rounded-full bg-brass"
+                      className={`absolute left-0 top-[0.5em] w-2 h-2 rounded-full ${
+                        p.tech ? "bg-verdigris" : "bg-brass"
+                      }`}
                     />
-                    {p}
+                    {p.thing}
+                    {p.tech && (
+                      <span className="block mt-1 font-mono text-[0.65rem] uppercase tracking-widest text-verdigris-dark">
+                        Requires SME knowledge I do not have
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>
