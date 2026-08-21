@@ -421,6 +421,26 @@ export default function AiNativePage() {
             ))}
           </dl>
 
+          {/* The argument that sits on top of this record. This page is the
+              evidence; /six-months is what it means. */}
+          <Link
+            href="/six-months"
+            className="group mt-12 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 border border-rule hover:border-brass bg-kraft-soft rounded-md px-6 py-5 transition-colors"
+          >
+            <p className="font-mono text-[0.65rem] uppercase tracking-widest text-brass-dark shrink-0">
+              The argument
+            </p>
+            <p className="font-serif text-xl md:text-2xl font-light text-ink leading-snug flex-1 group-hover:text-brass transition-colors">
+              What this record actually means: you have six months.
+            </p>
+            <span
+              aria-hidden
+              className="text-brass-dark shrink-0 group-hover:translate-x-1 transition-transform"
+            >
+              →
+            </span>
+          </Link>
+
           <TickRule className="mt-12 opacity-60" />
         </div>
       </section>
