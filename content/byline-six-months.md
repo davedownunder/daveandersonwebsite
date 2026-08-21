@@ -4,13 +4,15 @@
 
 ---
 
-Two weeks ago I built a complete marketing program in under ten minutes.
+This week I built a complete marketing program in about twenty minutes. A webinar, its landing page, a guide, a blog post — and, at the technical core of it, the top five AI optimisations the whole campaign is about.
 
-Not a brief for a program. Not a deck describing one. The program: the topic, the story arc, the landing page, the registration form, the email copy, the ad copy, the social sequence, the branding. Live, on our production site, behind a merged pull request with my name on it.
+I am not qualified to write those five optimisations. That is the part worth stopping on.
 
-Conventionally that is two to three weeks of work and five people minimum — someone to ideate, someone to write, someone to design, someone to code it, someone to run the schedule that keeps the other four in sync. There were no meetings. No planning session. No developer. No creative round. There was one person, one session, and a set of agents with access to every system that holds our numbers.
+The rest I could have done slowly and badly on my own: the topic, the story arc, the page, the copy, the branding. The technical substance is a different category. It needs somebody who genuinely knows how AI workloads get optimised — the kind of subject-matter expert whose calendar sets your launch date, because you book a week of calls and then wait on a review cycle. I do not have that knowledge and never have. I now have work that carries it anyway, grounded in our own systems rather than in something a model remembered.
 
-I want to be precise about what that means, because "AI made me faster" is the most boring sentence in marketing right now and it is not what happened.
+Conventionally that program is two to three weeks and five people minimum — ideate, write, design, build, and someone to run the schedule keeping the other four in sync — plus the SME who actually sets the timeline. There were no meetings. No planning session. No developer. No creative round. Nobody waiting on an expert. One person, one session, and a set of agents with access to every system that holds our numbers. I was building the webinar slides while writing this.
+
+I want to be precise about what that means, because "AI made me faster" is the most boring sentence in marketing right now and it is not what happened. Speed is the least interesting part. The ceiling moved from *how fast can I produce* to *what do I actually know* — and then that ceiling moved too.
 
 ## The number
 
@@ -95,10 +97,12 @@ You have six months to find out where.
 | Unique visitors +123%, search impressions +119% | GA4 + Search Console, January vs July | Counted |
 | 5,680 system-of-record calls, 18,995 actions | Session transcripts, **Dave's sessions only** — pulled from one laptop, so they are one operator's log and are labelled that way on the site. Excludes 3,858 browser-verification calls, which are checking not evidence | Counted, single-operator |
 | "Close to a hundred agents" | **NEEDS SOURCE — see below** | Unverified |
-| 10-minute program vs 2–3 weeks / 5 people | **NEEDS SOURCE — see below** | Dave's account; not yet in the ledger |
+| 20-minute program vs 2–3 weeks / 5 people + an SME | **NEEDS SOURCE — see below** | Dave's account; not yet in the ledger |
 
 ### Two figures to nail down before this goes out
 
 1. **The agent count.** The piece says "close to a hundred." The AI-native page separately reports *131 subagents run in parallel*. Those are different measures and a fact-checker will find both. Define which is which — distinct standing agents versus in-session spawns — and give the 30-day window. Then the sentence can be exact instead of hedged, which is much stronger.
 
-2. **The ten-minute program.** This is the lede, so it will get the most scrutiny. It needs a session timestamp, the merged PR, and a one-line statement of the conventional comparison, then it should be added to the published ledger as a seventh row. At 5 people × 2 weeks against 10 minutes it is a 2,400× compression — an order of magnitude above anything else on the ledger, which is exactly why it needs the receipt attached.
+2. **The twenty-minute program.** This is the lede, so it will get the most scrutiny. It needs a session timestamp, the merged PR, and a one-line statement of the conventional comparison, then it should be added to the published ledger as a seventh row. At 5 people × 2 weeks against 20 minutes it is a **1,200×** compression — an order of magnitude above anything else on the ledger, which is exactly why it needs the receipt attached.
+
+3. **The five optimisations must be named.** Right now the piece says "the top five AI optimisations" and that phrase is doing all the work while carrying no information. An editor will ask what they are, and so will every technical reader — and the SME argument only lands if the reader can see that the content is genuinely specialist. Name all five, in the piece, as a list. It is the difference between "AI wrote my campaign" and "AI wrote the part of my campaign I am not qualified to write."'
